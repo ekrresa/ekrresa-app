@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 export const appNavLinks = [
+	{ text: 'home', url: '/' },
 	{ text: 'blog', url: '/blog' },
 	{ text: 'projects', url: '/projects' },
 	{ text: 'about', url: '/about' },

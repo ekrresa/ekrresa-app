@@ -1,15 +1,24 @@
-import { allProjects } from 'content-collections'
+import { allAbouts, allProjects } from 'content-collections'
 
 import { siteMetadata } from '../lib/misc'
 
 export function Home() {
 	const projects = allProjects.toSorted((a, b) => a.order - b.order)
 
+	const about = allAbouts[0]
+
+	const latestExperience = about.experiences[0]
+
 	return (
 		<div className="space-y-32 pb-24">
-			<section className="mx-auto mt-24 md:mt-40">
-				<div className="max-w-4xl">
-					<h1 className="mb-6 text-6xl font-black uppercase leading-tight text-gray-900 dark:text-white sm:text-7xl md:text-8xl">
+			<section className="relative mx-auto mt-24 md:mt-40">
+				{/* Background elements */}
+				<div className="absolute inset-0 z-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+				<div className="absolute -left-20 -top-20 z-0 size-72 rounded-full bg-rose-500/30 blur-[100px] dark:bg-rose-500/20" />
+				<div className="absolute right-0 top-20 z-0 size-72 rounded-full bg-cyan-400/30 blur-[100px] dark:bg-cyan-400/20" />
+
+				<div className="relative z-10 max-w-4xl">
+					<h1 className="mb-6 text-6xl font-black tracking-tighter uppercase leading-tight text-gray-900 dark:text-white sm:text-7xl md:text-8xl">
 						ochuko{' '}
 						<span className="text-rose-500 dark:text-cyan-400">ekrresa</span>
 					</h1>
@@ -119,6 +128,57 @@ export function Home() {
 						View All Projects
 						<span>→</span>
 					</a>
+				</div>
+			</section>
+
+			{/* Experience Summary */}
+			<section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+				<div className="flex flex-col justify-center">
+					<h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+						Currently Building
+					</h2>
+					<p className="mt-4 text-gray-600 dark:text-port-300">
+						I am currently working as a{' '}
+						<span className="font-semibold text-gray-900 dark:text-white">
+							{latestExperience.role}
+						</span>{' '}
+						at{' '}
+						<span className="font-semibold text-rose-500 dark:text-cyan-400">
+							{latestExperience.company}
+						</span>
+						. I focus on creating high-quality web applications that are both
+						performant and accessible.
+					</p>
+					<div className="mt-8">
+						<a
+							href="/about"
+							className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-rose-500 transition-colors hover:text-rose-600 dark:text-cyan-400 dark:hover:text-cyan-300"
+						>
+							Read My Story
+							<span className="transition-transform group-hover:translate-x-1">
+								→
+							</span>
+						</a>
+					</div>
+				</div>
+
+				<div className="rounded-3xl bg-gray-50 p-8 ring-1 ring-gray-900/5 dark:bg-port-900/30 dark:ring-white/10">
+					<h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-gray-400 dark:text-port-500">
+						Skills & Stack
+					</h3>
+					<div className="flex flex-wrap gap-3">
+						{about.skills.slice(0, 10).map(skill => (
+							<span
+								key={skill}
+								className="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm ring-1 ring-gray-900/5 dark:bg-port-800 dark:text-port-200 dark:ring-white/10"
+							>
+								{skill}
+							</span>
+						))}
+						<span className="text-xs font-semibold text-gray-400 dark:text-port-500">
+							+ more
+						</span>
+					</div>
 				</div>
 			</section>
 		</div>

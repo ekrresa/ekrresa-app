@@ -4,6 +4,7 @@ import { siteMetadata } from '../lib/misc'
 
 export function About() {
 	const about = allAbouts[0]
+
 	const { title, skills, experiences, content } = about
 
 	return (
