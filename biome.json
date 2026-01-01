@@ -1,64 +1,65 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	},
-	"files": {
-		"ignoreUnknown": false,
-		"includes": [
-			"src/**/*.{ts,tsx,js,jsx,json,css}",
-			"tsconfig.json",
-			"vite.config.mts"
-		]
-	},
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "tab"
-	},
-	"linter": {
-		"enabled": true,
-		"domains": { "react": "recommended", "next": "none", "solid": "none" },
-		"includes": ["src/**/*.{ts,tsx,js,jsx,json,css}"],
-		"rules": {
-			"recommended": true,
-			"a11y": "info",
-			"performance": "error",
-			"security": "info"
-		}
-	},
-	"css": {
-		"formatter": {
-			"quoteStyle": "single"
-		},
-		"parser": {
-			"tailwindDirectives": true
-		}
-	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single",
-			"arrowParentheses": "asNeeded",
-			"semicolons": "asNeeded"
-		}
-	},
-	"assist": {
-		"enabled": true,
-		"actions": {
-			"source": {
-				"organizeImports": {
-					"level": "on",
-					"options": {
-						"groups": [
-							["rwsdk/**", ":PACKAGE:"],
-							":BLANK_LINE:",
-							["@/app/**", ":PATH:"]
-						]
-					}
-				},
-				"useSortedAttributes": "off"
-			}
-		}
-	}
+  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "src/**/*.{ts,tsx,js,jsx,json,css,md}",
+      "content-collections.ts",
+      "tsconfig.json",
+      "vite.config.mts"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "tab"
+  },
+  "linter": {
+    "enabled": true,
+    "domains": { "react": "recommended", "next": "none", "solid": "none" },
+    "includes": ["src/**/*.{ts,tsx,js,jsx,json,css}"],
+    "rules": {
+      "recommended": true,
+      "a11y": "info",
+      "performance": "error",
+      "security": "info"
+    }
+  },
+  "css": {
+    "formatter": {
+      "quoteStyle": "single"
+    },
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "arrowParentheses": "asNeeded",
+      "semicolons": "asNeeded"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ["rwsdk/**", ":PACKAGE:"],
+              ":BLANK_LINE:",
+              ["@/app/**", ":PATH:"]
+            ]
+          }
+        },
+        "useSortedAttributes": "off"
+      }
+    }
+  }
 }
