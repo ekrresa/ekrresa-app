@@ -1,1 +1,54 @@
 @import 'tailwindcss';
+
+@plugin 'tailwindcss-react-aria-components';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@font-face {
+	font-family: 'Assistant';
+	src: url('/fonts/Assistant-Variable.woff2') format('woff2');
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Figtree';
+	src: url('/fonts/Figtree-Variable.woff2') format('woff2');
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme inline {
+	--font-heading: 'Assistant', sans-serif;
+	--font-body: 'Figtree', sans-serif;
+}
+
+@layer base {
+	html {
+		@apply scroll-smooth antialiased;
+	}
+
+	body {
+		@apply font-body;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-heading;
+	}
+}
+
+@layer utilities {
+	.safe-area {
+		padding-bottom: env(safe-area-inset-bottom, 0);
+		padding-top: env(safe-area-inset-top, 0);
+		padding-left: env(safe-area-inset-left, 0);
+		padding-right: env(safe-area-inset-right, 0);
+		min-height: 100svh;
+	}
+}
