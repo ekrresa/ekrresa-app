@@ -9,6 +9,7 @@ export function Document({ children }: DocumentProps) {
 				<meta charSet="utf-8" />
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
 				<title>RedwoodJS Starter</title>
+				<link rel="icon" href="/favicon.ico" />
 				<link href="/src/client.tsx" rel="modulepreload" />
 				<link href={styles} rel="stylesheet" />
 			</head>

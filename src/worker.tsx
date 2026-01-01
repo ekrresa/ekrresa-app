@@ -1,5 +1,6 @@
 import { layout, render, route } from 'rwsdk/router'
 import { defineApp } from 'rwsdk/worker'
+import 'core-js/actual/array/to-sorted'
 
 import { AppLayout } from '@/app/components/AppLayout'
 import { Document } from '@/app/Document'
