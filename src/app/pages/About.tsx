@@ -5,7 +5,7 @@ import { siteMetadata } from '../lib/misc'
 export function About() {
 	const about = allAbouts[0]
 
-	const { title, skills, experiences, content } = about
+	const { title, skills, experiences, html } = about
 
 	return (
 		<section className="mx-auto max-w-3xl py-16 sm:py-24">
@@ -15,7 +15,7 @@ export function About() {
 				</h1>
 				<div
 					className="prose prose-lg dark:prose-invert text-gray-600 dark:text-port-200"
-					dangerouslySetInnerHTML={{ __html: content }}
+					dangerouslySetInnerHTML={{ __html: html }}
 				/>
 			</header>
 

@@ -1,5 +1,6 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { compileMarkdown } from '@content-collections/markdown'
+import { compileMDX } from '@content-collections/mdx'
 import { z } from 'zod'
 
 const about = defineCollection({
@@ -60,6 +61,33 @@ const projects = defineCollection({
 	},
 })
 
+const posts = defineCollection({
+	name: 'posts',
+	directory: 'src/content/posts',
+	include: '**/*.mdx',
+	schema: z.object({
+		title: z.string(),
+		tags: z.array(z.string()),
+		summary: z.string(),
+		date: z.string(),
+		published: z.boolean(),
+		updatedAt: z.string().optional(),
+		imageId: z.string().optional(),
+		imageAlt: z.string().optional(),
+		imageCredit: z.string().optional(),
+	}),
+	transform: async (document, context) => {
+		const html = await compileMDX(context, document)
+
+		const postName = document._meta.directory
+		return {
+			...document,
+			html,
+			slug: postName,
+		}
+	},
+})
+
 export default defineConfig({
-	collections: [about, projects],
+	collections: [about, projects, posts],
 })

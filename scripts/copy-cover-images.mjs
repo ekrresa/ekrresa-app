@@ -18,45 +18,67 @@ async function fileExists(path) {
   }
 }
 
-async function moveCoverImages() {
+async function processDirectory(sourceDir, typeName) {
   try {
-    // Ensure public/content directory exists
-    await mkdir(publicContentDir, { recursive: true });
-
-    // Read all project directories
-    const entries = await readdir(projectsDir, { withFileTypes: true });
-    const projectDirs = entries.filter((entry) => entry.isDirectory());
+    // Read all directories in the source folder
+    const entries = await readdir(sourceDir, { withFileTypes: true });
+    const dirs = entries.filter((entry) => entry.isDirectory());
 
     let movedCount = 0;
     let skippedCount = 0;
 
-    for (const projectDir of projectDirs) {
-      const projectName = projectDir.name;
-      const coverPath = join(projectsDir, projectName, "cover.png");
-      const destPath = join(publicContentDir, `cover-${projectName}.png`);
+    for (const dir of dirs) {
+      const dirName = dir.name;
+      const coverPath = join(sourceDir, dirName, "cover.png");
+      const destPath = join(publicContentDir, `cover-${dirName}.png`);
 
       // Check if source file exists
       if (!(await fileExists(coverPath))) {
-        console.log(`⚠️  Skipping ${projectName}: cover.png not found`);
+        // Only log if it's missing in projects, might be optional for posts initially
+        if (typeName === "project") {
+          console.log(
+            `⚠️  Skipping ${typeName} ${dirName}: cover.png not found`
+          );
+        }
         continue;
       }
 
       // Check if destination already exists (idempotent)
       if (await fileExists(destPath)) {
         console.log(
-          `⏭️  Skipping ${projectName}: already exists at ${destPath}`
+          `⏭️  Skipping ${typeName} ${dirName}: already exists at ${destPath}`
         );
         skippedCount++;
         continue;
       }
 
-      // Copy the file (we use copy instead of move to keep source for git)
+      // Copy the file
       await copyFile(coverPath, destPath);
-      console.log(`✅ Moved ${projectName}: ${coverPath} → ${destPath}`);
+      console.log(
+        `✅ Moved ${typeName} ${dirName}: ${coverPath} → ${destPath}`
+      );
       movedCount++;
     }
 
-    console.log(`\n📊 Summary: ${movedCount} moved, ${skippedCount} skipped`);
+    return { moved: movedCount, skipped: skippedCount };
+  } catch (error) {
+    console.error(`❌ Error processing ${typeName}s:`, error);
+    throw error;
+  }
+}
+
+async function moveCoverImages() {
+  try {
+    // Ensure public/content directory exists
+    await mkdir(publicContentDir, { recursive: true });
+
+    console.log("Processing Projects...");
+    const projectsResult = await processDirectory(projectsDir, "project");
+
+    const totalMoved = projectsResult.moved;
+    const totalSkipped = projectsResult.skipped;
+
+    console.log(`\n📊 Summary: ${totalMoved} moved, ${totalSkipped} skipped`);
   } catch (error) {
     console.error("❌ Error moving cover images:", error);
     process.exit(1);

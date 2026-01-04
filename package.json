@@ -39,9 +39,9 @@
   "devDependencies": {
     "@biomejs/biome": "2.3.10",
     "@cloudflare/vite-plugin": "1.16.1",
-    "@cloudflare/workers-types": "4.20251202.0",
     "@content-collections/core": "^0.13.0",
     "@content-collections/markdown": "^0.1.4",
+    "@content-collections/mdx": "^0.2.2",
     "@content-collections/vite": "^0.2.8",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@tailwindcss/typography": "^0.5.19",
