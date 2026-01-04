@@ -29,3 +29,5 @@ export const siteMetadata = {
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
+
+export const IMAGE_BASE_URL = 'https://assets.ekrresa.com'

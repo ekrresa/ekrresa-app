@@ -69,9 +69,11 @@ const posts = defineCollection({
 		title: z.string(),
 		tags: z.array(z.string()),
 		summary: z.string(),
-		date: z.string(),
+		date: z
+			.union([z.string(), z.date()])
+			.transform(d => (d instanceof Date ? d.toISOString() : d)),
 		published: z.boolean(),
-		updatedAt: z.string().optional(),
+		updatedAt: z.string().nullish(),
 		imageId: z.string().optional(),
 		imageAlt: z.string().optional(),
 		imageCredit: z.string().optional(),
