@@ -4,12 +4,12 @@ export function Projects() {
 	const projects = allProjects.toSorted((a, b) => a.order - b.order)
 
 	return (
-		<section className="mt-16">
+		<section className="pt-24 sm:pt-32 pb-16">
 			<header>
-				<h1 className="heading text-center text-4xl font-bold capitalize">
+				<h1 className="heading text-center text-4xl sm:text-5xl tracking-tight font-bold capitalize">
 					Projects
 				</h1>
-				<p className="mt-2 text-center text-brand-950 dark:text-port-100 sm:text-lg">
+				<p className="mt-4 text-center text-gray-600 dark:text-gray-400 sm:text-lg">
 					A collection of projects I&#39;ve built, from experiments to
 					production applications.
 				</p>
