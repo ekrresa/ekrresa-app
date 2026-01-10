@@ -9,6 +9,7 @@ import { About } from '@/app/pages/About'
 import { Blog } from '@/app/pages/Blog'
 import { Home } from '@/app/pages/Home'
 import { Projects } from '@/app/pages/Projects'
+import { BlogPost } from '@/app/pages/BlogPost'
 
 export default defineApp([
 	setCommonHeaders(),
@@ -16,6 +17,7 @@ export default defineApp([
 		layout(AppLayout, [
 			route('/', Home),
 			route('/blog', Blog),
+			route('/blog/:slug', BlogPost),
 			route('/projects', Projects),
 			route('/about', About),
 		]),

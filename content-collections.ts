@@ -1,6 +1,5 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { compileMarkdown } from '@content-collections/markdown'
-import { compileMDX } from '@content-collections/mdx'
 import { z } from 'zod'
 
 const about = defineCollection({
@@ -79,12 +78,9 @@ const posts = defineCollection({
 		imageCredit: z.string().optional(),
 	}),
 	transform: async (document, context) => {
-		const html = await compileMDX(context, document)
-
 		const postName = document._meta.directory
 		return {
 			...document,
-			html,
 			slug: postName,
 		}
 	},

@@ -1,5 +1,6 @@
 import { cloudflare } from '@cloudflare/vite-plugin'
 import contentCollections from '@content-collections/vite'
+import mdx from '@mdx-js/rollup'
 import tailwindcss from '@tailwindcss/vite'
 import { redwood } from 'rwsdk/vite'
 import { defineConfig, PluginOption } from 'vite'
@@ -14,6 +15,9 @@ export default defineConfig({
 			viteEnvironment: { name: 'worker' },
 		}),
 		redwood(),
+		mdx({
+			// providerImportSource: '@mdx-js/react',
+		}),
 		tailwindcss() as PluginOption,
 		svgr({
 			svgrOptions: {
