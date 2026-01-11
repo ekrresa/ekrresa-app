@@ -1,31 +1,17 @@
 import { allPosts } from 'content-collections'
-import { lazy, Suspense, useMemo } from 'react'
+import { SafeMdxRenderer } from 'safe-mdx'
+import { mdxParse } from 'safe-mdx/parse'
+import { highlight } from 'sugar-high'
 
+import { components } from '../components/MDXComponents'
 import { IMAGE_BASE_URL } from '../lib/misc'
-
-const posts = import.meta.glob('../../content/posts/**/*.mdx')
 
 export function BlogPost({ params }: { params: { slug: string } }) {
 	const post = allPosts.find(p => p.slug === params.slug)
 
-	const Component = useMemo(() => {
-		if (!post) return null
-		// We need to reconstruct the path key that import.meta.glob expects.
-		// Since content-collections might give us a slug that matches the directory name,
-		// and the glob is for **/*.mdx, we need to find the matching entry.
+	const mdast = mdxParse(post?.content ?? '')
 
-		// The glob pattern `../../content/posts/**/*.mdx` resolves to keys like:
-		// `../../content/posts/my-post/index.mdx`
-
-		const filePath = `../../content/posts/${post.slug}/index.mdx`
-		const importFn = posts[filePath] as
-			| (() => Promise<{ default: React.ComponentType }>)
-			| undefined
-
-		return importFn ? lazy(importFn) : null
-	}, [post])
-
-	if (!post || !Component) {
+	if (!post || !mdast) {
 		return (
 			<div className="flex flex-col items-center justify-center py-24 sm:py-32">
 				<h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
@@ -103,9 +89,22 @@ export function BlogPost({ params }: { params: { slug: string } }) {
 
 			{/* Content */}
 			<div className="mt-10 prose prose-lg prose-rose dark:prose-invert max-w-none">
-				<Suspense fallback={<div>Loading...</div>}>
-					<Component />
-				</Suspense>
+				<SafeMdxRenderer
+					markdown={post?.content ?? ''}
+					mdast={mdast}
+					components={components}
+					renderNode={node => {
+						if (node.type === 'code') {
+							const html = highlight(node.value)
+
+							return (
+								<pre className="bg-gray-800 p-4 rounded-lg overflow-x-auto">
+									<code dangerouslySetInnerHTML={{ __html: html }} />
+								</pre>
+							)
+						}
+					}}
+				/>
 			</div>
 		</article>
 	)

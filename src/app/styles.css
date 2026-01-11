@@ -24,6 +24,18 @@
 	--font-body: 'Figtree', sans-serif;
 }
 
+:root {
+	--sh-class: #2d5e9d;
+	--sh-identifier: #354150;
+	--sh-sign: #8996a3;
+	--sh-property: #0550ae;
+	--sh-entity: #249a97;
+	--sh-jsxliterals: #6266d1;
+	--sh-string: #00a99a;
+	--sh-keyword: #f47067;
+	--sh-comment: #a19595;
+}
+
 @layer base {
 	html {
 		@apply scroll-smooth antialiased;
@@ -50,44 +62,5 @@
 		padding-left: env(safe-area-inset-left, 0);
 		padding-right: env(safe-area-inset-right, 0);
 		min-height: 100svh;
-	}
-
-	/* Rehype Pretty Code */
-	code[data-line-numbers] {
-		counter-reset: line;
-	}
-
-	code[data-line-numbers] > [data-line]::before {
-		counter-increment: line;
-		content: counter(line);
-
-		/* Display the line number */
-		display: inline-block;
-		width: 1rem;
-		margin-right: 2rem;
-		text-align: right;
-		color: gray;
-	}
-
-	code[data-line-numbers-max-digits='2'] > [data-line]::before {
-		width: 2rem;
-	}
-
-	code[data-line-numbers-max-digits='3'] > [data-line]::before {
-		width: 3rem;
-	}
-
-	[data-line] {
-		padding: 0 0.5rem;
-	}
-
-	[data-highlighted-line] {
-		background: rgba(200, 200, 255, 0.1);
-		@apply border-l-2 border-rose-500;
-	}
-
-	/* Subheading anchor */
-	.subheading-anchor {
-		@apply no-underline hover:underline;
 	}
 }

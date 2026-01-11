@@ -1,5 +1,4 @@
-import { MDXProvider } from '@mdx-js/react'
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 
 function CustomLink({
 	href,
@@ -36,11 +35,7 @@ function CustomImage({ src, alt, ...props }: ComponentPropsWithoutRef<'img'>) {
 	)
 }
 
-const components = {
+export const components = {
 	a: CustomLink,
 	img: CustomImage,
-}
-
-export function MDXComponentsProvider({ children }: { children: ReactNode }) {
-	return <MDXProvider components={components}>{children}</MDXProvider>
 }

@@ -76,12 +76,14 @@ const posts = defineCollection({
 		imageId: z.string().optional(),
 		imageAlt: z.string().optional(),
 		imageCredit: z.string().optional(),
+		content: z.string(),
 	}),
 	transform: async (document, context) => {
 		const postName = document._meta.directory
 		return {
 			...document,
 			slug: postName,
+			content: document.content,
 		}
 	},
 })
