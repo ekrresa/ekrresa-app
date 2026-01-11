@@ -2,6 +2,9 @@ import { cloudflare } from '@cloudflare/vite-plugin'
 import contentCollections from '@content-collections/vite'
 import mdx from '@mdx-js/rollup'
 import tailwindcss from '@tailwindcss/vite'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
 import { redwood } from 'rwsdk/vite'
 import { defineConfig, PluginOption } from 'vite'
 import svgr from 'vite-plugin-svgr'
@@ -17,6 +20,26 @@ export default defineConfig({
 		redwood(),
 		mdx({
 			// providerImportSource: '@mdx-js/react',
+			rehypePlugins: [
+				rehypeSlug,
+				[
+					rehypeAutolinkHeadings,
+					{
+						behavior: 'wrap',
+						properties: {
+							className: ['subheading-anchor'],
+							ariaLabel: 'Link to section',
+						},
+					},
+				],
+				[
+					rehypePrettyCode,
+					{
+						theme: 'github-dark',
+						keepBackground: false,
+					},
+				],
+			],
 		}),
 		tailwindcss() as PluginOption,
 		svgr({
