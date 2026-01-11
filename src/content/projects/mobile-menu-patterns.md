@@ -1,6 +1,6 @@
 ---
 title: Mobile Menu Patterns
-image: 'cover.png'
+image: 'https://assets.ekrresa.com/ekrresa-app/mobile-menu-patterns.png'
 stack:
   - React.js
   - Typescript

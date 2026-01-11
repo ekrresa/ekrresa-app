@@ -1,11 +1,15 @@
-import { allAbouts, allProjects } from 'content-collections'
+import { allAbouts, allPosts, allProjects } from 'content-collections'
 
-import { siteMetadata } from '../lib/misc'
+import { IMAGE_BASE_URL, siteMetadata } from '../lib/misc'
 
 export function Home() {
 	const projects = allProjects.toSorted((a, b) => a.order - b.order)
 
 	const about = allAbouts[0]
+
+	const latestPost = allPosts
+		.filter(post => post.published)
+		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
 
 	const latestExperience = about.experiences[0]
 
@@ -60,6 +64,70 @@ export function Home() {
 					</div>
 				</div>
 			</section>
+
+			{/* Latest Article Section */}
+			{latestPost && (
+				<section>
+					<div className="mb-12 flex items-end justify-between">
+						<div>
+							<h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+								Latest Article
+							</h2>
+							<p className="mt-4 text-gray-600 dark:text-port-300">
+								Fresh from the press.
+							</p>
+						</div>
+						<a
+							href="/blog"
+							className="group hidden items-center gap-2 text-sm font-bold uppercase tracking-widest text-rose-500 transition-colors hover:text-rose-600 dark:text-cyan-400 dark:hover:text-cyan-300 sm:flex"
+						>
+							Read All Articles
+							<span className="transition-transform group-hover:translate-x-1">
+								→
+							</span>
+						</a>
+					</div>
+
+					<a
+						href={`/blog/${latestPost.slug}`}
+						className="group relative flex flex-col gap-8 rounded-3xl bg-gray-50 p-8 ring-1 ring-gray-900/5 transition hover:bg-gray-100 lg:flex-row lg:items-center dark:bg-port-900/30 dark:ring-white/10 dark:hover:bg-port-900/50"
+					>
+						{latestPost.imageId && (
+							<div className="relative aspect-video w-full shrink-0 overflow-hidden rounded-2xl lg:w-1/2">
+								<img
+									src={`${IMAGE_BASE_URL}${latestPost.imageId}`}
+									alt={latestPost.imageAlt || latestPost.title}
+									className="absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105"
+								/>
+							</div>
+						)}
+
+						<div className="flex flex-col justify-center">
+							<div className="flex items-center gap-x-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-port-500">
+								<time dateTime={latestPost.date}>
+									{new Date(latestPost.date).toLocaleDateString('en-US', {
+										year: 'numeric',
+										month: 'long',
+										day: 'numeric',
+									})}
+								</time>
+							</div>
+							<h3 className="mt-4 text-2xl font-bold text-gray-900 transition-colors group-hover:text-rose-500 dark:text-white dark:group-hover:text-cyan-400 sm:text-3xl">
+								{latestPost.title}
+							</h3>
+							<p className="mt-4 text-base leading-relaxed text-gray-600 dark:text-port-300">
+								{latestPost.summary}
+							</p>
+							<div className="mt-6 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-rose-500 dark:text-cyan-400">
+								Read Article
+								<span className="transition-transform group-hover:translate-x-1">
+									→
+								</span>
+							</div>
+						</div>
+					</a>
+				</section>
+			)}
 
 			{/* Featured Projects Section */}
 			<section>

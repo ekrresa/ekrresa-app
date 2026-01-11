@@ -45,17 +45,9 @@ const projects = defineCollection({
 	transform: async (document, context) => {
 		const html = await compileMarkdown(context, document)
 
-		// Extract project name from document path and convert image path
-		const projectName = document._meta.directory
-		const imagePath =
-			document.image === 'cover.png'
-				? `/content/cover-${projectName}.png`
-				: document.image
-
 		return {
 			...document,
 			html,
-			image: imagePath,
 		}
 	},
 })

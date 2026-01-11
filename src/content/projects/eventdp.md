@@ -1,6 +1,6 @@
 ---
 title: EventDP
-image: 'cover.png'
+image: 'https://assets.ekrresa.com/ekrresa-app/event-dp.png'
 stack:
   - Next.js
   - Typescript

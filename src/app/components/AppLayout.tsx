@@ -23,7 +23,8 @@ export function AppLayout({ children, requestInfo }: LayoutProps) {
 						<nav className="hidden rounded-full px-8 py-2 shadow-md shadow-rose-100 ring-1 ring-gray-900/5 backdrop-blur-lg dark:bg-charcoal dark:shadow-brand-900 dark:ring-[#364e69] sm:block">
 							<ul className="flex items-center justify-between gap-4">
 								{appNavLinks.map(item => {
-									const isActive = path.startsWith(item.url)
+									const isActive =
+										item.url === '/' ? path === '/' : path.startsWith(item.url)
 
 									return (
 										<li

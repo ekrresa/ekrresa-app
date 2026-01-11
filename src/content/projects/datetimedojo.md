@@ -1,6 +1,6 @@
 ---
 title: DateTime Dojo
-image: 'cover.png'
+image: 'https://assets.ekrresa.com/ekrresa-app/datetimedojo.png'
 stack:
   - React.js
   - Next.js
