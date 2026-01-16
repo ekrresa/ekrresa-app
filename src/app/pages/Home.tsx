@@ -70,12 +70,9 @@ export function Home() {
 				<section>
 					<div className="mb-12 flex items-end justify-between">
 						<div>
-							<h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+							<h2 className="text-3xl font-black text-gray-900 dark:text-white">
 								Latest Article
 							</h2>
-							<p className="mt-4 text-gray-600 dark:text-port-300">
-								Fresh from the press.
-							</p>
 						</div>
 						<a
 							href="/blog"
@@ -133,12 +130,9 @@ export function Home() {
 			<section>
 				<div className="mb-12 flex items-end justify-between">
 					<div>
-						<h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+						<h2 className="text-3xl font-black text-gray-900 dark:text-white">
 							Featured Projects
 						</h2>
-						<p className="mt-4 text-gray-600 dark:text-port-300">
-							A selection of my favorite works.
-						</p>
 					</div>
 					<a
 						href="/projects"
