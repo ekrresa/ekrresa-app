@@ -27,6 +27,7 @@
     "format:check": "biome format --check ."
   },
   "dependencies": {
+    "@giscus/react": "3.1.0",
     "clsx": "^2.1.1",
     "core-js": "^3.47.0",
     "react": "19.2.3",
