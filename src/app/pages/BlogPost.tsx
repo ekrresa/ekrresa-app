@@ -3,7 +3,6 @@ import { SafeMdxRenderer } from 'safe-mdx'
 import { mdxParse } from 'safe-mdx/parse'
 import { highlight } from 'sugar-high'
 
-import { Comments } from '../components/Comments'
 import CopyCode from '../components/CopyCode'
 import { components } from '../components/MDXComponents'
 import { IMAGE_BASE_URL } from '../lib/misc'
@@ -95,9 +94,9 @@ export function BlogPost({ params }: { params: { slug: string } }) {
 				/>
 			</div>
 
-			<div className="mt-20">
+			{/* <div className="mt-20">
 				<Comments />
-			</div>
+			</div> */}
 		</article>
 	)
 }
