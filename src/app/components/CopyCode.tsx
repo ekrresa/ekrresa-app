@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
 import { Button } from 'react-aria-components'
 
-import { copyToClipboard } from '../lib/misc'
+import { copyToClipboard } from '../lib/clipboard'
 
 const AnimatedCheckIcon = motion.create(CheckIcon, { forwardMotionProps: true })
 const AnimatedClipboardIcon = motion.create(ClipboardIcon, {
