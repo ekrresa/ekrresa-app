@@ -1,6 +1,6 @@
 import { allPosts } from 'content-collections'
 
-import { IMAGE_BASE_URL } from '../lib/misc'
+import { IMAGE_BASE_URL } from '../lib/utils'
 
 export function Blog() {
 	const sortedPosts = allPosts

@@ -1,4 +1,3 @@
-import './polyfills'
 import { layout, render, route } from 'rwsdk/router'
 import { defineApp } from 'rwsdk/worker'
 import 'core-js/actual/array/to-sorted'

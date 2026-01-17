@@ -1,6 +1,6 @@
 import type { LayoutProps } from 'rwsdk/router'
 
-import { appNavLinks, cn, siteMetadata } from '../lib/misc'
+import { appNavLinks, cn, siteMetadata } from '../lib/utils'
 import { ThemeProvider } from './ThemeProvider'
 import { ThemeToggle } from './ThemeToggle'
 

@@ -1,6 +1,6 @@
 import { allAbouts, allPosts, allProjects } from 'content-collections'
 
-import { IMAGE_BASE_URL, siteMetadata } from '../lib/misc'
+import { IMAGE_BASE_URL, siteMetadata } from '../lib/utils'
 
 export function Home() {
 	const projects = allProjects.toSorted((a, b) => a.order - b.order)

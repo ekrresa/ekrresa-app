@@ -5,7 +5,7 @@ import { highlight } from 'sugar-high'
 
 import CopyCode from '../components/CopyCode'
 import { components } from '../components/MDXComponents'
-import { IMAGE_BASE_URL } from '../lib/misc'
+import { IMAGE_BASE_URL } from '../lib/utils'
 
 export function BlogPost({ params }: { params: { slug: string } }) {
 	const post = allPosts.find(p => p.slug === params.slug)

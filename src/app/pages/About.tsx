@@ -1,6 +1,6 @@
 import { allAbouts } from 'content-collections'
 
-import { siteMetadata } from '../lib/misc'
+import { siteMetadata } from '../lib/utils'
 
 export function About() {
 	const about = allAbouts[0]

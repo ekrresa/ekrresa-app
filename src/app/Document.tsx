@@ -1,6 +1,6 @@
 import type { DocumentProps } from 'rwsdk/router'
 
-import { siteMetadata } from './lib/misc'
+import { siteMetadata } from './lib/utils'
 import styles from './styles.css?url'
 
 export function Document({ children, ctx, rw }: DocumentProps) {
