@@ -47,35 +47,20 @@ export function BlogPost({ params }: { params: { slug: string } }) {
 			</div>
 
 			{/* Header */}
-			<header className="flex flex-col text-center">
-				<div className="flex items-center justify-center gap-x-4 text-xs">
-					<time
-						dateTime={post.date}
-						className="text-gray-500 dark:text-gray-400"
-					>
-						{new Date(post.date).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
-					</time>
-					<div className="flex gap-2">
-						{post.tags.map(tag => (
-							<span
-								key={tag}
-								className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 dark:bg-white/10 dark:text-gray-300 dark:hover:bg-white/20"
-							>
-								{tag}
-							</span>
-						))}
-					</div>
-				</div>
-				<h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl text-balance">
+			<header className="flex flex-col text-center gap-4">
+				<h1 className="text-4xl font-black tracking-tight text-gray-900 dark:text-white sm:text-5xl">
 					{post.title}
 				</h1>
-				<p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-					{post.summary}
-				</p>
+				<time
+					dateTime={post.date}
+					className="text-base font-medium text-gray-500 dark:text-gray-400"
+				>
+					{new Date(post.date).toLocaleDateString('en-US', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+					})}
+				</time>
 			</header>
 
 			{/* Featured Image */}
