@@ -93,10 +93,6 @@ export function BlogPost({ params }: { params: { slug: string } }) {
 					}}
 				/>
 			</div>
-
-			{/* <div className="mt-20">
-				<Comments />
-			</div> */}
 		</article>
 	)
 }
