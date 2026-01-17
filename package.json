@@ -9,9 +9,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "copy-cover-images": "node scripts/copy-cover-images.mjs",
-    "build": "pnpm copy-cover-images && vite build",
-    "dev": "pnpm copy-cover-images && vite dev",
+    "build": "vite build",
+    "dev": "vite dev",
     "dev:init": "rw-scripts dev-init",
     "preview": "vite preview",
     "worker:run": "rw-scripts worker-run",
