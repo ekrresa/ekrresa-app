@@ -4,6 +4,7 @@ import { mdxParse } from 'safe-mdx/parse'
 import { highlight } from 'sugar-high'
 
 import { Comments } from '../components/Comments'
+import CopyCode from '../components/CopyCode'
 import { components } from '../components/MDXComponents'
 import { IMAGE_BASE_URL } from '../lib/misc'
 
@@ -99,7 +100,8 @@ export function BlogPost({ params }: { params: { slug: string } }) {
 							const html = highlight(node.value)
 
 							return (
-								<pre className="bg-gray-800 p-4 rounded-lg overflow-x-auto">
+								<pre className="bg-gray-800 p-4 rounded-lg relative overflow-x-auto">
+									<CopyCode code={node.value} />
 									<code dangerouslySetInnerHTML={{ __html: html }} />
 								</pre>
 							)
