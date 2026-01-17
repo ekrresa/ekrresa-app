@@ -5,13 +5,13 @@ import { siteMetadata } from '../lib/misc'
 export function About() {
 	const about = allAbouts[0]
 
-	const { title, skills, experiences, html } = about
+	const { skills, experiences, html } = about
 
 	return (
 		<section className="mx-auto max-w-3xl py-16 sm:py-24">
 			<header className="mb-16">
-				<h1 className="mb-8 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-port-50 sm:text-5xl">
-					{title}
+				<h1 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 dark:text-port-50 sm:text-4xl text-center">
+					About Me
 				</h1>
 				<div
 					className="prose prose-lg dark:prose-invert text-gray-600 dark:text-port-200"

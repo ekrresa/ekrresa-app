@@ -70,7 +70,7 @@ export function Home() {
 				<section>
 					<div className="mb-12 flex items-end justify-between">
 						<div>
-							<h2 className="text-3xl font-black text-gray-900 dark:text-white">
+							<h2 className="text-2xl font-bold text-gray-900 dark:text-white">
 								Latest Article
 							</h2>
 						</div>
@@ -130,7 +130,7 @@ export function Home() {
 			<section>
 				<div className="mb-12 flex items-end justify-between">
 					<div>
-						<h2 className="text-3xl font-black text-gray-900 dark:text-white">
+						<h2 className="text-2xl font-bold text-gray-900 dark:text-white">
 							Featured Projects
 						</h2>
 					</div>
@@ -196,7 +196,7 @@ export function Home() {
 			{/* Experience Summary */}
 			<section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
 				<div className="flex flex-col justify-center">
-					<h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+					<h2 className="text-2xl font-bold text-gray-900 dark:text-white">
 						Currently Building
 					</h2>
 					<p className="mt-4 text-gray-600 dark:text-port-300">
