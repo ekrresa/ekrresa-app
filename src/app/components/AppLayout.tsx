@@ -12,14 +12,14 @@ export function AppLayout({ children, requestInfo }: LayoutProps) {
 		<div>
 			<title>My App</title>
 			<div className="fixed inset-0 flex justify-center">
-				<div className="w-full max-w-7xl bg-gray-50 ring-1 ring-gray-100 transition-colors"></div>
+				<div className="w-full max-w-7xl bg-white ring-1 ring-primary/5 transition-colors"></div>
 			</div>
 
 			<ThemeProvider initialTheme={theme}>
 				<div className="safe-area relative flex flex-col">
 					<header className="shrink-0">
 						<div className="mx-auto flex max-w-280 items-center justify-between p-5 backdrop:blur-lg">
-							<a className="rounded-full shadow-lg shadow-rose-100" href="/">
+							<a className="rounded-full shadow-lg shadow-primary-200" href="/">
 								<img
 									alt="Logo"
 									className="size-10"
@@ -27,7 +27,7 @@ export function AppLayout({ children, requestInfo }: LayoutProps) {
 								/>
 							</a>
 
-							<nav className="hidden rounded-full px-8 py-2 shadow-md shadow-rose-100 ring-1 ring-gray-900/5 backdrop-blur-lg dark:bg-charcoal dark:shadow-brand-900 dark:ring-[#364e69] sm:block">
+							<nav className="hidden rounded-full px-8 py-2 shadow-md shadow-primary-200/80 ring-1 ring-gray-900/5 backdrop-blur-lg dark:bg-charcoal dark:shadow-brand-900 dark:ring-[#364e69] sm:block">
 								<ul className="flex items-center justify-between gap-4">
 									{appNavLinks.map(item => {
 										const isActive =
@@ -38,8 +38,9 @@ export function AppLayout({ children, requestInfo }: LayoutProps) {
 										return (
 											<li
 												className={cn(
-													'font-medium uppercase text-gray-500 transition-colors hover:text-rose-500 dark:text-linen-50 dark:hover:text-cyan-300',
-													isActive && 'text-rose-500 dark:text-cyan-300',
+													'font-medium uppercase text-gray-600 transition-colors hover:text-primary dark:text-linen-50 dark:hover:text-cyan-300',
+													isActive &&
+														'text-primary font-semibold dark:text-cyan-300',
 												)}
 												key={item.text}
 											>
@@ -58,7 +59,7 @@ export function AppLayout({ children, requestInfo }: LayoutProps) {
 						{children}
 					</main>
 
-					<footer className="shrink-0 mx-auto mt-48 w-full max-w-7xl border-t border-gray-200 dark:border-stone-800">
+					<footer className="shrink-0 mx-auto mt-48 w-full max-w-7xl border-t border-gray-100 dark:border-stone-800">
 						<div className="mx-auto flex max-w-280 flex-col items-center justify-between gap-2 px-5 py-4 text-sm sm:flex-row">
 							<p className="uppercase">
 								All rights reserved &#169; {new Date().getFullYear()}

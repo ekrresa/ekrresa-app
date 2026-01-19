@@ -63,6 +63,19 @@
 @theme inline {
 	--font-heading: 'Avenir Next', sans-serif;
 	--font-body: 'Figtree', sans-serif;
+	--color-primary: #bc4261;
+	--color-primary-50: #fef2f4;
+	--color-primary-100: #fce6ea;
+	--color-primary-200: #f9d0d8;
+	--color-primary-300: #f4a8b8;
+	--color-primary-400: #ed7a95;
+	--color-primary-500: #bc4261;
+	--color-primary-600: #a0384f;
+	--color-primary-700: #842e41;
+	--color-primary-800: #682533;
+	--color-primary-900: #4c1c25;
+	--color-accent: #4a90a4;
+	--color-accent-light: #6ba8bb;
 }
 
 :root {
@@ -83,7 +96,7 @@
 	}
 
 	body {
-		@apply font-body;
+		@apply font-body bg-gray-100;
 	}
 
 	h1,

@@ -1,3 +1,4 @@
+import { ArrowLongRightIcon } from '@heroicons/react/24/outline'
 import { allAbouts, allPosts, allProjects } from 'content-collections'
 
 import { IMAGE_BASE_URL, siteMetadata } from '../lib/utils'
@@ -15,19 +16,19 @@ export function Home() {
 
 	return (
 		<div className="space-y-32 pb-24">
-			<section className="relative mx-auto mt-24 md:mt-40">
+			<section className="relative mx-auto mt-24 md:mt-52">
 				{/* Background elements */}
 				<div className="absolute inset-0 z-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-				<div className="absolute -left-20 -top-20 z-0 size-72 rounded-full bg-rose-500/30 blur-[100px] dark:bg-rose-500/20" />
-				<div className="absolute right-0 top-20 z-0 size-72 rounded-full bg-cyan-400/30 blur-[100px] dark:bg-cyan-400/20" />
+				<div className="absolute -left-20 -top-20 z-0 size-72 rounded-full bg-primary-500/30 blur-[100px] dark:bg-rose-500/20" />
+				<div className="absolute right-0 top-20 z-0 size-72 rounded-full bg-accent/30 blur-[100px] dark:bg-cyan-400/20" />
 
 				<div className="relative z-10 max-w-4xl">
 					<h1 className="mb-6 text-6xl font-black tracking-tighter uppercase leading-tight text-gray-900 dark:text-white sm:text-7xl md:text-8xl">
 						ochuko{' '}
-						<span className="text-rose-500 dark:text-cyan-400">ekrresa</span>
+						<span className="text-primary-500 dark:text-cyan-400">ekrresa</span>
 					</h1>
 					<p className="text-lg leading-relaxed text-gray-600 dark:text-port-200 sm:text-xl">
-						Hi, my name is Ochuko and this is my digital garden. I&#39;m a
+						Hi, my name is Ochuko and this is my corner of the web. I&#39;m a
 						software engineer building products for the web. Over the years, I
 						have learned a lot while working on interesting projects, and I want
 						to share that knowledge with you.
@@ -35,31 +36,31 @@ export function Home() {
 
 					<div className="mt-10 flex flex-wrap gap-6 text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-white">
 						<a
-							className="group relative transition-colors hover:text-rose-500 dark:hover:text-cyan-400"
+							className="group relative transition-colors hover:text-primary-500 dark:hover:text-cyan-400"
 							href={siteMetadata.github}
 							rel="noopener noreferrer"
 							target="_blank"
 						>
 							GitHub
-							<span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-rose-500 transition-all group-hover:w-full dark:bg-cyan-400" />
+							<span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary-500 transition-all group-hover:w-full dark:bg-cyan-400" />
 						</a>
 						<a
-							className="group relative transition-colors hover:text-rose-500 dark:hover:text-cyan-400"
+							className="group relative transition-colors hover:text-primary-500 dark:hover:text-cyan-400"
 							href={siteMetadata.linkedin}
 							rel="noopener noreferrer"
 							target="_blank"
 						>
 							LinkedIn
-							<span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-rose-500 transition-all group-hover:w-full dark:bg-cyan-400" />
+							<span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary-500 transition-all group-hover:w-full dark:bg-cyan-400" />
 						</a>
 						<a
-							className="group relative transition-colors hover:text-rose-500 dark:hover:text-cyan-400"
+							className="group relative transition-colors hover:text-primary-500 dark:hover:text-cyan-400"
 							href={siteMetadata.twitter}
 							rel="noopener noreferrer"
 							target="_blank"
 						>
 							Twitter
-							<span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-rose-500 transition-all group-hover:w-full dark:bg-cyan-400" />
+							<span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary-500 transition-all group-hover:w-full dark:bg-cyan-400" />
 						</a>
 					</div>
 				</div>
@@ -68,7 +69,7 @@ export function Home() {
 			{/* Latest Article Section */}
 			{latestPost && (
 				<section>
-					<div className="mb-12 flex items-end justify-between">
+					<div className="mb-12 flex items-baseline justify-between">
 						<div>
 							<h2 className="text-2xl font-bold text-gray-900 dark:text-white">
 								Latest Article
@@ -76,11 +77,11 @@ export function Home() {
 						</div>
 						<a
 							href="/blog"
-							className="group hidden items-center gap-2 text-sm font-bold uppercase tracking-widest text-rose-500 transition-colors hover:text-rose-600 dark:text-cyan-400 dark:hover:text-cyan-300 sm:flex"
+							className="group hidden items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary-500 transition-colors hover:text-primary-600 dark:text-cyan-400 dark:hover:text-cyan-300 sm:flex"
 						>
 							Read All Articles
 							<span className="transition-transform group-hover:translate-x-1">
-								→
+								<ArrowLongRightIcon className="size-4" strokeWidth={2} />
 							</span>
 						</a>
 					</div>
@@ -109,16 +110,16 @@ export function Home() {
 									})}
 								</time>
 							</div>
-							<h3 className="mt-4 text-2xl font-bold text-gray-900 transition-colors group-hover:text-rose-500 dark:text-white dark:group-hover:text-cyan-400 sm:text-3xl">
+							<h3 className="mt-4 text-2xl font-bold text-gray-900 transition-colors group-hover:text-primary-500 dark:text-white dark:group-hover:text-cyan-400 sm:text-3xl">
 								{latestPost.title}
 							</h3>
 							<p className="mt-4 text-base leading-relaxed text-gray-600 dark:text-port-300">
 								{latestPost.summary}
 							</p>
-							<div className="mt-6 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-rose-500 dark:text-cyan-400">
+							<div className="mt-6 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary-500 dark:text-cyan-400">
 								Read Article
 								<span className="transition-transform group-hover:translate-x-1">
-									→
+									<ArrowLongRightIcon className="size-4" strokeWidth={2} />
 								</span>
 							</div>
 						</div>
@@ -128,7 +129,7 @@ export function Home() {
 
 			{/* Featured Projects Section */}
 			<section>
-				<div className="mb-12 flex items-end justify-between">
+				<div className="mb-12 flex items-baseline justify-between">
 					<div>
 						<h2 className="text-2xl font-bold text-gray-900 dark:text-white">
 							Featured Projects
@@ -136,11 +137,11 @@ export function Home() {
 					</div>
 					<a
 						href="/projects"
-						className="group hidden items-center gap-2 text-sm font-bold uppercase tracking-widest text-rose-500 transition-colors hover:text-rose-600 dark:text-cyan-400 dark:hover:text-cyan-300 sm:flex"
+						className="group hidden items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary-500 transition-colors hover:text-primary-600 dark:text-cyan-400 dark:hover:text-cyan-300 sm:flex"
 					>
 						View All Projects
 						<span className="transition-transform group-hover:translate-x-1">
-							→
+							<ArrowLongRightIcon className="size-4" strokeWidth={2} />
 						</span>
 					</a>
 				</div>
@@ -161,7 +162,7 @@ export function Home() {
 								/>
 							</div>
 							<div className="mt-6">
-								<h3 className="text-xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-rose-500 dark:group-hover:text-cyan-400">
+								<h3 className="text-xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary-500 dark:group-hover:text-cyan-400">
 									{project.title}
 								</h3>
 								<p className="mt-2 line-clamp-2 text-base text-gray-600 dark:text-port-300">
@@ -188,7 +189,9 @@ export function Home() {
 						className="flex items-center justify-center gap-2 rounded-xl bg-gray-100 px-6 py-4 text-sm font-bold uppercase tracking-widest text-gray-900 transition-colors hover:bg-gray-200 dark:bg-port-900/50 dark:text-white dark:hover:bg-port-800"
 					>
 						View All Projects
-						<span>→</span>
+						<span className="transition-transform group-hover:translate-x-1">
+							<ArrowLongRightIcon className="size-4" strokeWidth={2} />
+						</span>
 					</a>
 				</div>
 			</section>
@@ -205,20 +208,25 @@ export function Home() {
 							{latestExperience.role}
 						</span>{' '}
 						at{' '}
-						<span className="font-semibold text-rose-500 dark:text-cyan-400">
+						<a
+							href="https://www.raenest.com/"
+							target="_blank"
+							rel="noreferrer"
+							className="font-semibold text-primary dark:text-cyan-400"
+						>
 							{latestExperience.company}
-						</span>
+						</a>
 						. I focus on creating high-quality web applications that are both
 						performant and accessible.
 					</p>
 					<div className="mt-8">
 						<a
 							href="/about"
-							className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-rose-500 transition-colors hover:text-rose-600 dark:text-cyan-400 dark:hover:text-cyan-300"
+							className="inline-flex group items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary-500 transition-colors hover:text-primary-600 dark:text-cyan-400 dark:hover:text-cyan-300"
 						>
-							Read My Story
+							About Me
 							<span className="transition-transform group-hover:translate-x-1">
-								→
+								<ArrowLongRightIcon className="size-4" strokeWidth={2} />
 							</span>
 						</a>
 					</div>
@@ -237,9 +245,6 @@ export function Home() {
 								{skill}
 							</span>
 						))}
-						<span className="text-xs font-semibold text-gray-400 dark:text-port-500">
-							+ more
-						</span>
 					</div>
 				</div>
 			</section>

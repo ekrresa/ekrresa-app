@@ -47,7 +47,7 @@ export function BlogPost({ params }: { params: { slug: string } }) {
 
 			{/* Header */}
 			<header className="flex flex-col text-center gap-4">
-				<h1 className="text-4xl font-black tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+				<h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
 					{post.title}
 				</h1>
 				<time
