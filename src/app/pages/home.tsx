@@ -141,9 +141,6 @@ export function Home() {
                   <p className="mt-1 text-sm text-muted/85">Software engineer</p>
                 </div>
               </div>
-              <p className="mt-4 max-w-44 text-sm leading-6 text-muted/78">
-                Thoughtful interfaces, product-minded systems, calm interaction design.
-              </p>
               <SocialLinks className="mt-4 flex items-center gap-2" />
             </div>
 
@@ -168,7 +165,7 @@ export function Home() {
 
         <main className="relative min-w-0 space-y-6 lg:space-y-8">
           <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur sm:p-8 xl:p-10">
-            <div className="grid gap-10 xl:grid-cols-[minmax(0,1.15fr)_20rem] xl:items-end">
+            <div className="grid gap-8">
               <div>
                 <p className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent lg:hidden">
                   Ochuko Ekrresa / Software engineer
@@ -200,19 +197,33 @@ export function Home() {
                 <SocialLinks className="mt-6 flex items-center gap-2 lg:hidden" />
               </div>
 
-              <div className="grid gap-4">
-                <div className="rounded-[1.75rem] border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.85),rgba(247,240,232,0.95))] p-5">
-                  <p className="text-[0.65rem] uppercase tracking-[0.3em] text-muted">
-                    Currently building
-                  </p>
-                  <p className="mt-3 font-display text-3xl leading-none tracking-[-0.04em] text-ink">
-                    DateTime Dojo
-                  </p>
-                  <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-                    A focused utility for transforming dates fast, with a product mindset around
-                    clarity, speed, and everyday usefulness.
-                  </p>
-                </div>
+              <div className="max-w-3xl">
+                <a
+                  href="https://eventdp.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative block overflow-hidden rounded-4xl border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,240,232,0.98))] px-6 py-6 shadow-[0_18px_50px_rgba(24,21,17,0.06)] transition hover:-translate-y-0.5 hover:border-black/15 hover:shadow-[0_24px_60px_rgba(24,21,17,0.08)] sm:px-7"
+                >
+                  <div className="pointer-events-none absolute -right-10 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-accent/12 blur-3xl" />
+
+                  <div className="relative flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-muted">
+                        Currently building
+                      </p>
+                      <p className="mt-4 font-display text-4xl leading-none tracking-[-0.05em] text-ink sm:text-5xl">
+                        EventDP
+                      </p>
+                    </div>
+
+                    <div className="flex items-center">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/82 px-3.5 py-2 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted shadow-[0_8px_24px_rgba(24,21,17,0.05)]">
+                        <span className="h-2 w-2 rounded-full bg-accent" />
+                        In progress
+                      </span>
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
           </section>
