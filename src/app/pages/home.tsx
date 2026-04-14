@@ -221,12 +221,6 @@ export function Home() {
                   >
                     Read articles
                   </a>
-                  <a
-                    href="#story"
-                    className="rounded-full border border-transparent px-2 py-3 text-sm font-medium text-muted transition hover:text-ink"
-                  >
-                    About me
-                  </a>
                 </div>
 
                 <SocialLinks className="mt-6 flex items-center gap-2 lg:hidden" />
@@ -265,32 +259,6 @@ export function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-
-          <section
-            id="story"
-            className="grid gap-6 rounded-[2.2rem] border border-black/10 bg-white/60 p-6 shadow-[0_16px_60px_rgba(24,21,17,0.06)] backdrop-blur sm:p-8 xl:grid-cols-[minmax(0,1.1fr)_22rem]"
-          >
-            <div>
-              <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent">
-                About me
-              </p>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight tracking-[-0.04em] text-ink">
-                I like building web products that feel clear, useful, and carefully considered.
-              </h2>
-            </div>
-            <div className="space-y-4 text-sm leading-7 text-muted sm:text-base">
-              <p>
-                My work sits at the intersection of engineering, product thinking, and interface
-                craft. I care about the details that make software easier to use, easier to trust,
-                and easier to grow over time.
-              </p>
-              <p>
-                I enjoy turning rough ideas into polished experiences, building frontend systems
-                that scale well, and writing about what I learn along the way so the process stays
-                as thoughtful as the final result.
-              </p>
             </div>
           </section>
 
@@ -355,7 +323,9 @@ export function Home() {
                       {formatProjectHost(project.link)}
                     </span>
                   </div>
-                  <p className="mt-4 text-sm leading-7 text-muted sm:text-base">{project.summary}</p>
+                  <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+                    {project.summary}
+                  </p>
                   <p className="mt-5 text-sm font-medium text-ink">Open project</p>
                 </a>
               ))}
