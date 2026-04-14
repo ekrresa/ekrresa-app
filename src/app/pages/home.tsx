@@ -202,12 +202,12 @@ export function Home() {
                   Ochuko Ekrresa / Software engineer
                 </p>
                 <h1 className="mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl lg:text-7xl">
-                  Building calm, tactile web experiences with more presence than noise.
+                  Building thoughtful products for the web with clarity, craft, and care.
                 </h1>
                 <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                  This home page leans editorial instead of corporate: less top-bar navigation, more
-                  guided atmosphere. It introduces who I am, previews the writing and project
-                  archives, and gives the whole site a stronger personality from the first screen.
+                  I&apos;m Ochuko, a software engineer focused on building useful web experiences,
+                  refining frontend systems, and sharing what I learn about web development, best
+                  practices, and product thinking.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -215,19 +215,19 @@ export function Home() {
                     href="#projects"
                     className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black"
                   >
-                    See project direction
+                    View projects
                   </a>
                   <a
                     href="#articles"
                     className="rounded-full border border-black/10 bg-white/80 px-5 py-3 text-sm font-medium text-ink transition hover:border-black/20 hover:bg-white"
                   >
-                    Preview articles
+                    Read articles
                   </a>
                   <a
                     href="#story"
                     className="rounded-full border border-transparent px-2 py-3 text-sm font-medium text-muted transition hover:text-ink"
                   >
-                    Read the story
+                    About me
                   </a>
                 </div>
 
@@ -237,30 +237,32 @@ export function Home() {
               <div className="grid gap-4">
                 <div className="rounded-[1.75rem] border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.85),rgba(247,240,232,0.95))] p-5">
                   <p className="text-[0.65rem] uppercase tracking-[0.3em] text-muted">
-                    Current focus
+                    Currently building
                   </p>
-                  <p className="mt-3 font-display text-3xl leading-none tracking-[-0.04em]">
-                    Clear writing.
-                    <br />
-                    Better case studies.
-                    <br />
-                    Softer motion.
+                  <p className="mt-3 font-display text-3xl leading-none tracking-[-0.04em] text-ink">
+                    DateTime Dojo
+                  </p>
+                  <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+                    A focused utility for transforming dates fast, with a product mindset around
+                    clarity, speed, and everyday usefulness.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3">
                   <div className="rounded-3xl border border-black/10 bg-white/80 p-4">
-                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Pages</p>
-                    <p className="mt-3 font-display text-4xl tracking-[-0.05em]">3</p>
+                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Build</p>
+                    <p className="mt-3 text-sm leading-6 text-ink">Useful products for the web</p>
                   </div>
                   <div className="rounded-3xl border border-black/10 bg-white/80 p-4">
-                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Tone</p>
-                    <p className="mt-3 text-sm leading-6 text-ink">Editorial, quiet, deliberate</p>
+                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Write</p>
+                    <p className="mt-3 text-sm leading-6 text-ink">
+                      Lessons, practice, and process
+                    </p>
                   </div>
                   <div className="rounded-3xl border border-black/10 bg-accent/10 p-4">
-                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Nav</p>
+                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Focus</p>
                     <p className="mt-3 text-sm leading-6 text-ink">
-                      Docked index, not header chrome
+                      Frontend quality and product detail
                     </p>
                   </div>
                 </div>
@@ -274,21 +276,22 @@ export function Home() {
           >
             <div>
               <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent">
-                Home should feel like an invitation
+                About me
               </p>
               <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight tracking-[-0.04em] text-ink">
-                Instead of announcing every link at the top, this layout lets the content introduce
-                the site structure.
+                I like building web products that feel clear, useful, and carefully considered.
               </h2>
             </div>
             <div className="space-y-4 text-sm leading-7 text-muted sm:text-base">
               <p>
-                The left-side index borrows the confidence of a dock or page map, but the
-                composition stays softer and more editorial than a traditional portfolio shell.
+                My work sits at the intersection of engineering, product thinking, and interface
+                craft. I care about the details that make software easier to use, easier to trust,
+                and easier to grow over time.
               </p>
               <p>
-                Articles and projects already appear on the home page as previews, so each page
-                feels connected before deeper routes exist.
+                I enjoy turning rough ideas into polished experiences, building frontend systems
+                that scale well, and writing about what I learn along the way so the process stays
+                as thoughtful as the final result.
               </p>
             </div>
           </section>
