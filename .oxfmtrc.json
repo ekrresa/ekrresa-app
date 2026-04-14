@@ -5,5 +5,5 @@
   "trailingComma": "es5",
   "semi": false,
   "singleQuote": true,
-  "objectWrap": "collapse"
+  "objectWrap": "preserve"
 }

@@ -32,6 +32,9 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.31.0",
     "@cloudflare/workers-types": "4.20260405.1",
+    "@content-collections/core": "0.14.3",
+    "@content-collections/markdown": "0.1.4",
+    "@content-collections/vite": "0.2.9",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "~25.3.5",
     "@types/react": "19.2.14",
@@ -40,7 +43,8 @@
     "tailwindcss": "^4.2.2",
     "typescript": "6.0.2",
     "vite": "~7.3.2",
-    "wrangler": "4.80.0"
+    "wrangler": "4.80.0",
+    "zod": "4.3.6"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

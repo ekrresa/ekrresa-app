@@ -1,3 +1,5 @@
+export const IMAGE_BASE_URL = 'https://assets.ekrresa.com'
+
 export const siteMetadata = {
   title: 'Ochuko Ekrresa – Software Engineer',
   author: 'Ochuko Ekrresa',

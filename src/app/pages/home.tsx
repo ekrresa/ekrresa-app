@@ -1,22 +1,11 @@
-import { siteMetadata } from '@/app/lib/utils'
+import { IMAGE_BASE_URL, siteMetadata } from '@/app/lib/utils'
+import { allPosts, allProjects } from 'content-collections'
 
 interface PageIndexItem {
   id: string
   label: string
   href: string
   note: string
-}
-
-interface ArticlePreview {
-  category: string
-  title: string
-  summary: string
-}
-
-interface ProjectPreview {
-  title: string
-  label: string
-  summary: string
 }
 
 interface SocialLink {
@@ -37,44 +26,7 @@ const pageIndexItems: PageIndexItem[] = [
     id: '03',
     label: 'Projects',
     href: '#projects',
-    note: 'Case studies, experiments, and small useful tools',
-  },
-]
-
-const articlePreviews: ArticlePreview[] = [
-  {
-    category: 'Frontend systems',
-    title: 'Design systems without the drift',
-    summary: 'Practical notes on keeping components calm, consistent, and useful as products grow.',
-  },
-  {
-    category: 'Accessibility',
-    title: 'Make polished feel effortless',
-    summary: 'Why the best interfaces usually remove friction before they add decoration.',
-  },
-  {
-    category: 'Product thinking',
-    title: 'Small tools can carry big clarity',
-    summary: 'A case for narrow, focused utilities that solve one problem really well.',
-  },
-]
-
-const projectPreviews: ProjectPreview[] = [
-  {
-    title: 'DateTime Dojo',
-    label: 'Live utility',
-    summary: 'A focused date formatting tool built to make common time conversions feel instant.',
-  },
-  {
-    title: 'Portfolio vNext',
-    label: 'In progress',
-    summary:
-      'An editorial portfolio system with richer writing, clearer case studies, and softer motion.',
-  },
-  {
-    title: 'Interface studies',
-    label: 'Ongoing',
-    summary: 'Experiments in interaction design, layout rhythm, and product detail work.',
+    note: 'Project previews, experiments, and small useful tools',
   },
 ]
 
@@ -127,7 +79,53 @@ function SocialLinks({ className }: { className?: string }) {
   )
 }
 
+function ArticleCard({ post }: { post: (typeof allPosts)[number] }) {
+  return (
+    <article className="overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/85 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)]">
+      {post.imageId ? (
+        <div className="aspect-16/10 overflow-hidden border-b border-black/8 bg-black/5">
+          <img
+            src={`${IMAGE_BASE_URL}${post.imageId}`}
+            alt={post.imageAlt ?? post.title}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      ) : null}
+
+      <div className="p-5">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span className="text-xs text-muted/70">{formatPostDate(post.date)}</span>
+        </div>
+
+        <h3 className="mt-4 font-display text-3xl leading-[1.02] tracking-[-0.04em] text-ink sm:text-[2rem]">
+          {post.title}
+        </h3>
+      </div>
+    </article>
+  )
+}
+
+function formatPostDate(date: string) {
+  return new Intl.DateTimeFormat('en', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date(date))
+}
+
+function formatProjectHost(link: string) {
+  return new URL(link).hostname.replace(/^www\./, '')
+}
+
 export function Home() {
+  const sortedPosts = allPosts
+    .filter(post => post.published)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const featuredPosts = sortedPosts.slice(0, 3)
+  const sortedProjects = allProjects
+    .filter(project => !project.archived)
+    .sort((a, b) => a.order - b.order)
+
   return (
     <div id="home" className="relative min-h-screen overflow-x-clip bg-bg text-ink">
       <div className="pointer-events-none absolute inset-0">
@@ -310,30 +308,14 @@ export function Home() {
                 </h2>
               </div>
               <p className="max-w-md text-sm leading-7 text-muted sm:text-base">
-                Each card hints at the future article archive while still doing useful work on the
-                home page.
+                Recent writing on frontend engineering, product thinking, and the details that make
+                software more useful.
               </p>
             </div>
 
-            <div className="mt-8 grid gap-4 lg:grid-cols-3">
-              {articlePreviews.map(article => (
-                <article
-                  key={article.title}
-                  className="rounded-[1.75rem] border border-black/10 bg-white/85 p-5 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)]"
-                >
-                  <p className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-muted">
-                    {article.category}
-                  </p>
-                  <h3 className="mt-5 font-display text-3xl leading-[1.02] tracking-[-0.04em] text-ink">
-                    {article.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-                    {article.summary}
-                  </p>
-                  <p className="mt-6 text-sm font-medium text-accent">
-                    Coming into the Articles page
-                  </p>
-                </article>
+            <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {featuredPosts.map(post => (
+                <ArticleCard key={post.slug} post={post} />
               ))}
             </div>
           </section>
@@ -342,60 +324,41 @@ export function Home() {
             id="projects"
             className="rounded-[2.2rem] border border-black/10 bg-white/68 p-6 shadow-[0_16px_60px_rgba(24,21,17,0.06)] backdrop-blur sm:p-8"
           >
-            <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-              <div className="rounded-4xl border border-black/10 bg-ink p-6 text-white sm:p-7">
-                <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-white/55">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent">
                   Projects
                 </p>
-                <h2 className="mt-5 max-w-xl font-display text-4xl leading-[0.98] tracking-[-0.04em] text-white sm:text-5xl">
-                  Case studies should feel like product stories, not screenshot dumps.
+                <h2 className="mt-4 font-display text-4xl leading-none tracking-[-0.04em] text-ink">
+                  Selected projects.
                 </h2>
-                <p className="mt-5 max-w-xl text-sm leading-7 text-white/74 sm:text-base">
-                  The projects page can later open into full breakdowns, but the home page should
-                  already suggest craft, range, and clarity.
-                </p>
+              </div>
+              <p className="max-w-md text-sm leading-7 text-muted sm:text-base">
+                Live product previews that link straight to the work.
+              </p>
+            </div>
 
-                <div className="mt-8 rounded-[1.75rem] border border-white/12 bg-white/6 p-5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-[0.65rem] uppercase tracking-[0.28em] text-white/50">
-                        Featured preview
-                      </p>
-                      <h3 className="mt-4 font-display text-3xl leading-none tracking-[-0.04em] text-white">
-                        DateTime Dojo
-                      </h3>
-                    </div>
-                    <span className="rounded-full border border-white/12 px-3 py-1 text-[0.65rem] uppercase tracking-[0.26em] text-white/55">
-                      Utility
+            <div className="mt-8 grid gap-4">
+              {sortedProjects.map(project => (
+                <a
+                  key={project.title}
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-[1.75rem] border border-black/10 bg-white/85 p-5 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)]"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
+                      {project.title}
+                    </h3>
+                    <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-accent">
+                      {formatProjectHost(project.link)}
                     </span>
                   </div>
-                  <p className="mt-4 max-w-lg text-sm leading-7 text-white/72 sm:text-base">
-                    A small, focused product that proves the idea: clear scope, fast interaction,
-                    useful output, no wasted surface area.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid gap-4">
-                {projectPreviews.map(project => (
-                  <article
-                    key={project.title}
-                    className="rounded-[1.75rem] border border-black/10 bg-white/85 p-5 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)]"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
-                        {project.title}
-                      </h3>
-                      <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-accent">
-                        {project.label}
-                      </span>
-                    </div>
-                    <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-                      {project.summary}
-                    </p>
-                  </article>
-                ))}
-              </div>
+                  <p className="mt-4 text-sm leading-7 text-muted sm:text-base">{project.summary}</p>
+                  <p className="mt-5 text-sm font-medium text-ink">Open project</p>
+                </a>
+              ))}
             </div>
           </section>
         </main>

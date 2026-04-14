@@ -45,9 +45,7 @@ We initialised the `useState` hook by returning the initial value from the `useL
 const [value, setValue] = React.useState<T | undefined>(() => {
   const localStorageValue = localStorage.getItem(key)
 
-  return localStorageValue !== null
-    ? parseJSON(localStorageValue)
-    : initialValue
+  return localStorageValue !== null ? parseJSON(localStorageValue) : initialValue
 })
 ```
 
@@ -76,7 +74,7 @@ const update = React.useCallback(
       localStorage.setItem(key, JSON.stringify(newValue))
     }
   },
-  [key],
+  [key]
 )
 ```
 
@@ -107,7 +105,7 @@ const set = React.useCallback(
       localStorage.setItem(key, JSON.stringify(newValue))
     } catch (error) {}
   },
-  [key],
+  [key]
 )
 
 const remove = React.useCallback(() => {
@@ -128,9 +126,7 @@ In its current form, our hook would only run in the browser. It will throw an er
 const [value, setValue] = React.useState<T | undefined>(() => {
   const localStorageValue = localStorage.getItem(key)
 
-  return localStorageValue !== null
-    ? JSON.parse(localStorageValue)
-    : initialValue
+  return localStorageValue !== null ? JSON.parse(localStorageValue) : initialValue
 })
 ```
 
@@ -147,8 +143,7 @@ React.useLayoutEffect(() => {
   try {
     const localStorageValue = localStorage.getItem(key)
 
-    initialValue =
-      localStorageValue !== null ? parseJSON(localStorageValue) : initialValue
+    initialValue = localStorageValue !== null ? parseJSON(localStorageValue) : initialValue
 
     setValue(initialValue)
   } catch (error) {
