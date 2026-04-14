@@ -1,10 +1,9 @@
 import styles from './styles.css?url'
+import type { DocumentProps } from 'rwsdk/router'
 
-interface DocumentProps {
-  children: React.ReactNode
-}
+export function Document({ children, ctx }: DocumentProps) {
+  const theme = ctx.theme
 
-export function Document({ children }: DocumentProps) {
   return (
     <html lang="en">
       <head>

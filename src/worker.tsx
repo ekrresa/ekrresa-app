@@ -1,18 +1,28 @@
-import { render, route } from 'rwsdk/router'
+import { layout, render, route } from 'rwsdk/router'
 import { defineApp } from 'rwsdk/worker'
 
 import { Document } from '@/app/document'
 import { setCommonHeaders } from '@/app/headers'
 import { Home } from '@/app/pages/home'
-import { PalettePage } from '@/app/pages/palette'
+import { type Theme } from './app/components/ThemeProvider'
+import AppLayout from './app/components/AppLayout'
 
-export type AppContext = {}
+export type AppContext = {
+  theme: Theme
+}
 
 export default defineApp([
   setCommonHeaders(),
-  ({ ctx }) => {
-    // setup ctx here
-    ctx
+  function setTheme({ ctx, request }) {
+    // Extract the theme from the cookie
+    const theme =
+      request.headers
+        .get('cookie')
+        ?.split(';')
+        .find(cookie => cookie.trim().startsWith('theme='))
+        ?.split('=')[1] ?? 'light'
+
+    ctx.theme = theme as Theme
   },
-  render(Document, [route('/', Home), route('/palette', PalettePage)]),
+  render(Document, [layout(AppLayout, [route('/', Home)])]),
 ])

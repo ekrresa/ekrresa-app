@@ -2,6 +2,8 @@ import { IMAGE_BASE_URL, siteMetadata } from '@/app/lib/utils'
 import { allPosts, allProjects } from 'content-collections'
 import { Briefcase, House, Newspaper, type LucideIcon } from 'lucide-react'
 
+import { ThemeToggle } from '../components/ThemeToggle'
+
 interface PageIndexItem {
   label: string
   href: string
@@ -128,18 +130,20 @@ export function Home() {
         <aside className="hidden lg:sticky lg:top-8 lg:block lg:h-fit">
           <div className="rounded-4xl border border-black/10 bg-white/55 p-5 shadow-[0_20px_80px_rgba(24,21,17,0.08)] backdrop-blur">
             <div className="mb-6 border-b border-black/8 pb-5">
-              <div className="flex items-center gap-3">
-                <img
-                  src="/icons/logo-light.svg"
-                  alt="Ochuko Ekrresa logo"
-                  className="h-8 w-8 shrink-0"
-                />
-                <div className="min-w-0">
-                  <p className="text-[0.62rem] font-medium uppercase tracking-[0.3em] text-muted">
-                    Ochuko Ekrresa
-                  </p>
-                  <p className="mt-1 text-sm text-muted/85">Software engineer</p>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/icons/logo-light.svg"
+                    alt="Ochuko Ekrresa logo"
+                    className="h-8 w-8 shrink-0"
+                  />
+                  <div className="min-w-0">
+                    <p className="text-[0.62rem] font-medium uppercase tracking-[0.3em] text-muted">
+                      Ochuko Ekrresa
+                    </p>
+                  </div>
                 </div>
+                <ThemeToggle />
               </div>
               <SocialLinks className="mt-4 flex items-center gap-2" />
             </div>
@@ -167,9 +171,14 @@ export function Home() {
           <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur sm:p-8 xl:p-10">
             <div className="grid gap-8">
               <div>
-                <p className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent lg:hidden">
-                  Ochuko Ekrresa / Software engineer
-                </p>
+                <div className="flex items-start justify-between gap-4 lg:block">
+                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent lg:hidden">
+                    Ochuko Ekrresa / Software engineer
+                  </p>
+                  <div className="lg:hidden">
+                    <ThemeToggle />
+                  </div>
+                </div>
                 <h1 className="mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl lg:text-7xl">
                   Building thoughtful products for the web with clarity, craft, and care.
                 </h1>

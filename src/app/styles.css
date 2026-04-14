@@ -43,3 +43,23 @@
     background: rgba(159, 95, 63, 0.2);
   }
 }
+
+@layer components {
+  .sh__line::before {
+    counter-increment: sh-line-number 1;
+    content: counter(sh-line-number);
+    margin-right: 24px;
+    text-align: right;
+    color: #4b5263;
+  }
+}
+
+@layer utilities {
+  .safe-area {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding-top: env(safe-area-inset-top, 0);
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+    min-height: 100svh;
+  }
+}
