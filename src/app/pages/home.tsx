@@ -1,11 +1,11 @@
 import { IMAGE_BASE_URL, siteMetadata } from '@/app/lib/utils'
 import { allPosts, allProjects } from 'content-collections'
+import { Briefcase, House, Newspaper, type LucideIcon } from 'lucide-react'
 
 interface PageIndexItem {
-  id: string
   label: string
   href: string
-  note: string
+  icon: LucideIcon
 }
 
 interface SocialLink {
@@ -15,19 +15,9 @@ interface SocialLink {
 }
 
 const pageIndexItems: PageIndexItem[] = [
-  { id: '01', label: 'Home', href: '#home', note: 'Point of view, tone, and first impression' },
-  {
-    id: '02',
-    label: 'Articles',
-    href: '#articles',
-    note: 'Essays on craft, product thinking, and the web',
-  },
-  {
-    id: '03',
-    label: 'Projects',
-    href: '#projects',
-    note: 'Project previews, experiments, and small useful tools',
-  },
+  { label: 'Home', href: '#home', icon: House },
+  { label: 'Articles', href: '#articles', icon: Newspaper },
+  { label: 'Projects', href: '#projects', icon: Briefcase },
 ]
 
 const socialLinks: SocialLink[] = [
@@ -157,37 +147,21 @@ export function Home() {
               <SocialLinks className="mt-4 flex items-center gap-2" />
             </div>
 
-            <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-muted">
-              Page index
-            </p>
             <div className="mt-6 space-y-3">
               {pageIndexItems.map(item => (
                 <a
-                  key={item.id}
+                  key={item.label}
                   href={item.href}
-                  className="group block rounded-3xl border border-black/8 bg-white/70 px-4 py-4 transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white"
+                  className="group flex items-center justify-between rounded-3xl border border-black/8 bg-white/62 px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)]"
                 >
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-black/10 text-[0.65rem] font-medium tracking-[0.22em] text-muted">
-                      {item.id}
+                  <span className="flex items-center gap-3">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink">
+                      <item.icon size={16} strokeWidth={1.8} />
                     </span>
-                    <span className="block">
-                      <span className="block text-sm font-medium text-ink">{item.label}</span>
-                      <span className="mt-1 block text-sm leading-6 text-muted">{item.note}</span>
-                    </span>
-                  </div>
+                    <span className="block text-base font-medium text-ink">{item.label}</span>
+                  </span>
                 </a>
               ))}
-            </div>
-
-            <div className="mt-6 rounded-3xl border border-black/8 bg-ink px-4 py-5 text-white shadow-[0_18px_40px_rgba(24,21,17,0.16)]">
-              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-white/60">
-                Why this works
-              </p>
-              <p className="mt-3 text-sm leading-6 text-white/78">
-                The navigation lives inside the composition instead of sitting above it, so the page
-                feels authored before it feels navigated.
-              </p>
             </div>
           </div>
         </aside>
@@ -239,25 +213,6 @@ export function Home() {
                     clarity, speed, and everyday usefulness.
                   </p>
                 </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="rounded-3xl border border-black/10 bg-white/80 p-4">
-                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Build</p>
-                    <p className="mt-3 text-sm leading-6 text-ink">Useful products for the web</p>
-                  </div>
-                  <div className="rounded-3xl border border-black/10 bg-white/80 p-4">
-                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Write</p>
-                    <p className="mt-3 text-sm leading-6 text-ink">
-                      Lessons, practice, and process
-                    </p>
-                  </div>
-                  <div className="rounded-3xl border border-black/10 bg-accent/10 p-4">
-                    <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">Focus</p>
-                    <p className="mt-3 text-sm leading-6 text-ink">
-                      Frontend quality and product detail
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
@@ -271,14 +226,7 @@ export function Home() {
                 <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent">
                   Articles
                 </p>
-                <h2 className="mt-4 font-display text-4xl leading-none tracking-[-0.04em] text-ink">
-                  Writing that reads like field notes, not filler.
-                </h2>
               </div>
-              <p className="max-w-md text-sm leading-7 text-muted sm:text-base">
-                Recent writing on frontend engineering, product thinking, and the details that make
-                software more useful.
-              </p>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -294,16 +242,10 @@ export function Home() {
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent">
+                <p className="text-md font-medium uppercase tracking-widest text-accent">
                   Projects
                 </p>
-                <h2 className="mt-4 font-display text-4xl leading-none tracking-[-0.04em] text-ink">
-                  Selected projects.
-                </h2>
               </div>
-              <p className="max-w-md text-sm leading-7 text-muted sm:text-base">
-                Live product previews that link straight to the work.
-              </p>
             </div>
 
             <div className="mt-8 grid gap-4">
@@ -338,7 +280,7 @@ export function Home() {
         <nav className="mx-auto flex max-w-md items-center justify-between gap-2 rounded-full border border-black/10 bg-white/88 p-2 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur">
           {pageIndexItems.map(item => (
             <a
-              key={item.id}
+              key={item.label}
               href={item.href}
               className="flex-1 rounded-full px-4 py-3 text-center text-sm font-medium text-ink transition hover:bg-black/5"
             >
