@@ -1,10 +1,15 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 @theme {
   --color-bg: #f6f1ea;
   --color-ink: #181511;
   --color-muted: #5f564d;
   --color-accent: #9f5f3f;
+  --color-surface: rgba(255, 255, 255, 0.78);
+  --color-surface-strong: rgba(255, 255, 255, 0.9);
+  --color-line: rgba(24, 21, 17, 0.1);
   --font-display:
     'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', serif;
 }
@@ -12,6 +17,17 @@
 @layer base {
   :root {
     color-scheme: light;
+  }
+
+  [data-theme='dark'] {
+    color-scheme: dark;
+    --color-bg: #111726;
+    --color-ink: #edf2ff;
+    --color-muted: #aab4cb;
+    --color-accent: #b59ad6;
+    --color-surface: rgba(24, 32, 51, 0.72);
+    --color-surface-strong: rgba(19, 25, 40, 0.88);
+    --color-line: rgba(237, 242, 255, 0.1);
   }
 
   html {
@@ -24,6 +40,13 @@
       radial-gradient(circle at top left, rgba(159, 95, 63, 0.12), transparent 34%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 241, 234, 0.96)), var(--color-bg);
     color: var(--color-ink);
+  }
+
+  [data-theme='dark'] body {
+    background:
+      radial-gradient(circle at top left, rgba(181, 154, 214, 0.16), transparent 32%),
+      radial-gradient(circle at top right, rgba(127, 144, 218, 0.12), transparent 26%),
+      linear-gradient(180deg, rgba(17, 23, 38, 0.92), rgba(9, 13, 24, 0.98)), var(--color-bg);
   }
 
   body::before {
@@ -39,8 +62,19 @@
     pointer-events: none;
   }
 
+  [data-theme='dark'] body::before {
+    background-image:
+      linear-gradient(rgba(237, 242, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(237, 242, 255, 0.05) 1px, transparent 1px);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.92));
+  }
+
   ::selection {
     background: rgba(159, 95, 63, 0.2);
+  }
+
+  [data-theme='dark'] ::selection {
+    background: rgba(181, 154, 214, 0.28);
   }
 }
 

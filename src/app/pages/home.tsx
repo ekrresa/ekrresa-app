@@ -62,7 +62,7 @@ function SocialLinks({ className }: { className?: string }) {
           target="_blank"
           rel="noreferrer"
           aria-label={link.label}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/72 text-muted transition hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:text-ink"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/72 text-muted transition hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:text-ink dark:border-white/10 dark:bg-white/7 dark:hover:border-white/18 dark:hover:bg-white/12"
         >
           {link.icon}
         </a>
@@ -73,9 +73,9 @@ function SocialLinks({ className }: { className?: string }) {
 
 function ArticleCard({ post }: { post: (typeof allPosts)[number] }) {
   return (
-    <article className="overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/85 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)]">
+    <article className="overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/85 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:hover:border-white/16 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
       {post.imageId ? (
-        <div className="aspect-16/10 overflow-hidden border-b border-black/8 bg-black/5">
+        <div className="aspect-16/10 overflow-hidden border-b border-black/8 bg-black/5 dark:border-white/8 dark:bg-white/6">
           <img
             src={`${IMAGE_BASE_URL}${post.imageId}`}
             alt={post.imageAlt ?? post.title}
@@ -122,25 +122,31 @@ export function Home() {
     <div id="home" className="relative min-h-screen overflow-x-clip bg-bg text-ink">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-48 -top-40 h-80 w-80 rounded-full bg-accent/18 blur-3xl" />
-        <div className="absolute -right-40 top-40 h-96 w-96 rounded-full bg-white/70 blur-3xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-black/10" />
+        <div className="absolute -right-40 top-40 h-96 w-96 rounded-full bg-white/70 blur-3xl dark:bg-accent/12" />
+        <div className="absolute inset-x-0 top-0 h-px bg-black/10 dark:bg-white/10" />
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-5 py-5 sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 xl:px-16">
         <aside className="hidden lg:sticky lg:top-8 lg:block lg:h-fit">
-          <div className="rounded-4xl border border-black/10 bg-white/55 p-5 shadow-[0_20px_80px_rgba(24,21,17,0.08)] backdrop-blur">
-            <div className="mb-6 border-b border-black/8 pb-5">
+          <div className="rounded-4xl border border-black/10 bg-white/55 p-5 shadow-[0_20px_80px_rgba(24,21,17,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
+            <div className="mb-6 border-b border-black/8 pb-5 dark:border-white/8">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <img
                     src="/icons/logo-light.svg"
                     alt="Ochuko Ekrresa logo"
-                    className="h-8 w-8 shrink-0"
+                    className="h-8 w-8 shrink-0 dark:hidden"
+                  />
+                  <img
+                    src="/icons/logo-dark.svg"
+                    alt="Ochuko Ekrresa logo"
+                    className="hidden h-8 w-8 shrink-0 dark:block"
                   />
                   <div className="min-w-0">
                     <p className="text-[0.62rem] font-medium uppercase tracking-[0.3em] text-muted">
                       Ochuko Ekrresa
                     </p>
+                    <p className="mt-1 text-sm text-muted/85">Software engineer</p>
                   </div>
                 </div>
                 <ThemeToggle />
@@ -153,10 +159,10 @@ export function Home() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="group flex items-center justify-between rounded-3xl border border-black/8 bg-white/62 px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)]"
+                  className="group flex items-center justify-between rounded-3xl border border-black/8 bg-white/62 px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-white/8 dark:bg-white/6 dark:hover:border-white/16 dark:hover:bg-white/10 dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink dark:border-white/8 dark:bg-white/8 dark:group-hover:border-white/16">
                       <item.icon size={16} strokeWidth={1.8} />
                     </span>
                     <span className="block text-base font-medium text-ink">{item.label}</span>
@@ -168,7 +174,7 @@ export function Home() {
         </aside>
 
         <main className="relative min-w-0 space-y-6 lg:space-y-8">
-          <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur sm:p-8 xl:p-10">
+          <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur sm:p-8 xl:p-10 dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)]">
             <div className="grid gap-8">
               <div>
                 <div className="flex items-start justify-between gap-4 lg:block">
@@ -191,13 +197,13 @@ export function Home() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href="#projects"
-                    className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black"
+                    className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black dark:bg-accent dark:text-[#111726] dark:hover:bg-[#c7b2e4]"
                   >
                     View projects
                   </a>
                   <a
                     href="#articles"
-                    className="rounded-full border border-black/10 bg-white/80 px-5 py-3 text-sm font-medium text-ink transition hover:border-black/20 hover:bg-white"
+                    className="rounded-full border border-black/10 bg-white/80 px-5 py-3 text-sm font-medium text-ink transition hover:border-black/20 hover:bg-white dark:border-white/10 dark:bg-white/7 dark:hover:border-white/18 dark:hover:bg-white/12"
                   >
                     Read articles
                   </a>
@@ -211,9 +217,9 @@ export function Home() {
                   href="https://eventdp.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="relative block overflow-hidden rounded-4xl border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,240,232,0.98))] px-6 py-6 shadow-[0_18px_50px_rgba(24,21,17,0.06)] transition hover:-translate-y-0.5 hover:border-black/15 hover:shadow-[0_24px_60px_rgba(24,21,17,0.08)] sm:px-7"
+                  className="relative block overflow-hidden rounded-4xl border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,240,232,0.98))] px-6 py-6 shadow-[0_18px_50px_rgba(24,21,17,0.06)] transition hover:-translate-y-0.5 hover:border-black/15 hover:shadow-[0_24px_60px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(24,32,51,0.92),rgba(14,19,31,0.98))] dark:hover:border-white/16 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:px-7"
                 >
-                  <div className="pointer-events-none absolute -right-10 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-accent/12 blur-3xl" />
+                  <div className="pointer-events-none absolute -right-10 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-accent/12 blur-3xl dark:bg-accent/18" />
 
                   <div className="relative flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
                     <div>
@@ -226,7 +232,7 @@ export function Home() {
                     </div>
 
                     <div className="flex items-center">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/82 px-3.5 py-2 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted shadow-[0_8px_24px_rgba(24,21,17,0.05)]">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/82 px-3.5 py-2 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted shadow-[0_8px_24px_rgba(24,21,17,0.05)] dark:border-white/10 dark:bg-white/8 dark:shadow-[0_10px_24px_rgba(0,0,0,0.22)]">
                         <span className="h-2 w-2 rounded-full bg-accent" />
                         In progress
                       </span>
@@ -239,7 +245,7 @@ export function Home() {
 
           <section
             id="articles"
-            className="rounded-[2.2rem] border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(251,246,240,0.95))] p-6 shadow-[0_16px_60px_rgba(24,21,17,0.06)] sm:p-8"
+            className="rounded-[2.2rem] border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(251,246,240,0.95))] p-6 shadow-[0_16px_60px_rgba(24,21,17,0.06)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(23,30,47,0.88),rgba(14,19,31,0.96))] dark:shadow-[0_18px_60px_rgba(0,0,0,0.3)] sm:p-8"
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
@@ -258,7 +264,7 @@ export function Home() {
 
           <section
             id="projects"
-            className="rounded-[2.2rem] border border-black/10 bg-white/68 p-6 shadow-[0_16px_60px_rgba(24,21,17,0.06)] backdrop-blur sm:p-8"
+            className="rounded-[2.2rem] border border-black/10 bg-white/68 p-6 shadow-[0_16px_60px_rgba(24,21,17,0.06)] backdrop-blur dark:border-white/10 dark:bg-white/6 dark:shadow-[0_18px_60px_rgba(0,0,0,0.3)] sm:p-8"
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
@@ -275,13 +281,13 @@ export function Home() {
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-[1.75rem] border border-black/10 bg-white/85 p-5 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)]"
+                  className="rounded-[1.75rem] border border-black/10 bg-white/85 p-5 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:hover:border-white/16 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
                 >
                   <div className="flex items-center justify-between gap-3">
                     <h3 className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
                       {project.title}
                     </h3>
-                    <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-accent">
+                    <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-accent dark:bg-accent/14">
                       {formatProjectHost(project.link)}
                     </span>
                   </div>
@@ -297,12 +303,12 @@ export function Home() {
       </div>
 
       <div className="fixed inset-x-4 bottom-4 z-20 lg:hidden">
-        <nav className="mx-auto flex max-w-md items-center justify-between gap-2 rounded-full border border-black/10 bg-white/88 p-2 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur">
+        <nav className="mx-auto flex max-w-md items-center justify-between gap-2 rounded-full border border-black/10 bg-white/88 p-2 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur dark:border-white/10 dark:bg-[#131928]/84 dark:shadow-[0_18px_45px_rgba(0,0,0,0.35)]">
           {pageIndexItems.map(item => (
             <a
               key={item.label}
               href={item.href}
-              className="flex-1 rounded-full px-4 py-3 text-center text-sm font-medium text-ink transition hover:bg-black/5"
+              className="flex-1 rounded-full px-4 py-3 text-center text-sm font-medium text-ink transition hover:bg-black/5 dark:hover:bg-white/8"
             >
               {item.label}
             </a>

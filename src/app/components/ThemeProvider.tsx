@@ -2,8 +2,6 @@
 
 import * as React from 'react'
 
-import { setThemeCookie } from '../lib/theme'
-
 export type Theme = 'light' | 'dark'
 
 interface ThemeState {
@@ -54,7 +52,7 @@ export function ThemeProvider(props: ThemeProviderProps) {
       root.setAttribute('data-theme', 'light')
     }
 
-    setThemeCookie(theme)
+    document.cookie = `theme=${theme}; Path=/; Max-Age=31536000; SameSite=Lax`
   }, [theme])
 
   const toggleTheme = React.useCallback(() => {

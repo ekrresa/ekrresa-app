@@ -5,10 +5,11 @@ export function Document({ children, ctx }: DocumentProps) {
   const theme = ctx.theme
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme={theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
         <title>Ochuko Ekrresa | Software Engineer</title>
         <meta
           name="description"
@@ -19,7 +20,7 @@ export function Document({ children, ctx }: DocumentProps) {
       </head>
       <body>
         {children}
-        <script>import("/src/client.tsx")</script>
+        <script type="module" src="/src/client.tsx"></script>
       </body>
     </html>
   )
