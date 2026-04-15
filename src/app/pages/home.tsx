@@ -62,7 +62,7 @@ function SocialLinks({ className }: { className?: string }) {
           target="_blank"
           rel="noreferrer"
           aria-label={link.label}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/72 text-muted transition hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:text-ink dark:border-white/10 dark:bg-white/7 dark:hover:border-white/18 dark:hover:bg-white/12"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/72 text-muted transition hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:text-ink dark:border-white/10 dark:bg-white/8 dark:text-muted dark:hover:border-[#8fa0ea]/45 dark:hover:bg-[#8fa0ea]/16 dark:hover:text-white"
         >
           {link.icon}
         </a>
@@ -86,7 +86,9 @@ function ArticleCard({ post }: { post: (typeof allPosts)[number] }) {
 
       <div className="p-5">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <span className="text-xs text-muted/70">{formatPostDate(post.date)}</span>
+          <span className="text-xs text-muted/70 dark:text-muted/90">
+            {formatPostDate(post.date)}
+          </span>
         </div>
 
         <h3 className="mt-4 font-display text-3xl leading-[1.02] tracking-[-0.04em] text-ink sm:text-[2rem]">
@@ -146,7 +148,6 @@ export function Home() {
                     <p className="text-[0.62rem] font-medium uppercase tracking-[0.3em] text-muted">
                       Ochuko Ekrresa
                     </p>
-                    <p className="mt-1 text-sm text-muted/85">Software engineer</p>
                   </div>
                 </div>
                 <ThemeToggle />
@@ -159,13 +160,15 @@ export function Home() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="group flex items-center justify-between rounded-3xl border border-black/8 bg-white/62 px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-white/8 dark:bg-white/6 dark:hover:border-white/16 dark:hover:bg-white/10 dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]"
+                  className="group flex items-center justify-between rounded-3xl border border-black/8 bg-white/62 px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-white/8 dark:bg-white/6 dark:hover:border-[#8fa0ea]/30 dark:hover:bg-[#8fa0ea]/10 dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink dark:border-white/8 dark:bg-white/8 dark:group-hover:border-white/16">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink dark:border-white/8 dark:bg-white/8 dark:text-muted dark:group-hover:border-[#8fa0ea]/35 dark:group-hover:bg-[#8fa0ea]/12 dark:group-hover:text-white">
                       <item.icon size={16} strokeWidth={1.8} />
                     </span>
-                    <span className="block text-base font-medium text-ink">{item.label}</span>
+                    <span className="block text-base font-medium text-ink dark:text-[#f3f6ff]">
+                      {item.label}
+                    </span>
                   </span>
                 </a>
               ))}
@@ -178,7 +181,7 @@ export function Home() {
             <div className="grid gap-8">
               <div>
                 <div className="flex items-start justify-between gap-4 lg:block">
-                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent lg:hidden">
+                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent dark:text-[#d1baf0] lg:hidden">
                     Ochuko Ekrresa / Software engineer
                   </p>
                   <div className="lg:hidden">
@@ -188,7 +191,7 @@ export function Home() {
                 <h1 className="mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl lg:text-7xl">
                   Building thoughtful products for the web with clarity, craft, and care.
                 </h1>
-                <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+                <p className="mt-6 max-w-2xl text-base leading-8 text-muted dark:text-[#c7d1e8] sm:text-lg">
                   I&apos;m Ochuko, a software engineer focused on building useful web experiences,
                   refining frontend systems, and sharing what I learn about web development, best
                   practices, and product thinking.
@@ -197,13 +200,13 @@ export function Home() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href="#projects"
-                    className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black dark:bg-accent dark:text-[#111726] dark:hover:bg-[#c7b2e4]"
+                    className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black dark:border dark:border-[#a5b2ec]/55 dark:bg-[#8fa0ea] dark:text-[#0e1525] dark:shadow-[0_18px_40px_rgba(127,144,218,0.28)] dark:hover:-translate-y-0.5 dark:hover:bg-[#a5b2ec] dark:hover:shadow-[0_22px_46px_rgba(127,144,218,0.34)]"
                   >
                     View projects
                   </a>
                   <a
                     href="#articles"
-                    className="rounded-full border border-black/10 bg-white/80 px-5 py-3 text-sm font-medium text-ink transition hover:border-black/20 hover:bg-white dark:border-white/10 dark:bg-white/7 dark:hover:border-white/18 dark:hover:bg-white/12"
+                    className="rounded-full border border-black/10 bg-white/80 px-5 py-3 text-sm font-medium text-ink transition hover:border-black/20 hover:bg-white dark:border-white/14 dark:bg-white/9 dark:text-[#dbe4ff] dark:hover:-translate-y-0.5 dark:hover:border-white/24 dark:hover:bg-white/14"
                   >
                     Read articles
                   </a>
@@ -223,7 +226,7 @@ export function Home() {
 
                   <div className="relative flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                      <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-muted">
+                      <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-muted dark:text-[#d1daef]">
                         Currently building
                       </p>
                       <p className="mt-4 font-display text-4xl leading-none tracking-[-0.05em] text-ink sm:text-5xl">
@@ -232,7 +235,7 @@ export function Home() {
                     </div>
 
                     <div className="flex items-center">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/82 px-3.5 py-2 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted shadow-[0_8px_24px_rgba(24,21,17,0.05)] dark:border-white/10 dark:bg-white/8 dark:shadow-[0_10px_24px_rgba(0,0,0,0.22)]">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/82 px-3.5 py-2 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted shadow-[0_8px_24px_rgba(24,21,17,0.05)] dark:border-white/12 dark:bg-white/10 dark:text-[#d6ddf2] dark:shadow-[0_10px_24px_rgba(0,0,0,0.22)]">
                         <span className="h-2 w-2 rounded-full bg-accent" />
                         In progress
                       </span>
@@ -249,7 +252,7 @@ export function Home() {
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent">
+                <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent dark:text-[#d1baf0]">
                   Articles
                 </p>
               </div>
@@ -268,7 +271,7 @@ export function Home() {
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-md font-medium uppercase tracking-widest text-accent">
+                <p className="text-md font-medium uppercase tracking-widest text-accent dark:text-[#d1baf0]">
                   Projects
                 </p>
               </div>
@@ -287,11 +290,11 @@ export function Home() {
                     <h3 className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
                       {project.title}
                     </h3>
-                    <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-accent dark:bg-accent/14">
+                    <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-accent dark:bg-[#8fa0ea]/14 dark:text-[#b8c3f3]">
                       {formatProjectHost(project.link)}
                     </span>
                   </div>
-                  <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+                  <p className="mt-4 text-sm leading-7 text-muted dark:text-[#c7d1e8] sm:text-base">
                     {project.summary}
                   </p>
                   <p className="mt-5 text-sm font-medium text-ink">Open project</p>
@@ -303,12 +306,12 @@ export function Home() {
       </div>
 
       <div className="fixed inset-x-4 bottom-4 z-20 lg:hidden">
-        <nav className="mx-auto flex max-w-md items-center justify-between gap-2 rounded-full border border-black/10 bg-white/88 p-2 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur dark:border-white/10 dark:bg-[#131928]/84 dark:shadow-[0_18px_45px_rgba(0,0,0,0.35)]">
+        <nav className="mx-auto flex max-w-md items-center justify-between gap-2 rounded-full border border-black/10 bg-white/88 p-2 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur dark:border-white/12 dark:bg-[linear-gradient(180deg,rgba(17,23,38,0.94),rgba(12,17,29,0.92))] dark:shadow-[0_18px_45px_rgba(0,0,0,0.42)]">
           {pageIndexItems.map(item => (
             <a
               key={item.label}
               href={item.href}
-              className="flex-1 rounded-full px-4 py-3 text-center text-sm font-medium text-ink transition hover:bg-black/5 dark:hover:bg-white/8"
+              className="flex-1 rounded-full px-4 py-3 text-center text-sm font-medium text-ink transition hover:bg-black/5 dark:border dark:border-transparent dark:bg-white/5 dark:text-[#dbe4ff] dark:hover:border-[#8fa0ea]/24 dark:hover:bg-[#8fa0ea]/14 dark:hover:text-white"
             >
               {item.label}
             </a>
