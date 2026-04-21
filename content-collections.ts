@@ -53,5 +53,5 @@ const posts = defineCollection({
 })
 
 export default defineConfig({
-  collections: [projects, posts],
+  content: [projects, posts],
 })
