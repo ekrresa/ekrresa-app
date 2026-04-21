@@ -3,6 +3,7 @@ import { defineApp } from 'rwsdk/worker'
 
 import { Document } from '@/app/document'
 import { setCommonHeaders } from '@/app/headers'
+import { ArticlesPage } from '@/app/pages/articles'
 import { Home } from '@/app/pages/home'
 import { type Theme } from './app/components/ThemeProvider'
 import AppLayout from './app/components/AppLayout'
@@ -24,5 +25,5 @@ export default defineApp([
 
     ctx.theme = theme as Theme
   },
-  render(Document, [layout(AppLayout, [route('/', Home)])]),
+  render(Document, [layout(AppLayout, [route('/', Home), route('/articles', ArticlesPage)])]),
 ])

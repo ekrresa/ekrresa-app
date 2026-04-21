@@ -205,7 +205,7 @@ export function Home() {
                     View projects
                   </a>
                   <a
-                    href="#articles"
+                    href="/articles"
                     className="rounded-full border border-black/10 bg-white/80 px-5 py-3 text-sm font-medium text-ink transition hover:border-black/20 hover:bg-white dark:border-white/14 dark:bg-white/9 dark:text-[#dbe4ff] dark:hover:-translate-y-0.5 dark:hover:border-white/24 dark:hover:bg-white/14"
                   >
                     Read articles
@@ -256,6 +256,12 @@ export function Home() {
                   Articles
                 </p>
               </div>
+              <a
+                href="/articles"
+                className="text-sm font-medium text-muted transition hover:text-ink dark:text-[#c7d1e8] dark:hover:text-white"
+              >
+                View all articles
+              </a>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -306,14 +312,17 @@ export function Home() {
       </div>
 
       <div className="fixed inset-x-4 bottom-4 z-20 lg:hidden">
-        <nav className="mx-auto flex max-w-md items-center justify-between gap-2 rounded-full border border-black/10 bg-white/88 p-2 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur dark:border-white/12 dark:bg-[linear-gradient(180deg,rgba(17,23,38,0.94),rgba(12,17,29,0.92))] dark:shadow-[0_18px_45px_rgba(0,0,0,0.42)]">
+        <nav className="mx-auto grid max-w-md grid-cols-3 gap-2 rounded-[1.75rem] border border-black/10 bg-white/88 p-2.5 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur dark:border-white/12 dark:bg-[linear-gradient(180deg,rgba(17,23,38,0.94),rgba(12,17,29,0.92))] dark:shadow-[0_18px_45px_rgba(0,0,0,0.42)]">
           {pageIndexItems.map(item => (
             <a
               key={item.label}
               href={item.href}
-              className="flex-1 rounded-full px-4 py-3 text-center text-sm font-medium text-ink transition hover:bg-black/5 dark:border dark:border-transparent dark:bg-white/5 dark:text-[#dbe4ff] dark:hover:border-[#8fa0ea]/24 dark:hover:bg-[#8fa0ea]/14 dark:hover:text-white"
+              className="group flex flex-col items-center justify-center gap-2 rounded-[1.2rem] border border-black/8 bg-white/62 px-3 py-3 text-center shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-white/8 dark:bg-white/6 dark:hover:border-[#8fa0ea]/24 dark:hover:bg-[#8fa0ea]/14 dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]"
             >
-              {item.label}
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink dark:border-white/8 dark:bg-white/8 dark:text-muted dark:group-hover:border-[#8fa0ea]/35 dark:group-hover:bg-[#8fa0ea]/12 dark:group-hover:text-white">
+                <item.icon size={15} strokeWidth={1.8} />
+              </span>
+              <span className="text-xs font-medium text-ink dark:text-[#dbe4ff]">{item.label}</span>
             </a>
           ))}
         </nav>
