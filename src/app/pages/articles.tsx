@@ -40,40 +40,32 @@ export function ArticlesPage() {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-bg text-ink">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-48 -top-40 h-80 w-80 rounded-full bg-accent/18 blur-3xl" />
-        <div className="absolute -right-40 top-40 h-96 w-96 rounded-full bg-white/70 blur-3xl dark:bg-accent/12" />
-        <div className="absolute inset-x-0 top-0 h-px bg-black/10 dark:bg-white/10" />
-      </div>
-
-      <main className="relative mx-auto max-w-7xl px-5 py-5 sm:px-6 lg:px-10 lg:py-8 xl:px-16">
-        <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)] sm:p-8 xl:p-10">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <a
-                href="/"
-                className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent dark:text-[#d1baf0]"
-              >
-                Home
-              </a>
-              <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl">
-                Articles on frontend engineering, product thinking, and web craft.
-              </h1>
-            </div>
-
-            <p className="max-w-md text-sm leading-7 text-muted dark:text-[#c7d1e8] sm:text-base">
-              A growing archive of notes, lessons, and ideas from building products for the web.
-            </p>
+    <main className="relative">
+      <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)] sm:p-8 xl:p-10">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <a
+              href="/"
+              className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent dark:text-[#d1baf0]"
+            >
+              Home
+            </a>
+            <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl">
+              Articles on frontend engineering, product thinking, and web craft.
+            </h1>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {sortedPosts.map(post => (
-              <ArticleCard key={post.slug} post={post} />
-            ))}
-          </div>
-        </section>
-      </main>
-    </div>
+          <p className="max-w-md text-sm leading-7 text-muted dark:text-[#c7d1e8] sm:text-base">
+            A growing archive of notes, lessons, and ideas from building products for the web.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {sortedPosts.map(post => (
+            <ArticleCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </section>
+    </main>
   )
 }
