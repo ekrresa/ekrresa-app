@@ -96,15 +96,14 @@ export function Home() {
               </div>
             </div>
             <h1 className="mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl lg:text-7xl">
-              Building thoughtful products for the web with clarity, craft, and care.
+              Products. Writing. Experiments.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted dark:text-[#c7d1e8] sm:text-lg">
-              I&apos;m Ochuko, a software engineer focused on building useful web experiences,
-              refining frontend systems, and sharing what I learn about web development, best
-              practices, and product thinking.
+              Building useful products. Designing reliable systems. Sharing insights from lessons
+              learned in software and product design.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-12 flex flex-wrap gap-3">
               <a
                 href="#projects"
                 className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-black dark:border dark:border-[#a5b2ec]/55 dark:bg-[#8fa0ea] dark:text-[#0e1525] dark:shadow-[0_18px_40px_rgba(127,144,218,0.28)] dark:hover:-translate-y-0.5 dark:hover:bg-[#a5b2ec] dark:hover:shadow-[0_22px_46px_rgba(127,144,218,0.34)]"
