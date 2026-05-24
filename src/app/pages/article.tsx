@@ -103,7 +103,7 @@ export function Article({ params }: { params: { slug: string } }) {
           More writing
         </a>
 
-        <div className="mt-8 prose prose-lg max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-p:leading-8 prose-li:text-muted prose-li:leading-8 prose-strong:text-ink prose-a:text-accent prose-a:decoration-accent/30 prose-a:underline-offset-4 hover:prose-a:text-ink prose-blockquote:border-l-accent/40 prose-blockquote:text-ink prose-figcaption:text-muted prose-hr:border-black/8 prose-code:rounded-md prose-code:bg-black/4 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[0.92em] prose-code:text-ink prose-code:before:content-none prose-code:after:content-none prose-pre:border-0 prose-pre:bg-transparent prose-pre:p-0 dark:prose-headings:text-white dark:prose-p:text-[#c7d1e8] dark:prose-li:text-[#c7d1e8] dark:prose-strong:text-white dark:prose-a:text-[#d9c8f1] dark:hover:prose-a:text-white dark:prose-blockquote:border-l-[#8fa0ea]/40 dark:prose-blockquote:text-[#eef3ff] dark:prose-figcaption:text-[#c7d1e8] dark:prose-hr:border-white/8 dark:prose-code:bg-white/8 dark:prose-code:text-[#eef3ff]">
+        <div className="mt-8 prose prose-lg max-w-none prose-code:text-ink dark:prose-code:text-[#eef3ff] prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-p:leading-8 prose-li:text-muted prose-li:leading-8 prose-strong:text-ink prose-a:text-accent prose-a:decoration-accent/30 prose-a:underline-offset-4 hover:prose-a:text-ink prose-blockquote:border-l-accent/40 prose-blockquote:text-ink prose-figcaption:text-muted prose-hr:border-black/8 dark:prose-headings:text-white dark:prose-p:text-[#c7d1e8] dark:prose-li:text-[#c7d1e8] dark:prose-strong:text-white dark:prose-a:text-[#d9c8f1] dark:hover:prose-a:text-white dark:prose-blockquote:border-l-[#8fa0ea]/40 dark:prose-blockquote:text-[#eef3ff] dark:prose-figcaption:text-[#c7d1e8] dark:prose-hr:border-white/8">
           <SafeMdxRenderer
             markdown={post.content}
             mdast={mdast}
@@ -113,7 +113,7 @@ export function Article({ params }: { params: { slug: string } }) {
                 const html = highlight(node.value)
 
                 return (
-                  <pre className="relative overflow-x-auto rounded-3xl border border-black/8 bg-ink px-5 py-5 text-[0.95rem] shadow-[0_18px_50px_rgba(24,21,17,0.18)] dark:border-white/10 dark:bg-[#0d1320] dark:shadow-[0_18px_50px_rgba(0,0,0,0.35)] sm:px-6">
+                  <pre className="relative bg-gray-800 dark:bg-white/6 overflow-x-auto rounded-3xl border border-black/8 p-5 shadow-[0_18px_50px_rgba(24,21,17,0.18)]">
                     <CopyCode code={node.value} />
                     <code dangerouslySetInnerHTML={{ __html: html }} />
                   </pre>
