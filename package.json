@@ -1,11 +1,11 @@
 {
-  "name": "@redwoodjs/starter",
+  "name": "ekrresa.com",
   "version": "1.0.0",
   "private": true,
-  "description": "A bare-bones RedwoodSDK starter",
+  "description": "Ochuko Ekrresa's personal website",
   "keywords": [],
   "license": "MIT",
-  "author": "",
+  "author": "Ochuko Ekrresa - Software Engineer",
   "type": "module",
   "main": "index.js",
   "scripts": {

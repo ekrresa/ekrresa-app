@@ -121,7 +121,7 @@ export function Home() {
             <SocialLinks className="mt-6 flex items-center gap-2 lg:hidden" />
           </div>
 
-          <div className="max-w-3xl">
+          <div>
             <a
               href="https://eventdp.com"
               target="_blank"
@@ -139,13 +139,6 @@ export function Home() {
                     EventDP
                   </p>
                 </div>
-
-                <div className="flex items-center">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/82 px-3.5 py-2 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted shadow-[0_8px_24px_rgba(24,21,17,0.05)] dark:border-white/12 dark:bg-white/10 dark:text-[#d6ddf2] dark:shadow-[0_10px_24px_rgba(0,0,0,0.22)]">
-                    <span className="h-2 w-2 rounded-full bg-accent" />
-                    In progress
-                  </span>
-                </div>
               </div>
             </a>
           </div>
@@ -158,7 +151,7 @@ export function Home() {
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-accent dark:text-[#d1baf0]">
+            <p className="text-sm uppercase tracking-widest text-accent dark:text-[#d1baf0]">
               Articles
             </p>
           </div>
@@ -185,7 +178,7 @@ export function Home() {
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-md font-medium uppercase tracking-widest text-accent dark:text-[#d1baf0]">
+            <p className="text-sm uppercase tracking-widest text-accent dark:text-[#d1baf0]">
               Projects
             </p>
           </div>
