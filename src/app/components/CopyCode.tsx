@@ -63,7 +63,7 @@ export default function CopyCode({ code }: CopyCodeProps) {
   return (
     <Button
       aria-label="Copy code"
-      className="absolute top-4 right-4 bg-transparent text-gray-500 hover:bg-gray-700 hover:text-gray-200 rounded-md p-1.5"
+      className="absolute right-4 top-4 rounded-full border border-white/10 bg-white/8 p-2 text-[#c7d1e8] backdrop-blur transition hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/14 hover:text-white"
       onPress={handleCopy}
     >
       <AnimatePresence>

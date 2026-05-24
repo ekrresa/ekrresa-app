@@ -20,10 +20,10 @@ function CustomLink({ href, children, ...props }: ComponentPropsWithoutRef<'a'>)
 
 function CustomImage({ src, alt, ...props }: ComponentPropsWithoutRef<'img'>) {
   return (
-    <span className="block my-8 overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
+    <span className="my-10 block overflow-hidden rounded-3xl border border-black/8 bg-white/72 shadow-[0_14px_40px_rgba(24,21,17,0.06)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_16px_40px_rgba(0,0,0,0.24)]">
       <img src={src} alt={alt} className="w-full h-auto" {...props} />
       {alt && (
-        <span className="block py-2 px-4 text-sm text-center text-gray-500 bg-gray-50 dark:bg-gray-900 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
+        <span className="block border-t border-black/8 bg-black/2 px-4 py-3 text-center text-sm text-muted dark:border-white/10 dark:bg-white/5 dark:text-[#c7d1e8]">
           {alt}
         </span>
       )}
