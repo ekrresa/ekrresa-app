@@ -20,6 +20,15 @@
 @layer base {
   :root {
     color-scheme: light;
+    --sh-class: #e5c07b; /* Classes and types */
+    --sh-identifier: #e06c75; /* Variables and identifiers */
+    --sh-sign: #56b6c2; /* Brackets, operators, and punctuation */
+    --sh-property: #d19a66; /* Object properties */
+    --sh-entity: #61afef; /* Function names and entities */
+    --sh-jsxliterals: #abb2bf; /* JSX text content */
+    --sh-string: #98c379; /* Strings */
+    --sh-keyword: #c678dd; /* Keywords (const, let, import, etc.) */
+    --sh-comment: #5c6370; /* Comments */
   }
 
   [data-theme='dark'] {
@@ -78,6 +87,10 @@
 
   [data-theme='dark'] ::selection {
     background: rgba(181, 154, 214, 0.28);
+  }
+
+  pre code {
+    counter-reset: sh-line-number;
   }
 }
 
