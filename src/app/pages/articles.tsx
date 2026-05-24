@@ -11,12 +11,11 @@ export function ArticlesPage() {
       <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)] sm:p-8 xl:p-10">
         <div className="flex flex-col gap-5 mb-20">
           <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl">
-            Articles on frontend engineering and product thinking.
+            Writing on software, systems, and product design.
           </h1>
 
           <p className="text-sm leading-7 text-muted dark:text-[#c7d1e8] sm:text-base">
-            A growing archive of notes, lessons, and ideas from building products as a frontend
-            engineer.
+            Sharing what I've learned from building products and running experiments.
           </p>
         </div>
 
