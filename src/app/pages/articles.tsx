@@ -1,38 +1,5 @@
-import { IMAGE_BASE_URL } from '@/app/lib/utils'
+import { ArticleCard } from '@/app/components/ArticleCard'
 import { allPosts } from 'content-collections'
-
-function formatPostDate(date: string) {
-  return new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  }).format(new Date(date))
-}
-
-function ArticleCard({ post }: { post: (typeof allPosts)[number] }) {
-  return (
-    <article className="overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/85 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:hover:border-white/16 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
-      {post.imageId ? (
-        <div className="aspect-16/10 overflow-hidden border-b border-black/8 bg-black/5 dark:border-white/8 dark:bg-white/6">
-          <img
-            src={`${IMAGE_BASE_URL}${post.imageId}`}
-            alt={post.imageAlt ?? post.title}
-            className="h-full w-full object-cover"
-          />
-        </div>
-      ) : null}
-
-      <div className="p-5">
-        <span className="text-xs text-muted/70 dark:text-muted/90">
-          {formatPostDate(post.date)}
-        </span>
-        <h2 className="mt-4 font-display text-3xl leading-[1.02] tracking-[-0.04em] text-ink sm:text-[2rem]">
-          {post.title}
-        </h2>
-      </div>
-    </article>
-  )
-}
 
 export function ArticlesPage() {
   const sortedPosts = allPosts
@@ -42,29 +9,28 @@ export function ArticlesPage() {
   return (
     <main className="relative">
       <section className="rounded-[2.2rem] border border-black/10 bg-white/70 p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)] sm:p-8 xl:p-10">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <a
-              href="/"
-              className="text-[0.7rem] font-medium uppercase tracking-[0.34em] text-accent dark:text-[#d1baf0]"
-            >
-              Home
-            </a>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl">
-              Articles on frontend engineering, product thinking, and web craft.
-            </h1>
-          </div>
+        <div className="flex flex-col gap-5 mb-20">
+          <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl">
+            Articles on frontend engineering and product thinking.
+          </h1>
 
-          <p className="max-w-md text-sm leading-7 text-muted dark:text-[#c7d1e8] sm:text-base">
-            A growing archive of notes, lessons, and ideas from building products for the web.
+          <p className="text-sm leading-7 text-muted dark:text-[#c7d1e8] sm:text-base">
+            A growing archive of notes, lessons, and ideas from building products as a frontend
+            engineer.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {sortedPosts.map(post => (
-            <ArticleCard key={post.slug} post={post} />
-          ))}
-        </div>
+        <ul className="flex flex-col gap-2">
+          {sortedPosts.map(post => {
+            return (
+              <li key={post.slug}>
+                <ArticleCard post={post} />
+
+                <div className="my-4 h-px w-full bg-black/8 dark:bg-white/8 last-of-type:hidden" />
+              </li>
+            )
+          })}
+        </ul>
       </section>
     </main>
   )

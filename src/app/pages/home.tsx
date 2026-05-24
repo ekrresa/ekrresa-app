@@ -1,8 +1,10 @@
-import { IMAGE_BASE_URL, siteMetadata } from '@/app/lib/utils'
+import { ArticleCard } from '@/app/components/ArticleCard'
+import { siteMetadata } from '@/app/lib/utils'
 import { allPosts, allProjects } from 'content-collections'
 import { Briefcase, House, Newspaper, type LucideIcon } from 'lucide-react'
 
 import { ThemeToggle } from '../components/ThemeToggle'
+import { ProjectCard } from '../components/ProjectCard'
 
 interface PageIndexItem {
   label: string
@@ -71,51 +73,11 @@ function SocialLinks({ className }: { className?: string }) {
   )
 }
 
-function ArticleCard({ post }: { post: (typeof allPosts)[number] }) {
-  return (
-    <article className="overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/85 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:hover:border-white/16 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
-      {post.imageId ? (
-        <div className="aspect-16/10 overflow-hidden border-b border-black/8 bg-black/5 dark:border-white/8 dark:bg-white/6">
-          <img
-            src={`${IMAGE_BASE_URL}${post.imageId}`}
-            alt={post.imageAlt ?? post.title}
-            className="h-full w-full object-cover"
-          />
-        </div>
-      ) : null}
-
-      <div className="p-5">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <span className="text-xs text-muted/70 dark:text-muted/90">
-            {formatPostDate(post.date)}
-          </span>
-        </div>
-
-        <h3 className="mt-4 font-display text-3xl leading-[1.02] tracking-[-0.04em] text-ink sm:text-[2rem]">
-          {post.title}
-        </h3>
-      </div>
-    </article>
-  )
-}
-
-function formatPostDate(date: string) {
-  return new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  }).format(new Date(date))
-}
-
-function formatProjectHost(link: string) {
-  return new URL(link).hostname.replace(/^www\./, '')
-}
-
 export function Home() {
   const sortedPosts = allPosts
     .filter(post => post.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  const featuredPosts = sortedPosts.slice(0, 3)
+  const featuredPosts = sortedPosts.slice(0, 2)
   const sortedProjects = allProjects
     .filter(project => !project.archived)
     .sort((a, b) => a.order - b.order)
@@ -174,7 +136,7 @@ export function Home() {
                   <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-muted dark:text-[#d1daef]">
                     Currently building
                   </p>
-                  <p className="mt-4 font-display text-4xl leading-none tracking-[-0.05em] text-ink sm:text-5xl">
+                  <p className="mt-4 font-display text-4xl leading-none tracking-tighter text-ink sm:text-5xl">
                     EventDP
                   </p>
                 </div>
@@ -209,11 +171,13 @@ export function Home() {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-8 flex flex-col gap-2">
           {featuredPosts.map(post => (
-            <ArticleCard key={post.slug} post={post} />
+            <li key={post.slug}>
+              <ArticleCard post={post} />
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       <section
@@ -228,30 +192,17 @@ export function Home() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4">
-          {sortedProjects.map(project => (
-            <a
-              key={project.title}
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-[1.75rem] border border-black/10 bg-white/85 p-5 transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:hover:border-white/16 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="font-display text-3xl leading-none tracking-[-0.04em] text-ink">
-                  {project.title}
-                </h3>
-                <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-accent dark:bg-[#8fa0ea]/14 dark:text-[#b8c3f3]">
-                  {formatProjectHost(project.link)}
-                </span>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-muted dark:text-[#c7d1e8] sm:text-base">
-                {project.summary}
-              </p>
-              <p className="mt-5 text-sm font-medium text-ink">Open project</p>
-            </a>
-          ))}
-        </div>
+        <ul className="mt-6">
+          {sortedProjects.map((project, index, array) => {
+            const isLast = index === array.length - 1
+            return (
+              <li key={project.title}>
+                <ProjectCard project={project} />
+                {!isLast && <div className="my-4 h-px w-full bg-black/8 dark:bg-white/8" />}
+              </li>
+            )
+          })}
+        </ul>
       </section>
     </main>
   )

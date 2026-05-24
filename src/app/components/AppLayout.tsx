@@ -72,7 +72,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
           <div className="absolute inset-x-0 top-0 h-px bg-black/10 dark:bg-white/10" />
         </div>
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-5 py-5 sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 xl:px-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-5 py-5 pb-24 sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 lg:pb-8 xl:px-16">
           <aside className="hidden lg:sticky lg:top-8 lg:block lg:h-fit">
             <div className="rounded-4xl border border-black/10 bg-white/55 p-5 shadow-[0_20px_80px_rgba(24,21,17,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
               <div className="mb-6 border-b border-black/8 pb-5 dark:border-white/8">
@@ -121,21 +121,28 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
             </div>
           </aside>
 
-          {children}
+          <div className="flex min-w-0 flex-col gap-8 lg:gap-12">
+            {children}
+            <footer className="flex items-center justify-center pb-4 pt-2">
+              <p className="text-[0.8rem] text-muted dark:text-[#c7d1e8]">
+                &copy; {new Date().getFullYear()} Ochuko Ekrresa. All rights reserved.
+              </p>
+            </footer>
+          </div>
         </div>
 
-        <div className="fixed inset-x-4 bottom-4 z-20 lg:hidden">
-          <nav className="mx-auto grid max-w-md grid-cols-3 gap-2 rounded-[1.75rem] border border-black/10 bg-white/88 p-2.5 shadow-[0_18px_45px_rgba(24,21,17,0.12)] backdrop-blur dark:border-white/12 dark:bg-[linear-gradient(180deg,rgba(17,23,38,0.94),rgba(12,17,29,0.92))] dark:shadow-[0_18px_45px_rgba(0,0,0,0.42)]">
+        <div className="fixed inset-x-4 bottom-4 z-20 pb-[env(safe-area-inset-bottom,0px)] lg:hidden">
+          <nav className="mx-auto grid max-w-md grid-cols-3 gap-1 rounded-3xl border border-black/10 bg-white/92 p-1.5 shadow-[0_8px_32px_rgba(24,21,17,0.1)] backdrop-blur-md dark:border-white/10 dark:bg-[#141b2d]/92 dark:shadow-[0_8px_32px_rgba(0,0,0,0.32)]">
             {pageIndexItems.map(item => (
               <a
                 key={item.label}
                 href={item.href}
-                className="group flex flex-col items-center justify-center gap-2 rounded-[1.2rem] border border-black/8 bg-white/62 px-3 py-3 text-center shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-white/8 dark:bg-white/6 dark:hover:border-[#8fa0ea]/24 dark:hover:bg-[#8fa0ea]/14 dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]"
+                className="group flex min-h-14 flex-col items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-center transition hover:bg-black/5 dark:hover:bg-white/10"
               >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink dark:border-white/8 dark:bg-white/8 dark:text-muted dark:group-hover:border-[#8fa0ea]/35 dark:group-hover:bg-[#8fa0ea]/12 dark:group-hover:text-white">
-                  <item.icon size={15} strokeWidth={1.8} />
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full text-muted transition group-hover:text-ink dark:text-muted dark:group-hover:text-white">
+                  <item.icon size={16} strokeWidth={1.8} />
                 </span>
-                <span className="text-xs font-medium text-ink dark:text-[#dbe4ff]">
+                <span className="text-[0.68rem] font-medium text-muted transition group-hover:text-ink dark:text-[#c7d1e8] dark:group-hover:text-white">
                   {item.label}
                 </span>
               </a>
