@@ -1,3 +1,6 @@
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
 export const IMAGE_BASE_URL = 'https://assets.ekrresa.com'
 
 export const siteMetadata = {
@@ -16,4 +19,8 @@ export const siteMetadata = {
   twitterHandle: '@ekrresa_',
   linkedin: 'https://www.linkedin.com/in/ekrresa/',
   locale: 'en-GB',
+}
+
+export function cx(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }

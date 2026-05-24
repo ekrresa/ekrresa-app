@@ -1,0 +1,97 @@
+import { allPosts } from 'content-collections'
+import { mdxParse } from 'safe-mdx/parse'
+import { SafeMdxRenderer } from 'safe-mdx'
+import { components } from '../components/MDXComponents'
+import { highlight } from 'sugar-high'
+import CopyCode from '../components/CopyCode'
+import { IMAGE_BASE_URL } from '../lib/utils'
+
+export function Article({ params }: { params: { slug: string } }) {
+  const post = allPosts.find(p => p.slug === params.slug)
+
+  const mdast = mdxParse(post?.content ?? '')
+
+  if (!post || !mdast) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 sm:py-32">
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+          Post not found
+        </h1>
+        <p className="mt-6 text-base leading-7 text-gray-600 dark:text-gray-400">
+          Sorry, we couldn’t find the post you’re looking for.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <a
+            href="/blog"
+            className="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+          >
+            Back to blog
+          </a>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <article className="mx-auto max-w-3xl pt-24 pb-16 sm:pt-32">
+      {/* Back Link */}
+      <div className="mb-8">
+        <a
+          href="/blog"
+          className="text-sm font-semibold leading-6 text-primary-500 hover:text-primary-400 dark:text-cyan-400 dark:hover:text-cyan-300"
+        >
+          &larr; Back to blog
+        </a>
+      </div>
+
+      {/* Header */}
+      <header className="flex flex-col text-center gap-4">
+        <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+          {post.title}
+        </h1>
+        <time
+          dateTime={post.date}
+          className="text-base font-medium text-gray-500 dark:text-gray-400"
+        >
+          {new Date(post.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
+      </header>
+
+      {/* Featured Image */}
+      {post.imageId && (
+        <div className="mt-10 aspect-video w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800">
+          <img
+            src={`${IMAGE_BASE_URL}${post.imageId}`}
+            alt={post.imageAlt || post.title}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      )}
+
+      {/* Content */}
+      <div className="mt-10 prose prose-lg prose-primary dark:prose-invert max-w-none">
+        <SafeMdxRenderer
+          markdown={post?.content ?? ''}
+          mdast={mdast}
+          components={components}
+          renderNode={node => {
+            if (node.type === 'code') {
+              const html = highlight(node.value)
+
+              return (
+                <pre className="bg-gray-800 p-4 rounded-lg relative overflow-x-auto">
+                  <CopyCode code={node.value} />
+                  <code dangerouslySetInnerHTML={{ __html: html }} />
+                </pre>
+              )
+            }
+          }}
+        />
+      </div>
+    </article>
+  )
+}
