@@ -22,7 +22,7 @@ function ArticleCredit({ credit }: { credit: string }) {
   }
 
   return (
-    <div className="prose prose-sm max-w-none prose-p:m-0 prose-p:text-muted prose-a:text-accent prose-a:decoration-accent/30 prose-a:underline-offset-4 hover:prose-a:text-ink dark:prose-p:text-[#c7d1e8] dark:prose-a:text-[#d9c8f1] dark:hover:prose-a:text-white">
+    <div className="prose prose-sm max-w-none text-[0.78rem] prose-p:m-0 prose-p:text-muted prose-a:text-accent prose-a:decoration-accent/30 prose-a:underline-offset-4 hover:prose-a:text-ink dark:prose-p:text-[#c7d1e8] dark:prose-a:text-[#d9c8f1] dark:hover:prose-a:text-white">
       <SafeMdxRenderer markdown={credit} mdast={creditMdast} components={components} />
     </div>
   )
@@ -90,14 +90,14 @@ export function Article({ params }: { params: { slug: string } }) {
         </div>
 
         {post.imageId ? (
-          <figure className="mt-10 overflow-hidden rounded-4xl border border-black/8 bg-black/5 shadow-[0_20px_60px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
+          <figure className="relative mt-10 overflow-hidden rounded-4xl border border-black/8 bg-black/5 shadow-[0_20px_60px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
             <img
               src={`${IMAGE_BASE_URL}${post.imageId}`}
               alt={post.imageAlt || post.title}
               className="aspect-[16/8.8] w-full object-cover"
             />
             {post.imageCredit ? (
-              <figcaption className="border-t border-black/8 bg-white/55 px-5 py-4 text-sm dark:border-white/10 dark:bg-white/6">
+              <figcaption className="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.12)_52%,rgba(255,255,255,0.7))] px-5 pb-3 pt-16 dark:bg-[linear-gradient(180deg,rgba(17,23,38,0),rgba(17,23,38,0.14)_52%,rgba(17,23,38,0.72))]">
                 <ArticleCredit credit={post.imageCredit} />
               </figcaption>
             ) : null}
