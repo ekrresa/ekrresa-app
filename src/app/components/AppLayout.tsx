@@ -1,8 +1,8 @@
 import type { LayoutProps } from 'rwsdk/router'
+import { Briefcase, House, Newspaper, type LucideIcon } from 'lucide-react'
+import { siteMetadata } from '../lib/utils'
 import { ThemeProvider } from './ThemeProvider'
 import { ThemeToggle } from './ThemeToggle'
-import { House, Newspaper, Briefcase } from 'lucide-react'
-import { siteMetadata } from '../lib/utils'
 
 function GitHubIcon() {
   return (
@@ -47,10 +47,29 @@ function SocialLinks({ className }: { className?: string }) {
   )
 }
 
-const pageIndexItems = [
-  { label: 'Home', href: '/', icon: House },
-  { label: 'Articles', href: '/articles', icon: Newspaper },
-  { label: 'Projects', href: '/#projects', icon: Briefcase },
+interface PageIndexItem {
+  label: string
+  href: string
+  icon: LucideIcon
+  isActive(path: string): boolean
+}
+
+function isHomePath(path: string) {
+  return path === '/'
+}
+
+function isArticlesPath(path: string) {
+  return path === '/articles' || path.startsWith('/articles/')
+}
+
+function isProjectsPath() {
+  return false
+}
+
+const pageIndexItems: PageIndexItem[] = [
+  { label: 'Home', href: '/', icon: House, isActive: isHomePath },
+  { label: 'Articles', href: '/articles', icon: Newspaper, isActive: isArticlesPath },
+  { label: 'Projects', href: '/#projects', icon: Briefcase, isActive: isProjectsPath },
 ]
 
 const socialLinks = [
@@ -101,22 +120,41 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
               </div>
 
               <div className="mt-6 space-y-3">
-                {pageIndexItems.map(item => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="group flex items-center justify-between rounded-3xl border border-black/8 bg-white/62 px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-white/8 dark:bg-white/6 dark:hover:border-[#8fa0ea]/30 dark:hover:bg-[#8fa0ea]/10 dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]"
-                  >
-                    <span className="flex items-center gap-3">
-                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/78 text-muted transition group-hover:border-black/15 group-hover:text-ink dark:border-white/8 dark:bg-white/8 dark:text-muted dark:group-hover:border-[#8fa0ea]/35 dark:group-hover:bg-[#8fa0ea]/12 dark:group-hover:text-white">
-                        <item.icon size={16} strokeWidth={1.8} />
+                {pageIndexItems.map(item => {
+                  const active = item.isActive(path)
+
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      aria-current={active ? 'page' : undefined}
+                      className={`group flex items-center justify-between rounded-3xl border px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition ${
+                        active
+                          ? 'border-black/14 bg-white text-ink shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-[#8fa0ea]/30 dark:bg-[#8fa0ea]/10 dark:text-white dark:shadow-[0_18px_36px_rgba(0,0,0,0.24)]'
+                          : 'border-black/8 bg-white/62 hover:-translate-y-0.5 hover:border-black/15 hover:bg-white hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)] dark:border-white/8 dark:bg-white/6 dark:hover:border-[#8fa0ea]/30 dark:hover:bg-[#8fa0ea]/10 dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]'
+                      }`}
+                    >
+                      <span className="flex items-center gap-3">
+                        <span
+                          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border transition ${
+                            active
+                              ? 'border-black/14 bg-black/4 text-ink dark:border-[#8fa0ea]/35 dark:bg-[#8fa0ea]/16 dark:text-white'
+                              : 'border-black/8 bg-white/78 text-muted group-hover:border-black/15 group-hover:text-ink dark:border-white/8 dark:bg-white/8 dark:text-muted dark:group-hover:border-[#8fa0ea]/35 dark:group-hover:bg-[#8fa0ea]/12 dark:group-hover:text-white'
+                          }`}
+                        >
+                          <item.icon size={16} strokeWidth={1.8} />
+                        </span>
+                        <span
+                          className={`block text-base font-medium ${
+                            active ? 'text-ink dark:text-white' : 'text-ink dark:text-[#f3f6ff]'
+                          }`}
+                        >
+                          {item.label}
+                        </span>
                       </span>
-                      <span className="block text-base font-medium text-ink dark:text-[#f3f6ff]">
-                        {item.label}
-                      </span>
-                    </span>
-                  </a>
-                ))}
+                    </a>
+                  )
+                })}
               </div>
             </div>
           </aside>
@@ -133,20 +171,41 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
 
         <div className="fixed inset-x-4 bottom-4 z-20 pb-[env(safe-area-inset-bottom,0px)] lg:hidden">
           <nav className="mx-auto grid max-w-md grid-cols-3 gap-1 rounded-3xl border border-black/10 bg-white/92 p-1.5 shadow-[0_8px_32px_rgba(24,21,17,0.1)] backdrop-blur-md dark:border-white/10 dark:bg-[#141b2d]/92 dark:shadow-[0_8px_32px_rgba(0,0,0,0.32)]">
-            {pageIndexItems.map(item => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="group flex min-h-14 flex-col items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-center transition hover:bg-black/5 dark:hover:bg-white/10"
-              >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full text-muted transition group-hover:text-ink dark:text-muted dark:group-hover:text-white">
-                  <item.icon size={16} strokeWidth={1.8} />
-                </span>
-                <span className="text-[0.68rem] font-medium text-muted transition group-hover:text-ink dark:text-[#c7d1e8] dark:group-hover:text-white">
-                  {item.label}
-                </span>
-              </a>
-            ))}
+            {pageIndexItems.map(item => {
+              const active = item.isActive(path)
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  aria-current={active ? 'page' : undefined}
+                  className={`group flex min-h-14 flex-col items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-center transition ${
+                    active
+                      ? 'bg-black/5 dark:bg-white/10'
+                      : 'hover:bg-black/5 dark:hover:bg-white/10'
+                  }`}
+                >
+                  <span
+                    className={`inline-flex h-8 w-8 items-center justify-center rounded-full transition ${
+                      active
+                        ? 'text-ink dark:text-white'
+                        : 'text-muted group-hover:text-ink dark:text-muted dark:group-hover:text-white'
+                    }`}
+                  >
+                    <item.icon size={16} strokeWidth={1.8} />
+                  </span>
+                  <span
+                    className={`text-[0.68rem] font-medium transition ${
+                      active
+                        ? 'text-ink dark:text-white'
+                        : 'text-muted group-hover:text-ink dark:text-[#c7d1e8] dark:group-hover:text-white'
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                </a>
+              )
+            })}
           </nav>
         </div>
       </div>

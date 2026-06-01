@@ -14,6 +14,20 @@ function formatPostDate(date: string) {
   }).format(new Date(date))
 }
 
+function ArticleCredit({ credit }: { credit: string }) {
+  const creditMdast = mdxParse(credit)
+
+  if (!creditMdast) {
+    return null
+  }
+
+  return (
+    <div className="prose prose-sm max-w-none prose-p:m-0 prose-p:text-muted prose-a:text-accent prose-a:decoration-accent/30 prose-a:underline-offset-4 hover:prose-a:text-ink dark:prose-p:text-[#c7d1e8] dark:prose-a:text-[#d9c8f1] dark:hover:prose-a:text-white">
+      <SafeMdxRenderer markdown={credit} mdast={creditMdast} components={components} />
+    </div>
+  )
+}
+
 function MissingArticle() {
   return (
     <main className="relative">
@@ -51,25 +65,43 @@ export function Article({ params }: { params: { slug: string } }) {
           <div className="pointer-events-none absolute -right-16 top-4 h-40 w-40 rounded-full bg-accent/10 blur-3xl dark:bg-[#8fa0ea]/16" />
           <div className="relative">
             <header className="max-w-4xl">
-              <h1 className="font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-6xl">
+              <a
+                href="/articles"
+                className="inline-flex items-center rounded-full border border-black/8 bg-white/72 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-muted transition hover:border-black/14 hover:bg-white hover:text-ink dark:border-white/10 dark:bg-white/8 dark:text-[#c7d1e8] dark:hover:border-white/18 dark:hover:bg-white/12 dark:hover:text-white"
+              >
+                All articles
+              </a>
+
+              <h1 className="mt-4 max-w-3xl font-display text-4xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-5xl xl:text-[4.25rem]">
                 {post.title}
               </h1>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted dark:text-[#c7d1e8]">
                 <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                {post.updatedAt ? (
+                  <>
+                    <span aria-hidden="true" className="h-1 w-1 rounded-full bg-current/45" />
+                    <span>Updated {formatPostDate(post.updatedAt)}</span>
+                  </>
+                ) : null}
               </div>
             </header>
           </div>
         </div>
 
         {post.imageId ? (
-          <div className="mt-10 overflow-hidden rounded-4xl border border-black/8 bg-black/5 shadow-[0_20px_60px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
+          <figure className="mt-10 overflow-hidden rounded-4xl border border-black/8 bg-black/5 shadow-[0_20px_60px_rgba(24,21,17,0.08)] dark:border-white/10 dark:bg-white/6 dark:shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
             <img
               src={`${IMAGE_BASE_URL}${post.imageId}`}
               alt={post.imageAlt || post.title}
               className="aspect-[16/8.8] w-full object-cover"
             />
-          </div>
+            {post.imageCredit ? (
+              <figcaption className="border-t border-black/8 bg-white/55 px-5 py-4 text-sm dark:border-white/10 dark:bg-white/6">
+                <ArticleCredit credit={post.imageCredit} />
+              </figcaption>
+            ) : null}
+          </figure>
         ) : null}
       </section>
 
