@@ -165,7 +165,7 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
         aria-expanded={isOpen}
         aria-controls="mobile-site-menu"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
-        className={`fixed bottom-[calc(env(safe-area-inset-bottom,0)+1rem)] right-4 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full border border-black/10 bg-white/92 text-ink shadow-[0_20px_40px_rgba(24,21,17,0.18)] backdrop-blur-xl transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none dark:border-white/12 dark:bg-[#141b2d]/92 dark:text-white dark:shadow-[0_20px_48px_rgba(0,0,0,0.38)] ${
+        className={`fixed bottom-[calc(env(safe-area-inset-bottom,0)+4rem)] right-6 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full border border-black/10 bg-white/92 text-ink shadow-[0_20px_40px_rgba(24,21,17,0.18)] backdrop-blur-xl transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none dark:border-white/12 dark:bg-[#141b2d]/92 dark:text-white dark:shadow-[0_20px_48px_rgba(0,0,0,0.38)] ${
           isFabVisible
             ? 'translate-y-0 scale-100 opacity-100'
             : 'translate-y-[calc(100%+1.75rem)] scale-90 opacity-0 pointer-events-none'
@@ -209,7 +209,7 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
           <nav
             id="mobile-site-menu"
             aria-hidden={!isOpen}
-            className={`fixed bottom-[calc(env(safe-area-inset-bottom,0)+5.5rem)] right-4 z-35 w-[min(calc(100vw-2rem),22rem)] origin-bottom-right overflow-hidden rounded-4xl border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(250,244,238,0.98))] p-3 shadow-[0_34px_100px_rgba(24,21,17,0.22)] ring-1 ring-white/55 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(23,30,47,0.96),rgba(13,18,30,0.99))] dark:ring-white/8 dark:shadow-[0_36px_110px_rgba(0,0,0,0.46)] ${
+            className={`fixed bottom-[calc(env(safe-area-inset-bottom,0)+8.5rem)] right-6 z-35 w-[min(calc(100vw-3rem),22rem)] origin-bottom-right overflow-hidden rounded-4xl border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(250,244,238,0.98))] p-3 shadow-[0_34px_100px_rgba(24,21,17,0.22)] ring-1 ring-white/55 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(23,30,47,0.96),rgba(13,18,30,0.99))] dark:ring-white/8 dark:shadow-[0_36px_110px_rgba(0,0,0,0.46)] ${
               isOpen
                 ? 'translate-y-0 scale-100 rotate-0 opacity-100'
                 : 'pointer-events-none translate-y-10 scale-[0.9] rotate-2 opacity-0'

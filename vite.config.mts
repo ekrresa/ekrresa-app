@@ -5,6 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 import contentCollections from '@content-collections/vite'
 
 export default defineConfig({
+  server: {
+    allowedHosts: ['.trycloudflare.com'],
+  },
   environments: {
     ssr: {},
   },
