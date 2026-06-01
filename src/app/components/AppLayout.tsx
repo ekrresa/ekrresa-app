@@ -1,6 +1,7 @@
 import type { LayoutProps } from 'rwsdk/router'
 import { Briefcase, House, Newspaper, type LucideIcon } from 'lucide-react'
 import { siteMetadata } from '../lib/utils'
+import { MobileFabMenu } from './MobileFabMenu'
 import { ThemeProvider } from './ThemeProvider'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -169,45 +170,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
           </div>
         </div>
 
-        <div className="fixed inset-x-4 bottom-4 z-20 pb-[env(safe-area-inset-bottom,0px)] lg:hidden">
-          <nav className="mx-auto grid max-w-md grid-cols-3 gap-1 rounded-3xl border border-black/10 bg-white/92 p-1.5 shadow-[0_8px_32px_rgba(24,21,17,0.1)] backdrop-blur-md dark:border-white/10 dark:bg-[#141b2d]/92 dark:shadow-[0_8px_32px_rgba(0,0,0,0.32)]">
-            {pageIndexItems.map(item => {
-              const active = item.isActive(path)
-
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  aria-current={active ? 'page' : undefined}
-                  className={`group flex min-h-14 flex-col items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-center transition ${
-                    active
-                      ? 'bg-black/5 dark:bg-white/10'
-                      : 'hover:bg-black/5 dark:hover:bg-white/10'
-                  }`}
-                >
-                  <span
-                    className={`inline-flex h-8 w-8 items-center justify-center rounded-full transition ${
-                      active
-                        ? 'text-ink dark:text-white'
-                        : 'text-muted group-hover:text-ink dark:text-muted dark:group-hover:text-white'
-                    }`}
-                  >
-                    <item.icon size={16} strokeWidth={1.8} />
-                  </span>
-                  <span
-                    className={`text-[0.68rem] font-medium transition ${
-                      active
-                        ? 'text-ink dark:text-white'
-                        : 'text-muted group-hover:text-ink dark:text-[#c7d1e8] dark:group-hover:text-white'
-                    }`}
-                  >
-                    {item.label}
-                  </span>
-                </a>
-              )
-            })}
-          </nav>
-        </div>
+        <MobileFabMenu path={path} />
       </div>
     </ThemeProvider>
   )
