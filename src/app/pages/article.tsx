@@ -67,12 +67,12 @@ export function Article({ params }: { params: { slug: string } }) {
             <header className="max-w-4xl">
               <a
                 href="/articles"
-                className="inline-flex items-center rounded-full border border-black/8 bg-white/72 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-muted transition hover:border-black/14 hover:bg-white hover:text-ink dark:border-white/10 dark:bg-white/8 dark:text-[#c7d1e8] dark:hover:border-white/18 dark:hover:bg-white/12 dark:hover:text-white"
+                className="inline-flex items-center rounded-full border border-black/8 bg-white/72 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-muted transition hover:border-black/14 hover:bg-white hover:text-ink dark:border-white/10 dark:bg-white/8 dark:text-[#c7d1e8] dark:hover:border-white/18 dark:hover:bg-white/12 dark:hover:text-white mb-10"
               >
                 All articles
               </a>
 
-              <h1 className="mt-4 max-w-3xl font-display text-4xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-5xl xl:text-[4.25rem]">
+              <h1 className="max-w-3xl font-display text-4xl leading-[0.95] tracking-[-0.04em] text-ink sm:text-5xl xl:text-[4.25rem]">
                 {post.title}
               </h1>
 
