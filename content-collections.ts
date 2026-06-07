@@ -42,7 +42,7 @@ const posts = defineCollection({
     imageCredit: z.string().optional(),
     content: z.string(),
   }),
-  transform: async (document, context) => {
+  transform: async document => {
     const postName = document._meta.directory
     return {
       ...document,

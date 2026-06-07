@@ -22,6 +22,8 @@
     "check": "npm run generate && npm run types",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "types": "tsc"
   },
   "dependencies": {
@@ -50,7 +52,9 @@
     "@types/node": "~25.3.5",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "eslint-plugin-better-tailwindcss": "4.5.0",
     "oxfmt": "^0.51.0",
+    "oxlint": "1.68.0",
     "tailwindcss": "4.3.0",
     "tailwindcss-react-aria-components": "2.1.0",
     "typescript": "6.0.2",
