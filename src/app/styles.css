@@ -47,7 +47,7 @@
   }
 
   body {
-    min-height: 100vh;
+    min-height: 100svh;
     background:
       radial-gradient(circle at top left, rgba(159, 95, 63, 0.12), transparent 34%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 241, 234, 0.96)), var(--color-bg);
