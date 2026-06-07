@@ -15,29 +15,34 @@ interface ArticleCardProps {
 
 export function ArticleCard({ post }: ArticleCardProps) {
   return (
-    <article className="
-      group -mx-3 flex translate-x-0 items-center gap-4 overflow-hidden
-      rounded-3xl px-3 py-5 transition-all duration-300 ease-out
-      hover:translate-x-1 hover:bg-black/3
-      sm:gap-6 sm:py-6
-      dark:hover:bg-white/4
-    ">
-      <div className="
-        shrink-0 transition-transform duration-300 ease-out
-        group-hover:scale-[1.02]
-      ">
+    <article
+      className="
+        group -mx-3 flex translate-x-0 items-center gap-4 overflow-hidden rounded-3xl px-3 py-5
+        transition-all duration-300 ease-out
+        hover:translate-x-1 hover:bg-black/3
+        sm:gap-6 sm:py-6
+        dark:hover:bg-white/4
+      "
+    >
+      <div
+        className="
+          shrink-0 transition-transform duration-300 ease-out
+          group-hover:scale-[1.02]
+        "
+      >
         {post.imageId ? (
-          <div className="
-            aspect-square w-24 overflow-hidden rounded-2xl bg-black/5
-            sm:w-40
-            dark:bg-white/6
-          ">
+          <div
+            className="
+              aspect-square w-24 overflow-hidden rounded-2xl bg-black/5
+              sm:w-40
+              dark:bg-white/6
+            "
+          >
             <img
               src={`${IMAGE_BASE_URL}${post.imageId}`}
               alt={post.imageAlt ?? post.title}
               className="
-                size-full object-cover transition-transform duration-500
-                ease-out
+                size-full object-cover transition-transform duration-500 ease-out
                 group-hover:scale-[1.06]
               "
             />
@@ -45,33 +50,44 @@ export function ArticleCard({ post }: ArticleCardProps) {
         ) : null}
       </div>
 
-      <div className="
-        flex flex-col justify-center py-2 pr-4
-        sm:pr-6
-      ">
-        <span className="
-          text-xs text-muted/70 transition-colors duration-300 ease-out
-          group-hover:text-muted
-          dark:text-muted/90
-          dark:group-hover:text-[#d6def1]
-        ">
+      <div
+        className="
+          flex flex-col justify-center py-2 pr-4
+          sm:pr-6
+        "
+      >
+        <span
+          className="
+            text-xs text-muted/70 transition-colors duration-300 ease-out
+            group-hover:text-muted
+            dark:text-muted/90
+            dark:group-hover:text-[#d6def1]
+          "
+        >
           {formatPostDate(post.date)}
         </span>
-        <h2 className="
-          mt-2 font-display text-2xl leading-[1.05] tracking-[-0.03em]
-          sm:text-[1.75rem]
-        ">
-          <a href={`/articles/${post.slug}`} className="
-            text-ink transition-colors duration-300 ease-out
-            hover:text-accent
-          ">
+        <h2
+          className="
+            mt-2 font-display text-2xl leading-[1.05] tracking-[-0.03em]
+            sm:text-[1.75rem]
+          "
+        >
+          <a
+            href={`/articles/${post.slug}`}
+            className="
+              text-ink transition-colors duration-300 ease-out
+              hover:text-accent
+            "
+          >
             {post.title}
           </a>
         </h2>
-        <p className="
-          mt-2 line-clamp-2 text-sm/6 text-muted
-          dark:text-[#c7d1e8]
-        ">
+        <p
+          className="
+            mt-2 line-clamp-2 text-sm/6 text-muted
+            dark:text-[#c7d1e8]
+          "
+        >
           {post.summary}
         </p>
       </div>

@@ -56,6 +56,7 @@ export default function CopyCode({ code }: CopyCodeProps) {
       setIsCopied(true)
       setTimeout(() => setIsCopied(false), 2000)
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Failed to copy code:', error)
     }
   }
@@ -64,10 +65,9 @@ export default function CopyCode({ code }: CopyCodeProps) {
     <Button
       aria-label="Copy code"
       className="
-        absolute top-4 right-4 rounded-full border border-white/10 bg-white/8
-        p-2 text-[#c7d1e8] backdrop-blur transition
-        hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/14
-        hover:text-white
+        absolute top-4 right-4 rounded-full border border-white/10 bg-white/8 p-2 text-[#c7d1e8]
+        backdrop-blur-sm transition
+        hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/14 hover:text-white
       "
       onPress={handleCopy}
     >

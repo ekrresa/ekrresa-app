@@ -1,4 +1,4 @@
-import { clsx, type ClassValue } from 'clsx'
+import { clsx, ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 export const IMAGE_BASE_URL = 'https://assets.ekrresa.com'

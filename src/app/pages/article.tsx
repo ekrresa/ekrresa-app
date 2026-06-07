@@ -27,8 +27,7 @@ function ArticleCredit({ credit }: { credit: string }) {
         prose prose-sm max-w-none text-[0.78rem]
         prose-p:m-0 prose-p:text-muted
         dark:prose-p:text-[#c7d1e8]
-        prose-a:text-accent prose-a:decoration-accent/30
-        prose-a:underline-offset-4
+        prose-a:text-accent prose-a:decoration-accent/30 prose-a:underline-offset-4
         hover:prose-a:text-ink
         dark:prose-a:text-[#d9c8f1]
         dark:hover:prose-a:text-white
@@ -45,10 +44,9 @@ function MissingArticle() {
       <section
         className="
           rounded-[2.2rem] border border-black/10 bg-white/70 p-8
-          shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur
+          shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur-sm
           sm:p-10
-          dark:border-white/10 dark:bg-white/6
-          dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)]
+          dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)]
         "
       >
         <p
@@ -61,8 +59,7 @@ function MissingArticle() {
         </p>
         <h1
           className="
-            mt-5 font-display text-4xl leading-[0.96] tracking-[-0.04em]
-            text-ink
+            mt-5 font-display text-4xl leading-[0.96] tracking-[-0.04em] text-ink
             sm:text-5xl
           "
         >
@@ -99,8 +96,8 @@ export function Article({ params }: { params: { slug: string } }) {
       <section
         className="
           overflow-hidden rounded-[2.2rem] border border-black/10
-          bg-[linear-gradient(180deg,rgba(255,255,255,0.86),rgba(250,244,238,0.96))]
-          p-6 shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur
+          bg-[linear-gradient(180deg,rgba(255,255,255,0.86),rgba(250,244,238,0.96))] p-6
+          shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur-sm
           sm:p-8
           xl:p-10
           dark:border-white/10
@@ -111,8 +108,8 @@ export function Article({ params }: { params: { slug: string } }) {
         <div className="relative">
           <div
             className="
-              pointer-events-none absolute top-4 -right-16 size-40 rounded-full
-              bg-accent/10 blur-3xl
+              pointer-events-none absolute top-4 -right-16 size-40 rounded-full bg-accent/10
+              blur-3xl
               dark:bg-[#8fa0ea]/16
             "
           />
@@ -121,13 +118,11 @@ export function Article({ params }: { params: { slug: string } }) {
               <a
                 href="/articles"
                 className="
-                  mb-10 inline-flex items-center rounded-full border
-                  border-black/8 bg-white/72 px-3 py-1.5 text-xs font-medium
-                  tracking-[0.22em] text-muted uppercase transition
+                  mb-10 inline-flex items-center rounded-full border border-black/8 bg-white/72 px-3
+                  py-1.5 text-xs font-medium tracking-[0.22em] text-muted uppercase transition
                   hover:border-black/14 hover:bg-white hover:text-ink
                   dark:border-white/10 dark:bg-white/8 dark:text-[#c7d1e8]
-                  dark:hover:border-white/18 dark:hover:bg-white/12
-                  dark:hover:text-white
+                  dark:hover:border-white/18 dark:hover:bg-white/12 dark:hover:text-white
                 "
               >
                 All articles
@@ -135,8 +130,7 @@ export function Article({ params }: { params: { slug: string } }) {
 
               <h1
                 className="
-                  max-w-3xl font-display text-4xl leading-[0.95]
-                  tracking-[-0.04em] text-ink
+                  max-w-3xl font-display text-4xl leading-[0.95] tracking-[-0.04em] text-ink
                   sm:text-5xl
                   xl:text-[4.25rem]
                 "
@@ -146,17 +140,14 @@ export function Article({ params }: { params: { slug: string } }) {
 
               <div
                 className="
-                  mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm
-                  text-muted
+                  mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted
                   dark:text-[#c7d1e8]
                 "
               >
                 <time dateTime={post.date}>{formatPostDate(post.date)}</time>
                 {post.updatedAt ? (
                   <>
-                    <span aria-hidden="true" className="
-                      size-1 rounded-full bg-current/45
-                    " />
+                    <span aria-hidden="true" className="size-1 rounded-full bg-current/45" />
                     <span>Updated {formatPostDate(post.updatedAt)}</span>
                   </>
                 ) : null}
@@ -168,10 +159,9 @@ export function Article({ params }: { params: { slug: string } }) {
         {post.imageId ? (
           <figure
             className="
-              relative mt-10 overflow-hidden rounded-4xl border border-black/8
-              bg-black/5 shadow-[0_20px_60px_rgba(24,21,17,0.08)]
-              dark:border-white/10 dark:bg-white/6
-              dark:shadow-[0_20px_60px_rgba(0,0,0,0.28)]
+              relative mt-10 overflow-hidden rounded-4xl border border-black/8 bg-black/5
+              shadow-[0_20px_60px_rgba(24,21,17,0.08)]
+              dark:border-white/10 dark:bg-white/6 dark:shadow-[0_20px_60px_rgba(0,0,0,0.28)]
             "
           >
             <img
@@ -198,11 +188,10 @@ export function Article({ params }: { params: { slug: string } }) {
       <article
         className="
           rounded-4xl border border-black/10 bg-white/68 p-6
-          shadow-[0_16px_60px_rgba(24,21,17,0.06)] backdrop-blur
+          shadow-[0_16px_60px_rgba(24,21,17,0.06)] backdrop-blur-sm
           sm:p-8
           lg:p-10
-          dark:border-white/10 dark:bg-white/6
-          dark:shadow-[0_18px_60px_rgba(0,0,0,0.3)]
+          dark:border-white/10 dark:bg-white/6 dark:shadow-[0_18px_60px_rgba(0,0,0,0.3)]
         "
       >
         <div
@@ -212,14 +201,12 @@ export function Article({ params }: { params: { slug: string } }) {
             dark:prose-headings:text-white
             prose-p:leading-8 prose-p:text-muted
             dark:prose-p:text-[#c7d1e8]
-            prose-a:text-accent prose-a:decoration-accent/30
-            prose-a:underline-offset-4
+            prose-a:text-accent prose-a:decoration-accent/30 prose-a:underline-offset-4
             hover:prose-a:text-ink
             dark:prose-a:text-[#d9c8f1]
             dark:hover:prose-a:text-white
             prose-blockquote:border-l-accent/40 prose-blockquote:text-ink
-            dark:prose-blockquote:border-l-[#8fa0ea]/40
-            dark:prose-blockquote:text-[#eef3ff]
+            dark:prose-blockquote:border-l-[#8fa0ea]/40 dark:prose-blockquote:text-[#eef3ff]
             prose-figcaption:text-muted
             dark:prose-figcaption:text-[#c7d1e8]
             prose-strong:text-ink
@@ -243,8 +230,8 @@ export function Article({ params }: { params: { slug: string } }) {
                 return (
                   <pre
                     className="
-                      relative overflow-x-auto rounded-3xl border border-black/8
-                      bg-gray-800 p-5 shadow-[0_18px_50px_rgba(24,21,17,0.18)]
+                      relative overflow-x-auto rounded-3xl border border-black/8 bg-gray-800 p-5
+                      shadow-[0_18px_50px_rgba(24,21,17,0.18)]
                       dark:bg-white/6
                     "
                   >

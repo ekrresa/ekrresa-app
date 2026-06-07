@@ -40,13 +40,11 @@ function SocialLinks({ className }: { className?: string }) {
           rel="noreferrer"
           aria-label={link.label}
           className="
-            inline-flex size-10  items-center justify-center rounded-full
-            border border-black/10 bg-white/72 text-muted transition
-            hover:-translate-y-0.5 hover:border-black/20 hover:bg-white
-            hover:text-ink
+            inline-flex size-10 items-center justify-center rounded-full border border-black/10
+            bg-white/72 text-muted transition
+            hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:text-ink
             dark:border-white/10 dark:bg-white/8 dark:text-muted
-            dark:hover:border-[#8fa0ea]/45 dark:hover:bg-[#8fa0ea]/16
-            dark:hover:text-white
+            dark:hover:border-[#8fa0ea]/45 dark:hover:bg-[#8fa0ea]/16 dark:hover:text-white
           "
         >
           {link.icon}
@@ -95,41 +93,50 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
     <ThemeProvider initialTheme={theme}>
       <div className="relative min-h-screen overflow-x-clip bg-bg text-ink">
         <div className="pointer-events-none absolute inset-0">
-          <div className="
-            absolute -top-40 -left-48 size-80 rounded-full bg-accent/18
-            blur-3xl
-          " />
-          <div className="
-            absolute top-40 -right-40 size-96  rounded-full bg-white/70
-            blur-3xl
-            dark:bg-accent/12
-          " />
-          <div className="
-            absolute inset-x-0 top-0 h-px bg-black/10
-            dark:bg-white/10
-          " />
+          <div
+            className="absolute -top-40 -left-48 size-80 rounded-full bg-accent/18 blur-3xl"
+          />
+          <div
+            className="
+              absolute top-40 -right-40 size-96 rounded-full bg-white/70 blur-3xl
+              dark:bg-accent/12
+            "
+          />
+          <div
+            className="
+              absolute inset-x-0 top-0 h-px bg-black/10
+              dark:bg-white/10
+            "
+          />
         </div>
 
-        <div className="
-          mx-auto grid max-w-7xl grid-cols-1 gap-8 p-5 pb-24
-          sm:px-6
-          lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 lg:pb-8
-          xl:px-16
-        ">
-          <aside className="
-            hidden
-            lg:sticky lg:top-8 lg:block lg:h-fit
-          ">
-            <div className="
-              rounded-4xl border border-black/10 bg-white/55 p-5
-              shadow-[0_20px_80px_rgba(24,21,17,0.08)] backdrop-blur
-              dark:border-white/10 dark:bg-white/6
-              dark:shadow-[0_24px_80px_rgba(0,0,0,0.35)]
-            ">
-              <div className="
-                mb-6 border-b border-black/8 pb-5
-                dark:border-white/8
-              ">
+        <div
+          className="
+            mx-auto grid max-w-7xl grid-cols-1 gap-8 p-5 pb-24
+            sm:px-6
+            lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 lg:pb-8
+            xl:px-16
+          "
+        >
+          <aside
+            className="
+              hidden
+              lg:sticky lg:top-8 lg:block lg:h-fit
+            "
+          >
+            <div
+              className="
+                rounded-4xl border border-black/10 bg-white/55 p-5
+                shadow-[0_20px_80px_rgba(24,21,17,0.08)] backdrop-blur-sm
+                dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(0,0,0,0.35)]
+              "
+            >
+              <div
+                className="
+                  mb-6 border-b border-black/8 pb-5
+                  dark:border-white/8
+                "
+              >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <img
@@ -149,10 +156,9 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                       "
                     />
                     <div className="min-w-0">
-                      <p className="
-                        text-[0.62rem] font-medium tracking-[0.3em] text-muted
-                        uppercase
-                      ">
+                      <p
+                        className="text-[0.62rem] font-medium tracking-[0.3em] text-muted uppercase"
+                      >
                         Ochuko Ekrresa
                       </p>
                     </div>
@@ -173,53 +179,46 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                       href={item.href}
                       aria-current={active ? 'page' : undefined}
                       className={`
-                        group flex items-center justify-between rounded-3xl
-                        border px-5 py-4 shadow-[0_8px_24px_rgba(24,21,17,0.04)]
-                        transition
+                        group flex items-center justify-between rounded-3xl border px-5 py-4
+                        shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition
                         ${
-                        active
-                          ? `
-                            border-black/14 bg-white text-ink
-                            shadow-[0_14px_35px_rgba(24,21,17,0.08)]
-                            dark:border-[#8fa0ea]/30 dark:bg-[#8fa0ea]/10
-                            dark:text-white
-                            dark:shadow-[0_18px_36px_rgba(0,0,0,0.24)]
-                          `
-                          : `
-                            border-black/8 bg-white/62
-                            hover:-translate-y-0.5 hover:border-black/15
-                            hover:bg-white
-                            hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)]
-                            dark:border-white/8 dark:bg-white/6
-                            dark:hover:border-[#8fa0ea]/30
-                            dark:hover:bg-[#8fa0ea]/10
-                            dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]
-                          `
-                      }
+                          active
+                            ? `
+                              border-black/14 bg-white text-ink
+                              shadow-[0_14px_35px_rgba(24,21,17,0.08)]
+                              dark:border-[#8fa0ea]/30 dark:bg-[#8fa0ea]/10 dark:text-white
+                              dark:shadow-[0_18px_36px_rgba(0,0,0,0.24)]
+                            `
+                            : `
+                              border-black/8 bg-white/62
+                              hover:-translate-y-0.5 hover:border-black/15 hover:bg-white
+                              hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)]
+                              dark:border-white/8 dark:bg-white/6
+                              dark:hover:border-[#8fa0ea]/30 dark:hover:bg-[#8fa0ea]/10
+                              dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]
+                            `
+                        }
                       `}
                     >
                       <span className="flex items-center gap-3">
                         <span
                           className={`
-                            inline-flex size-9 items-center justify-center
-                            rounded-full border transition
+                            inline-flex size-9 items-center justify-center rounded-full border
+                            transition
                             ${
-                            active
-                              ? `
-                                border-black/14 bg-black/4 text-ink
-                                dark:border-[#8fa0ea]/35 dark:bg-[#8fa0ea]/16
-                                dark:text-white
-                              `
-                              : `
-                                border-black/8 bg-white/78 text-muted
-                                group-hover:border-black/15 group-hover:text-ink
-                                dark:border-white/8 dark:bg-white/8
-                                dark:text-muted
-                                dark:group-hover:border-[#8fa0ea]/35
-                                dark:group-hover:bg-[#8fa0ea]/12
-                                dark:group-hover:text-white
-                              `
-                          }
+                              active
+                                ? `
+                                  border-black/14 bg-black/4 text-ink
+                                  dark:border-[#8fa0ea]/35 dark:bg-[#8fa0ea]/16 dark:text-white
+                                `
+                                : `
+                                  border-black/8 bg-white/78 text-muted
+                                  group-hover:border-black/15 group-hover:text-ink
+                                  dark:border-white/8 dark:bg-white/8 dark:text-muted
+                                  dark:group-hover:border-[#8fa0ea]/35
+                                  dark:group-hover:bg-[#8fa0ea]/12 dark:group-hover:text-white
+                                `
+                            }
                           `}
                         >
                           <item.icon size={16} strokeWidth={1.8} />
@@ -228,14 +227,16 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                           className={`
                             block text-base font-medium
                             ${
-                            active ? `
-                              text-ink
-                              dark:text-white
-                            ` : `
-                              text-ink
-                              dark:text-[#f3f6ff]
-                            `
-                          }
+                              active
+                                ? `
+                                  text-ink
+                                  dark:text-white
+                                `
+                                : `
+                                  text-ink
+                                  dark:text-[#f3f6ff]
+                                `
+                            }
                           `}
                         >
                           {item.label}
@@ -248,16 +249,20 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
             </div>
           </aside>
 
-          <div className="
-            flex min-w-0 flex-col gap-8
-            lg:gap-12
-          ">
+          <div
+            className="
+              flex min-w-0 flex-col gap-8
+              lg:gap-12
+            "
+          >
             {children}
             <footer className="flex items-center justify-center pt-2 pb-4">
-              <p className="
-                text-[0.8rem] text-muted
-                dark:text-[#c7d1e8]
-              ">
+              <p
+                className="
+                  text-[0.8rem] text-muted
+                  dark:text-[#c7d1e8]
+                "
+              >
                 &copy; {new Date().getFullYear()} Ochuko Ekrresa. All rights reserved.
               </p>
             </footer>

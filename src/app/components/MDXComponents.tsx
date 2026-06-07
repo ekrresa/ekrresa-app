@@ -23,14 +23,12 @@ function CustomImage({ src, alt, ...props }: ComponentPropsWithoutRef<'img'>) {
     <span className="
       my-10 block overflow-hidden rounded-3xl border border-black/8 bg-white/72
       shadow-[0_14px_40px_rgba(24,21,17,0.06)]
-      dark:border-white/10 dark:bg-white/6
-      dark:shadow-[0_16px_40px_rgba(0,0,0,0.24)]
+      dark:border-white/10 dark:bg-white/6 dark:shadow-[0_16px_40px_rgba(0,0,0,0.24)]
     ">
       <img src={src} alt={alt} className="h-auto w-full" {...props} />
       {alt && (
         <span className="
-          block border-t border-black/8 bg-black/2 px-4 py-3 text-center text-sm
-          text-muted
+          block border-t border-black/8 bg-black/2 px-4 py-3 text-center text-sm text-muted
           dark:border-white/10 dark:bg-white/5 dark:text-[#c7d1e8]
         ">
           {alt}
