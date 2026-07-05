@@ -10,17 +10,16 @@ export function ArticlesPage() {
     <main className="relative">
       <section
         className="
-          rounded-[2.2rem] border border-black/10 bg-white/70 p-6
-          shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur-sm
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
+          shadow-ui-xl backdrop-blur-sm
           sm:p-8
           xl:p-10
-          dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)]
         "
       >
         <div className="mb-20 flex flex-col gap-5">
           <h1
             className="
-              mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink
+              mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
               sm:text-6xl
             "
           >
@@ -29,12 +28,11 @@ export function ArticlesPage() {
 
           <p
             className="
-              text-sm/7 text-muted
+              text-sm/7 text-ui-muted
               sm:text-base
-              dark:text-[#c7d1e8]
             "
           >
-            Sharing what I’ve learned from building products and running experiments.
+            Sharing what I've learned from building products and running experiments.
           </p>
         </div>
 
@@ -44,13 +42,7 @@ export function ArticlesPage() {
               <li key={post.slug}>
                 <ArticleCard post={post} />
 
-                <div
-                  className="
-                    my-4 h-px w-full bg-black/8
-                    last-of-type:hidden
-                    dark:bg-white/8
-                  "
-                />
+                <div className="my-4 h-px w-full bg-ui-line last-of-type:hidden" />
               </li>
             )
           })}

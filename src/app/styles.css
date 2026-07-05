@@ -6,13 +6,27 @@
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 @theme {
-  --color-bg: #f6f1ea;
-  --color-ink: #181511;
-  --color-muted: #5f564d;
-  --color-accent: #9f5f3f;
-  --color-surface: rgba(255, 255, 255, 0.78);
-  --color-surface-strong: rgba(255, 255, 255, 0.9);
-  --color-line: rgba(24, 21, 17, 0.1);
+  --color-ui-canvas: #f6f1ea;
+  --color-ui-surface: rgba(255, 255, 255, 0.78);
+  --color-ui-surface-strong: rgba(255, 255, 255, 0.9);
+  --color-ui-line: rgba(24, 21, 17, 0.1);
+  --color-ui-ink: #181511;
+  --color-ui-muted: #5f564d;
+  --color-ui-accent: #9f5f3f;
+  --color-ui-selection: rgba(159, 95, 63, 0.2);
+  --color-ui-glow: rgba(159, 95, 63, 0.12);
+  --color-ui-grid: rgba(24, 21, 17, 0.022);
+  --shadow-ui-sm: 0 8px 24px rgba(24, 21, 17, 0.04);
+  --shadow-ui-md: 0 14px 35px rgba(24, 21, 17, 0.08);
+  --shadow-ui-lg: 0 18px 60px rgba(24, 21, 17, 0.08);
+  --shadow-ui-xl: 0 24px 90px rgba(24, 21, 17, 0.08);
+  --shadow-ui-control: 0 10px 28px rgba(24, 21, 17, 0.08);
+  --shadow-ui-float: 0 20px 40px rgba(24, 21, 17, 0.18);
+  --shadow-ui-float-lg: 0 28px 64px rgba(24, 21, 17, 0.24);
+  --shadow-ui-overlay: 0 34px 100px rgba(24, 21, 17, 0.22);
+  --shadow-ui-code: 0 18px 50px rgba(24, 21, 17, 0.18);
+  --shadow-ui-accent: 0 18px 40px color-mix(in srgb, var(--color-ui-accent) 28%, transparent);
+  --shadow-ui-accent-lg: 0 22px 46px color-mix(in srgb, var(--color-ui-accent) 34%, transparent);
   --font-display:
     'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', serif;
 }
@@ -33,13 +47,25 @@
 
   [data-theme='dark'] {
     color-scheme: dark;
-    --color-bg: #111726;
-    --color-ink: #edf2ff;
-    --color-muted: #bcc6de;
-    --color-accent: #c4afe7;
-    --color-surface: rgba(24, 32, 51, 0.72);
-    --color-surface-strong: rgba(19, 25, 40, 0.88);
-    --color-line: rgba(237, 242, 255, 0.1);
+    --color-ui-canvas: #111726;
+    --color-ui-surface: rgba(24, 32, 51, 0.72);
+    --color-ui-surface-strong: rgba(19, 25, 40, 0.88);
+    --color-ui-line: rgba(237, 242, 255, 0.1);
+    --color-ui-ink: #edf2ff;
+    --color-ui-muted: #bcc6de;
+    --color-ui-accent: #c4afe7;
+    --color-ui-selection: rgba(181, 154, 214, 0.28);
+    --color-ui-glow: rgba(181, 154, 214, 0.16);
+    --color-ui-grid: rgba(237, 242, 255, 0.035);
+    --shadow-ui-sm: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --shadow-ui-md: 0 18px 36px rgba(0, 0, 0, 0.24);
+    --shadow-ui-lg: 0 20px 60px rgba(0, 0, 0, 0.28);
+    --shadow-ui-xl: 0 28px 90px rgba(0, 0, 0, 0.35);
+    --shadow-ui-control: 0 16px 32px rgba(0, 0, 0, 0.32);
+    --shadow-ui-float: 0 20px 48px rgba(0, 0, 0, 0.38);
+    --shadow-ui-float-lg: 0 28px 64px rgba(0, 0, 0, 0.5);
+    --shadow-ui-overlay: 0 36px 110px rgba(0, 0, 0, 0.46);
+    --shadow-ui-code: 0 18px 50px rgba(0, 0, 0, 0.35);
   }
 
   html {
@@ -49,16 +75,17 @@
   body {
     min-height: 100svh;
     background:
-      radial-gradient(circle at top left, rgba(159, 95, 63, 0.12), transparent 34%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 241, 234, 0.96)), var(--color-bg);
-    color: var(--color-ink);
+      radial-gradient(circle at top left, var(--color-ui-glow), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 241, 234, 0.96)),
+      var(--color-ui-canvas);
+    color: var(--color-ui-ink);
   }
 
   [data-theme='dark'] body {
     background:
-      radial-gradient(circle at top left, rgba(181, 154, 214, 0.16), transparent 32%),
+      radial-gradient(circle at top left, var(--color-ui-glow), transparent 32%),
       radial-gradient(circle at top right, rgba(127, 144, 218, 0.12), transparent 26%),
-      linear-gradient(180deg, rgba(17, 23, 38, 0.92), rgba(9, 13, 24, 0.98)), var(--color-bg);
+      linear-gradient(180deg, rgba(17, 23, 38, 0.92), rgba(9, 13, 24, 0.98)), var(--color-ui-canvas);
   }
 
   body::before {
@@ -67,26 +94,19 @@
     inset: 0;
     z-index: -1;
     background-image:
-      linear-gradient(rgba(24, 21, 17, 0.022) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(24, 21, 17, 0.022) 1px, transparent 1px);
+      linear-gradient(var(--color-ui-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-ui-grid) 1px, transparent 1px);
     background-size: 72px 72px;
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.72));
     pointer-events: none;
   }
 
   [data-theme='dark'] body::before {
-    background-image:
-      linear-gradient(rgba(237, 242, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(237, 242, 255, 0.035) 1px, transparent 1px);
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.82));
   }
 
   ::selection {
-    background: rgba(159, 95, 63, 0.2);
-  }
-
-  [data-theme='dark'] ::selection {
-    background: rgba(181, 154, 214, 0.28);
+    background: var(--color-ui-selection);
   }
 
   pre code {

@@ -19,9 +19,8 @@ export function ArticleCard({ post }: ArticleCardProps) {
       className="
         group -mx-3 flex translate-x-0 items-center gap-4 overflow-hidden rounded-3xl px-3 py-5
         transition-all duration-300 ease-out
-        hover:translate-x-1 hover:bg-black/3
+        hover:translate-x-1 hover:bg-ui-line/40
         sm:gap-6 sm:py-6
-        dark:hover:bg-white/4
       "
     >
       <div
@@ -33,9 +32,8 @@ export function ArticleCard({ post }: ArticleCardProps) {
         {post.imageId ? (
           <div
             className="
-              aspect-square w-24 overflow-hidden rounded-2xl bg-black/5
+              aspect-square w-24 overflow-hidden rounded-2xl bg-ui-line/50
               sm:w-40
-              dark:bg-white/6
             "
           >
             <img
@@ -58,10 +56,8 @@ export function ArticleCard({ post }: ArticleCardProps) {
       >
         <span
           className="
-            text-xs text-muted/70 transition-colors duration-300 ease-out
-            group-hover:text-muted
-            dark:text-muted/90
-            dark:group-hover:text-[#d6def1]
+            text-xs text-ui-muted/70 transition-colors duration-300 ease-out
+            group-hover:text-ui-muted
           "
         >
           {formatPostDate(post.date)}
@@ -75,21 +71,14 @@ export function ArticleCard({ post }: ArticleCardProps) {
           <a
             href={`/articles/${post.slug}`}
             className="
-              text-ink transition-colors duration-300 ease-out
-              hover:text-accent
+              text-ui-ink transition-colors duration-300 ease-out
+              hover:text-ui-accent
             "
           >
             {post.title}
           </a>
         </h2>
-        <p
-          className="
-            mt-2 line-clamp-2 text-sm/6 text-muted
-            dark:text-[#c7d1e8]
-          "
-        >
-          {post.summary}
-        </p>
+        <p className="mt-2 line-clamp-2 text-sm/6 text-ui-muted">{post.summary}</p>
       </div>
     </article>
   )

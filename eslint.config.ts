@@ -34,7 +34,10 @@ export default defineConfig([
       ...pluginReact.configs.recommended.rules,
       ...betterTailwindcssPlugin.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
-      'better-tailwindcss/enforce-consistent-line-wrapping': ['warn', { printWidth: 100 }],
+      'better-tailwindcss/enforce-consistent-line-wrapping': [
+        'warn',
+        { printWidth: 90, preferSingleLine: true },
+      ],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-require-imports': 'warn',

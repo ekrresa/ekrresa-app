@@ -40,11 +40,9 @@ function SocialLinks({ className }: { className?: string }) {
           rel="noreferrer"
           aria-label={link.label}
           className="
-            inline-flex size-10 items-center justify-center rounded-full border border-black/10
-            bg-white/72 text-muted transition
-            hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:text-ink
-            dark:border-white/10 dark:bg-white/8 dark:text-muted
-            dark:hover:border-[#8fa0ea]/45 dark:hover:bg-[#8fa0ea]/16 dark:hover:text-white
+            inline-flex size-10 items-center justify-center rounded-full border border-ui-line
+            bg-ui-surface text-ui-muted transition
+            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16 hover:text-ui-ink
           "
         >
           {link.icon}
@@ -91,23 +89,16 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
 
   return (
     <ThemeProvider initialTheme={theme}>
-      <div className="relative min-h-screen overflow-x-clip bg-bg text-ink">
+      <div className="relative min-h-screen overflow-x-clip bg-ui-canvas text-ui-ink">
         <div className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute -top-40 -left-48 size-80 rounded-full bg-accent/18 blur-3xl"
-          />
+          <div className="absolute -top-40 -left-48 size-80 rounded-full bg-ui-accent/18 blur-3xl" />
           <div
             className="
-              absolute top-40 -right-40 size-96 rounded-full bg-white/70 blur-3xl
-              dark:bg-accent/12
+              absolute top-40 -right-40 size-96 rounded-full bg-ui-surface-strong blur-3xl
+              dark:bg-ui-accent/12
             "
           />
-          <div
-            className="
-              absolute inset-x-0 top-0 h-px bg-black/10
-              dark:bg-white/10
-            "
-          />
+          <div className="absolute inset-x-0 top-0 h-px bg-ui-line" />
         </div>
 
         <div
@@ -126,17 +117,11 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
           >
             <div
               className="
-                rounded-4xl border border-black/10 bg-white/55 p-5
-                shadow-[0_20px_80px_rgba(24,21,17,0.08)] backdrop-blur-sm
-                dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(0,0,0,0.35)]
+                rounded-4xl border border-ui-line bg-ui-surface p-5
+                shadow-ui-xl backdrop-blur-sm
               "
             >
-              <div
-                className="
-                  mb-6 border-b border-black/8 pb-5
-                  dark:border-white/8
-                "
-              >
+              <div className="mb-6 border-b border-ui-line pb-5">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <img
@@ -156,9 +141,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                       "
                     />
                     <div className="min-w-0">
-                      <p
-                        className="text-[0.62rem] font-medium tracking-[0.3em] text-muted uppercase"
-                      >
+                      <p className="text-[0.62rem] font-medium tracking-[0.3em] text-ui-muted uppercase">
                         Ochuko Ekrresa
                       </p>
                     </div>
@@ -180,22 +163,17 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                       aria-current={active ? 'page' : undefined}
                       className={`
                         group flex items-center justify-between rounded-3xl border px-5 py-4
-                        shadow-[0_8px_24px_rgba(24,21,17,0.04)] transition
+                        shadow-ui-sm transition
                         ${
                           active
                             ? `
-                              border-black/14 bg-white text-ink
-                              shadow-[0_14px_35px_rgba(24,21,17,0.08)]
-                              dark:border-[#8fa0ea]/30 dark:bg-[#8fa0ea]/10 dark:text-white
-                              dark:shadow-[0_18px_36px_rgba(0,0,0,0.24)]
+                              border-ui-accent/30 bg-ui-accent/10 text-ui-ink
+                              shadow-ui-md
                             `
                             : `
-                              border-black/8 bg-white/62
-                              hover:-translate-y-0.5 hover:border-black/15 hover:bg-white
-                              hover:shadow-[0_14px_35px_rgba(24,21,17,0.08)]
-                              dark:border-white/8 dark:bg-white/6
-                              dark:hover:border-[#8fa0ea]/30 dark:hover:bg-[#8fa0ea]/10
-                              dark:hover:shadow-[0_18px_36px_rgba(0,0,0,0.24)]
+                              border-ui-line bg-ui-surface
+                              hover:-translate-y-0.5 hover:border-ui-accent/30 hover:bg-ui-accent/10
+                              hover:shadow-ui-md
                             `
                         }
                       `}
@@ -208,39 +186,19 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                             ${
                               active
                                 ? `
-                                  border-black/14 bg-black/4 text-ink
-                                  dark:border-[#8fa0ea]/35 dark:bg-[#8fa0ea]/16 dark:text-white
+                                  border-ui-accent/35 bg-ui-accent/16 text-ui-ink
                                 `
                                 : `
-                                  border-black/8 bg-white/78 text-muted
-                                  group-hover:border-black/15 group-hover:text-ink
-                                  dark:border-white/8 dark:bg-white/8 dark:text-muted
-                                  dark:group-hover:border-[#8fa0ea]/35
-                                  dark:group-hover:bg-[#8fa0ea]/12 dark:group-hover:text-white
+                                  border-ui-line bg-ui-surface text-ui-muted
+                                  group-hover:border-ui-accent/35 group-hover:bg-ui-accent/12
+                                  group-hover:text-ui-ink
                                 `
                             }
                           `}
                         >
                           <item.icon size={16} strokeWidth={1.8} />
                         </span>
-                        <span
-                          className={`
-                            block text-base font-medium
-                            ${
-                              active
-                                ? `
-                                  text-ink
-                                  dark:text-white
-                                `
-                                : `
-                                  text-ink
-                                  dark:text-[#f3f6ff]
-                                `
-                            }
-                          `}
-                        >
-                          {item.label}
-                        </span>
+                        <span className="block text-base font-medium text-ui-ink">{item.label}</span>
                       </span>
                     </a>
                   )
@@ -257,12 +215,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
           >
             {children}
             <footer className="flex items-center justify-center pt-2 pb-4">
-              <p
-                className="
-                  text-[0.8rem] text-muted
-                  dark:text-[#c7d1e8]
-                "
-              >
+              <p className="text-[0.8rem] text-ui-muted">
                 &copy; {new Date().getFullYear()} Ochuko Ekrresa. All rights reserved.
               </p>
             </footer>

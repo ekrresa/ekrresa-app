@@ -52,11 +52,9 @@ function SocialLinks({ className }: { className?: string }) {
           rel="noreferrer"
           aria-label={link.label}
           className="
-            inline-flex size-10 items-center justify-center rounded-full border border-black/10
-            bg-white/72 text-muted transition
-            hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:text-ink
-            dark:border-white/10 dark:bg-white/8 dark:text-muted
-            dark:hover:border-[#8fa0ea]/45 dark:hover:bg-[#8fa0ea]/16 dark:hover:text-white
+            inline-flex size-10 items-center justify-center rounded-full border border-ui-line
+            bg-ui-surface text-ui-muted transition
+            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16 hover:text-ui-ink
           "
         >
           {link.icon}
@@ -84,11 +82,10 @@ export function Home() {
     >
       <section
         className="
-          rounded-[2.2rem] border border-black/10 bg-white/70 p-6
-          shadow-[0_24px_90px_rgba(24,21,17,0.08)] backdrop-blur-sm
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
+          shadow-ui-xl backdrop-blur-sm
           sm:p-8
           xl:p-10
-          dark:border-white/10 dark:bg-white/6 dark:shadow-[0_28px_90px_rgba(0,0,0,0.35)]
         "
       >
         <div className="grid gap-8">
@@ -101,9 +98,8 @@ export function Home() {
             >
               <p
                 className="
-                  text-[0.7rem] font-medium tracking-[0.34em] text-accent uppercase
+                  text-[0.7rem] font-medium tracking-[0.34em] text-ui-accent uppercase
                   lg:hidden
-                  dark:text-[#d1baf0]
                 "
               >
                 Ochuko Ekrresa / Software engineer
@@ -114,7 +110,7 @@ export function Home() {
             </div>
             <h1
               className="
-                mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ink
+                mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
                 sm:text-6xl
                 lg:text-7xl
               "
@@ -123,9 +119,8 @@ export function Home() {
             </h1>
             <p
               className="
-                mt-6 max-w-2xl text-base/8 text-muted
+                mt-6 max-w-2xl text-base/8 text-ui-muted
                 sm:text-lg
-                dark:text-[#c7d1e8]
               "
             >
               Building useful products. Designing reliable systems. Sharing insights from lessons
@@ -136,12 +131,12 @@ export function Home() {
               <a
                 href="#projects"
                 className="
-                  rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition
-                  hover:bg-black
-                  dark:border dark:border-[#a5b2ec]/55 dark:bg-[#8fa0ea] dark:text-[#0e1525]
-                  dark:shadow-[0_18px_40px_rgba(127,144,218,0.28)]
-                  dark:hover:-translate-y-0.5 dark:hover:bg-[#a5b2ec]
-                  dark:hover:shadow-[0_22px_46px_rgba(127,144,218,0.34)]
+                  rounded-full bg-ui-ink px-5 py-3 text-sm font-medium text-ui-canvas transition
+                  hover:bg-ui-ink/90
+                  dark:border dark:border-ui-accent/55 dark:bg-ui-accent dark:text-ui-canvas
+                  dark:shadow-ui-accent
+                  dark:hover:-translate-y-0.5 dark:hover:bg-ui-accent/90
+                  dark:hover:shadow-ui-accent-lg
                 "
               >
                 View projects
@@ -149,11 +144,9 @@ export function Home() {
               <a
                 href="/articles"
                 className="
-                  rounded-full border border-black/10 bg-white/80 px-5 py-3 text-sm font-medium
-                  text-ink transition
-                  hover:border-black/20 hover:bg-white
-                  dark:border-white/14 dark:bg-white/9 dark:text-[#dbe4ff]
-                  dark:hover:-translate-y-0.5 dark:hover:border-white/24 dark:hover:bg-white/14
+                  rounded-full border border-ui-line bg-ui-surface-strong px-5 py-3 text-sm
+                  font-medium text-ui-ink transition
+                  hover:-translate-y-0.5 hover:border-ui-line hover:bg-ui-surface-strong
                 "
               >
                 Read articles
@@ -174,22 +167,17 @@ export function Home() {
               target="_blank"
               rel="noreferrer"
               className="
-                relative block overflow-hidden rounded-4xl border border-black/10
-                bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,240,232,0.98))] p-6
-                shadow-[0_18px_50px_rgba(24,21,17,0.06)] transition
-                hover:-translate-y-0.5 hover:border-black/15
-                hover:shadow-[0_24px_60px_rgba(24,21,17,0.08)]
+                relative block overflow-hidden rounded-4xl border border-ui-line bg-ui-surface-strong
+                p-6 shadow-ui-lg transition
+                hover:-translate-y-0.5 hover:border-ui-line hover:shadow-ui-xl
                 sm:px-7
-                dark:border-white/10
-                dark:bg-[linear-gradient(180deg,rgba(24,32,51,0.92),rgba(14,19,31,0.98))]
-                dark:hover:border-white/16 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.28)]
               "
             >
               <div
                 className="
                   pointer-events-none absolute top-1/2 -right-10 size-32 -translate-y-1/2
-                  rounded-full bg-accent/12 blur-3xl
-                  dark:bg-accent/18
+                  rounded-full bg-ui-accent/12 blur-3xl
+                  dark:bg-ui-accent/18
                 "
               />
 
@@ -202,15 +190,14 @@ export function Home() {
                 <div>
                   <p
                     className="
-                      text-[0.65rem] font-medium tracking-[0.32em] text-muted uppercase
-                      dark:text-[#d1daef]
+                      text-[0.65rem] font-medium tracking-[0.32em] text-ui-muted uppercase
                     "
                   >
                     Currently building
                   </p>
                   <p
                     className="
-                      mt-4 font-display text-4xl leading-none tracking-tighter text-ink
+                      mt-4 font-display text-4xl leading-none tracking-tighter text-ui-ink
                       sm:text-5xl
                     "
                   >
@@ -226,13 +213,9 @@ export function Home() {
       <section
         id="articles"
         className="
-          rounded-[2.2rem] border border-black/10
-          bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(251,246,240,0.95))] p-6
-          shadow-[0_16px_60px_rgba(24,21,17,0.06)]
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
+          shadow-ui-lg
           sm:p-8
-          dark:border-white/10
-          dark:bg-[linear-gradient(180deg,rgba(23,30,47,0.88),rgba(14,19,31,0.96))]
-          dark:shadow-[0_18px_60px_rgba(0,0,0,0.3)]
         "
       >
         <div
@@ -242,22 +225,13 @@ export function Home() {
           "
         >
           <div>
-            <p
-              className="
-                text-sm tracking-widest text-accent uppercase
-                dark:text-[#d1baf0]
-              "
-            >
-              Articles
-            </p>
+            <p className="text-sm tracking-widest text-ui-accent uppercase">Articles</p>
           </div>
           <a
             href="/articles"
             className="
-              text-sm font-medium text-muted transition
-              hover:text-ink
-              dark:text-[#c7d1e8]
-              dark:hover:text-white
+              text-sm font-medium text-ui-muted transition
+              hover:text-ui-ink
             "
           >
             View all articles
@@ -276,10 +250,8 @@ export function Home() {
       <section
         id="projects"
         className="
-          rounded-[2.2rem] border border-black/10 bg-white/68 p-6
-          shadow-[0_16px_60px_rgba(24,21,17,0.06)] backdrop-blur-sm
-          sm:p-8
-          dark:border-white/10 dark:bg-white/6 dark:shadow-[0_18px_60px_rgba(0,0,0,0.3)]
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
+          shadow-ui-lg backdrop-blur-sm
         "
       >
         <div
@@ -289,14 +261,7 @@ export function Home() {
           "
         >
           <div>
-            <p
-              className="
-                text-sm tracking-widest text-accent uppercase
-                dark:text-[#d1baf0]
-              "
-            >
-              Projects
-            </p>
+            <p className="text-sm tracking-widest text-ui-accent uppercase">Projects</p>
           </div>
         </div>
 
@@ -306,14 +271,7 @@ export function Home() {
             return (
               <li key={project.title}>
                 <ProjectCard project={project} />
-                {!isLast && (
-                  <div
-                    className="
-                      my-4 h-px w-full bg-black/8
-                      dark:bg-white/8
-                    "
-                  />
-                )}
+                {!isLast && <div className="my-4 h-px w-full bg-ui-line" />}
               </li>
             )
           })}
