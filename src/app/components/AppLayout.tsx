@@ -1,6 +1,6 @@
 import type { LayoutProps } from 'rwsdk/router'
 import { Briefcase, House, Newspaper, type UiIcon } from './ui-icons'
-import { siteMetadata } from '../lib/utils'
+import { cx, siteMetadata } from '../lib/utils'
 import { MobileFabMenu } from './MobileFabMenu'
 import { ThemeProvider } from './ThemeProvider'
 import { ThemeToggle } from './ThemeToggle'
@@ -146,34 +146,21 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                       key={item.label}
                       href={item.href}
                       aria-current={active ? 'page' : undefined}
-                      className={`
-                        group flex items-center justify-between rounded-2xl border px-5
-                        py-4 transition
-                        ${
-                          active
-                            ? `border-ui-accent/35 bg-ui-accent/10 text-ui-ink`
-                            : `
-                              border-ui-line bg-ui-surface
-                              hover:border-ui-accent/30 hover:bg-ui-accent/8
-                            `
+                      className={cx(
+                        'group flex items-center justify-between rounded-2xl border border-ui-line bg-ui-surface px-5 py-4 transition hover:border-ui-line hover:bg-ui-nav-surface',
+                        {
+                          'border border-ui-line bg-ui-nav-surface text-ui-ink': active,
                         }
-                      `}
+                      )}
                     >
-                      <span className="flex items-center gap-3">
+                      <span className="flex items-center gap-2">
                         <span
-                          className={`
-                            inline-flex items-center justify-center rounded-full border transition
-                            block-9 inline-9
-                            ${
-                              active
-                                ? `border-ui-accent/35 bg-ui-accent/16 text-ui-ink`
-                                : `
-                                  border-ui-line bg-ui-surface text-ui-muted
-                                  group-hover:border-ui-accent/35
-                                  group-hover:bg-ui-accent/12 group-hover:text-ui-ink
-                                `
+                          className={cx(
+                            'inline-flex items-center justify-center rounded-full border-ui-line bg-ui-surface text-ui-muted transition block-9 inline-9 group-hover:border-ui-accent/35 group-hover:bg-transparent group-hover:text-ui-ink',
+                            {
+                              'border-ui-accent/35 bg-transparent text-ui-ink': active,
                             }
-                          `}
+                          )}
                         >
                           <item.icon size={16} strokeWidth={1.8} />
                         </span>

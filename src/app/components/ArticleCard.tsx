@@ -73,7 +73,7 @@ export function ArticleCard({ post }: ArticleCardProps) {
             {post.title}
           </a>
         </h2>
-        <p className="mbs-2 line-clamp-2 text-sm/6 text-ui-muted">{post.summary}</p>
+        <p className="mbs-2 line-clamp-2 text-base/6 text-ui-muted">{post.summary}</p>
       </div>
     </article>
   )

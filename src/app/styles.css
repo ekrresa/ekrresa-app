@@ -27,11 +27,10 @@
   --color-ui-surface-strong: #fdfbf7;
   --color-ui-line: rgba(49, 43, 35, 0.15);
   --color-ui-ink: #24211d;
-  /* --color-ui-highlight: #004777; */
   /* --color-ui-ink: #0C1618; */
   --color-ui-muted: #625b52;
   --color-ui-accent: #004777;
-  --color-ui-accent-surface: #e3eef4;
+  --color-ui-nav-surface: #e1dbcd;
   --color-ui-accent-surface-strong: #cfe2ed;
   --color-ui-selection: rgba(0, 71, 119, 0.2);
   --color-ui-glow: rgba(0, 71, 119, 0.06);
