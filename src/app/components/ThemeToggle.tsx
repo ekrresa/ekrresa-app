@@ -1,6 +1,6 @@
 'use client'
 
-import { MoonIcon, SunIcon } from './ui-icons'
+import { SunDimIcon, MoonIcon } from '@phosphor-icons/react'
 
 import { useTheme } from './ThemeProvider'
 
@@ -13,8 +13,8 @@ export function ThemeToggle() {
       aria-label={nextThemeLabel}
       className="
         inline-flex shrink-0 items-center justify-center rounded-full border border-ui-line bg-ui-surface-strong text-ui-muted
-        shadow-ui-control backdrop-blur-sm transition block-10
-        inline-10
+        shadow-ui-control backdrop-blur-sm transition block-9
+        inline-9
         hover:-translate-y-0.5 hover:border-ui-accent/35 hover:bg-ui-accent/14 hover:text-ui-ink
       "
       onClick={toggleTheme}
@@ -22,9 +22,9 @@ export function ThemeToggle() {
       type="button"
     >
       {theme === 'dark' ? (
-        <SunIcon strokeWidth={2} className="block-5 inline-5" />
+        <SunDimIcon className="block-5 inline-5" />
       ) : (
-        <MoonIcon strokeWidth={2} className="block-5 inline-5" />
+        <MoonIcon className="block-5 inline-5" />
       )}
     </button>
   )

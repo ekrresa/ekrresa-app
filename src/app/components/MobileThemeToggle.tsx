@@ -1,6 +1,6 @@
 'use client'
 
-import { MoonIcon, SunIcon } from './ui-icons'
+import { MoonIcon, SunDimIcon } from '@phosphor-icons/react'
 import * as React from 'react'
 
 import { useTheme } from './ThemeProvider'
@@ -46,7 +46,7 @@ export function MobileThemeToggle() {
           fixed inset-e-6 inset-be-[calc(env(safe-area-inset-bottom,0)+4rem)] z-40 inline-flex items-center justify-center
           rounded-full border border-ui-line bg-ui-surface-strong text-ui-ink shadow-ui-float
           backdrop-blur-xl transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]
-          block-14 inline-14
+          block-12 inline-12
           motion-reduce:transition-none
           ${
             isVisible
@@ -60,9 +60,9 @@ export function MobileThemeToggle() {
       >
         <span className="sr-only">{nextThemeLabel}</span>
         {theme === 'dark' ? (
-          <SunIcon className="block-5 inline-5" strokeWidth={2} />
+          <SunDimIcon className="block-6 inline-6" />
         ) : (
-          <MoonIcon className="block-5 inline-5" strokeWidth={2} />
+          <MoonIcon className="block-6 inline-6" />
         )}
       </button>
     </div>

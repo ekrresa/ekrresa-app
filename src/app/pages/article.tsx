@@ -128,8 +128,8 @@ export function Article({ params }: { params: { slug: string } }) {
       <article className="border-y border-ui-line py-10 sm:py-12">
         <div
           className="
-            prose prose-lg max-inline-[65ch]
-            prose-headings:font-display prose-headings:text-ui-ink
+            prose prose-lg max-inline-none
+            prose-headings:font-display prose-headings:font-medium prose-headings:text-ui-ink
             prose-p:leading-8 prose-p:text-ui-muted
             prose-a:text-ui-accent prose-a:decoration-ui-accent/30
             prose-a:underline-offset-4
