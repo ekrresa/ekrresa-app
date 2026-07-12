@@ -3,6 +3,7 @@ import { mdxParse } from 'safe-mdx/parse'
 import { SafeMdxRenderer } from 'safe-mdx'
 import { components } from '../components/MDXComponents'
 import { highlight } from 'sugar-high'
+import { BackLink } from '../components/BackLink'
 import CopyCode from '../components/CopyCode'
 import { IMAGE_BASE_URL } from '../lib/utils'
 
@@ -72,16 +73,9 @@ export function Article({ params }: { params: { slug: string } }) {
     <main className="relative space-y-12">
       <section className="pbs-4 sm:pbs-8">
         <header className="max-inline-4xl">
-          <a
-            href="/articles"
-            className="
-              mbe-10 inline-flex items-center border-be border-ui-line pbe-2 text-xs
-              font-medium tracking-[0.22em] text-ui-muted uppercase transition
-              hover:border-ui-accent hover:text-ui-ink
-            "
-          >
+          <BackLink href="/articles" className="mbe-10">
             All articles
-          </a>
+          </BackLink>
 
           <h1
             className="

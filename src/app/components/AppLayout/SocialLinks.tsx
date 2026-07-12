@@ -24,7 +24,7 @@ export default function SocialLinks({ className }: SocialLinksProps) {
           rel="noreferrer"
           aria-label={link.label}
           className="
-            inline-flex items-center justify-center rounded-full border border-ui-line bg-ui-surface
+            inline-flex items-center justify-center rounded-xl border border-ui-line bg-ui-surface
             text-ui-muted transition block-10 inline-10 hover:border-ui-accent hover:text-ui-accent
           "
         >

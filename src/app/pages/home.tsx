@@ -1,4 +1,5 @@
 import { ArticleCard } from '@/app/components/ArticleCard'
+import { ForwardLink } from '@/app/components/ForwardLink'
 import { allPosts, allProjects } from 'content-collections'
 
 import { ProjectCard } from '../components/ProjectCard'
@@ -28,14 +29,7 @@ export function Home() {
                 Ochuko Ekrresa /<br /> Software engineer
               </p>
             </div>
-            <h1
-              className="
-                mbs-5 font-display text-5xl leading-[0.95] font-medium tracking-[-0.04em] text-ui-ink
-                max-inline-4xl
-                sm:text-6xl
-                lg:text-7xl
-              "
-            >
+            <h1 className="mbs-5 font-display text-5xl leading-[0.95] font-medium tracking-[-0.04em] text-ui-ink  max-inline-4xl sm:text-6xl lg:text-7xl">
               Products. Writing. Experiments.
             </h1>
             <p className="mbs-6 text-base/8 text-ui-muted max-inline-2xl sm:text-lg">
@@ -88,14 +82,7 @@ export function Home() {
               >
                 Currently building
               </p>
-              <p
-                className="
-                  mbs-4 font-display text-4xl leading-[0.98] font-medium tracking-[-0.035em] text-ui-ink
-                  transition-colors
-                  group-hover:text-ui-accent
-                  sm:text-5xl
-                "
-              >
+              <p className="mbs-4 font-display text-4xl leading-[0.98] font-medium tracking-[-0.035em] text-ui-ink transition-colors group-hover:text-ui-accent">
                 EventDP
               </p>
             </a>
@@ -103,26 +90,16 @@ export function Home() {
         </div>
       </section>
 
-      <section
-        id="articles"
-        className="
-          flex flex-col gap-6
-        "
-      >
+      <section id="articles" className="flex flex-col gap-6">
         <div className="flex items-center justify-between gap-4">
           <h2 className="border-be-2 border-ui-accent/60 font-sans text-sm font-medium tracking-widest text-ui-ink uppercase">
             Articles
           </h2>
 
-          <a
-            href="/articles"
-            className="text-sm font-medium text-ui-muted transition hover:text-ui-ink"
-          >
-            View all
-          </a>
+          <ForwardLink href="/articles">View all</ForwardLink>
         </div>
 
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-1">
           {featuredPosts.map(post => (
             <li key={post.slug}>
               <ArticleCard post={post} />
@@ -131,12 +108,7 @@ export function Home() {
         </ul>
       </section>
 
-      <section
-        id="projects"
-        className="
-          flex flex-col gap-6
-        "
-      >
+      <section id="projects" className="flex flex-col gap-6">
         <div>
           <h2 className="border-be-2 border-ui-accent/60 font-sans text-sm font-medium tracking-widest text-ui-ink uppercase inline-block">
             Projects

@@ -99,7 +99,6 @@
       linear-gradient(180deg, #fcfbf8, var(--color-ui-canvas)), var(--color-ui-canvas);
     color: var(--color-ui-ink);
     font-family: var(--font-sans);
-    /* font-weight: 300; */
     font-size: 1rem;
     font-synthesis: none;
     line-height: 1.6;
@@ -111,7 +110,6 @@
   h4 {
     font-family: var(--font-display);
     font-kerning: normal;
-    /* font-weight: 400; */
   }
 
   [data-theme='dark'] body {
