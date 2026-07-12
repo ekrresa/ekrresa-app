@@ -121,8 +121,7 @@ export function Home() {
                   transition
                   hover:bg-ui-ink/90
                   dark:border dark:border-ui-accent/55 dark:bg-ui-accent
-                  dark:text-ui-canvas dark:shadow-ui-accent
-                  dark:hover:-translate-y-0.5 dark:hover:bg-ui-accent/90
+                  dark:text-ui-canvas dark:shadow-ui-accent dark:hover:bg-ui-accent/90
                   dark:hover:shadow-ui-accent-lg
                 "
               >

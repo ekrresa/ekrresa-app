@@ -25,9 +25,9 @@ function ArticleCredit({ credit }: { credit: string }) {
     <div
       className="
         prose prose-sm text-[0.78rem] max-inline-none
-        prose-p:m-0 prose-p:text-ui-muted
-        prose-a:text-ui-accent prose-a:decoration-ui-accent/30 prose-a:underline-offset-4
-        hover:prose-a:text-ui-ink
+        prose-p:m-0 prose-p:text-white/85
+        prose-a:text-white prose-a:decoration-white/40 prose-a:underline-offset-4
+        hover:prose-a:text-white
       "
     >
       <SafeMdxRenderer markdown={credit} mdast={creditMdast} components={components} />
@@ -110,19 +110,14 @@ export function Article({ params }: { params: { slug: string } }) {
         </header>
 
         {post.imageId ? (
-          <figure
-            className="
-              relative mbs-10 overflow-hidden rounded-3xl border border-ui-line
-              bg-ui-surface
-            "
-          >
+          <figure className="relative mbs-10 overflow-hidden rounded-3xl border border-ui-line bg-ui-surface">
             <img
               src={`${IMAGE_BASE_URL}${post.imageId}`}
               alt={post.imageAlt || post.title}
               className="aspect-[16/8.8] object-cover inline-full"
             />
             {post.imageCredit ? (
-              <figcaption className="absolute inset-x-0 inset-be-0 bg-ui-surface/70 px-5 pbs-16 pbe-3">
+              <figcaption className="absolute inset-x-0 inset-be-0 bg-linear-to-t from-black/55 via-black/20 to-transparent px-5 pbs-16 pbe-3">
                 <ArticleCredit credit={post.imageCredit} />
               </figcaption>
             ) : null}
