@@ -1,5 +1,5 @@
 import type { LayoutProps } from 'rwsdk/router'
-import { Briefcase, House, Newspaper, type LucideIcon } from 'lucide-react'
+import { Briefcase, House, Newspaper, type UiIcon } from './ui-icons'
 import { siteMetadata } from '../lib/utils'
 import { MobileFabMenu } from './MobileFabMenu'
 import { ThemeProvider } from './ThemeProvider'
@@ -56,7 +56,7 @@ function SocialLinks({ className }: { className?: string }) {
 interface PageIndexItem {
   label: string
   href: string
-  icon: LucideIcon
+  icon: UiIcon
   isActive(path: string): boolean
 }
 

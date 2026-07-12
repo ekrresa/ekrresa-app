@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from './ui-icons'
 import { type Project } from 'content-collections'
 
 interface ProjectCardProps {

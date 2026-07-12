@@ -1,6 +1,6 @@
 'use client'
 
-import { Briefcase, House, Menu, MoonStar, Newspaper, X, type LucideIcon } from 'lucide-react'
+import { Briefcase, House, Menu, MoonStar, Newspaper, X, type UiIcon } from './ui-icons'
 import * as React from 'react'
 
 import { ThemeToggle } from './ThemeToggle'
@@ -8,7 +8,7 @@ import { ThemeToggle } from './ThemeToggle'
 interface MobileMenuItem {
   label: string
   href: string
-  icon: LucideIcon
+  icon: UiIcon
   isActive(path: string): boolean
 }
 
