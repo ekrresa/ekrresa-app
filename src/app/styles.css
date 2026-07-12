@@ -7,26 +7,25 @@
 
 @theme {
   --color-ui-canvas: #f6f1ea;
-  --color-ui-surface: rgba(255, 255, 255, 0.78);
-  --color-ui-surface-strong: rgba(255, 255, 255, 0.9);
-  --color-ui-line: rgba(24, 21, 17, 0.1);
+  --color-ui-surface: #eee3d2;
+  --color-ui-surface-strong: #f2e9dc;
+  --color-ui-line: rgba(61, 45, 30, 0.16);
   --color-ui-ink: #181511;
   --color-ui-muted: #5f564d;
   --color-ui-accent: #9f5f3f;
   --color-ui-selection: rgba(159, 95, 63, 0.2);
-  --color-ui-glow: rgba(159, 95, 63, 0.12);
-  --color-ui-grid: rgba(24, 21, 17, 0.022);
-  --shadow-ui-sm: 0 8px 24px rgba(24, 21, 17, 0.04);
-  --shadow-ui-md: 0 14px 35px rgba(24, 21, 17, 0.08);
-  --shadow-ui-lg: 0 18px 60px rgba(24, 21, 17, 0.08);
-  --shadow-ui-xl: 0 24px 90px rgba(24, 21, 17, 0.08);
-  --shadow-ui-control: 0 10px 28px rgba(24, 21, 17, 0.08);
-  --shadow-ui-float: 0 20px 40px rgba(24, 21, 17, 0.18);
-  --shadow-ui-float-lg: 0 28px 64px rgba(24, 21, 17, 0.24);
-  --shadow-ui-overlay: 0 34px 100px rgba(24, 21, 17, 0.22);
-  --shadow-ui-code: 0 18px 50px rgba(24, 21, 17, 0.18);
-  --shadow-ui-accent: 0 18px 40px color-mix(in srgb, var(--color-ui-accent) 28%, transparent);
-  --shadow-ui-accent-lg: 0 22px 46px color-mix(in srgb, var(--color-ui-accent) 34%, transparent);
+  --color-ui-glow: rgba(159, 95, 63, 0.07);
+  --shadow-ui-sm: 0 2px 10px rgba(61, 45, 30, 0.04);
+  --shadow-ui-md: 0 6px 20px rgba(61, 45, 30, 0.05);
+  --shadow-ui-lg: 0 10px 30px rgba(61, 45, 30, 0.06);
+  --shadow-ui-xl: 0 14px 42px rgba(61, 45, 30, 0.07);
+  --shadow-ui-control: 0 4px 14px rgba(61, 45, 30, 0.06);
+  --shadow-ui-float: 0 12px 28px rgba(61, 45, 30, 0.14);
+  --shadow-ui-float-lg: 0 18px 36px rgba(61, 45, 30, 0.18);
+  --shadow-ui-overlay: 0 18px 48px rgba(61, 45, 30, 0.18);
+  --shadow-ui-code: 0 8px 20px rgba(61, 45, 30, 0.12);
+  --shadow-ui-accent: 0 8px 20px color-mix(in srgb, var(--color-ui-accent) 16%, transparent);
+  --shadow-ui-accent-lg: 0 10px 26px color-mix(in srgb, var(--color-ui-accent) 20%, transparent);
   --font-display:
     'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', serif;
 }
@@ -48,24 +47,23 @@
   [data-theme='dark'] {
     color-scheme: dark;
     --color-ui-canvas: #111726;
-    --color-ui-surface: rgba(24, 32, 51, 0.72);
-    --color-ui-surface-strong: rgba(19, 25, 40, 0.88);
-    --color-ui-line: rgba(237, 242, 255, 0.1);
+    --color-ui-surface: #182033;
+    --color-ui-surface-strong: #1d263b;
+    --color-ui-line: rgba(227, 234, 252, 0.14);
     --color-ui-ink: #edf2ff;
     --color-ui-muted: #bcc6de;
     --color-ui-accent: #c4afe7;
     --color-ui-selection: rgba(181, 154, 214, 0.28);
-    --color-ui-glow: rgba(181, 154, 214, 0.16);
-    --color-ui-grid: rgba(237, 242, 255, 0.035);
-    --shadow-ui-sm: 0 8px 24px rgba(0, 0, 0, 0.2);
-    --shadow-ui-md: 0 18px 36px rgba(0, 0, 0, 0.24);
-    --shadow-ui-lg: 0 20px 60px rgba(0, 0, 0, 0.28);
-    --shadow-ui-xl: 0 28px 90px rgba(0, 0, 0, 0.35);
-    --shadow-ui-control: 0 16px 32px rgba(0, 0, 0, 0.32);
-    --shadow-ui-float: 0 20px 48px rgba(0, 0, 0, 0.38);
-    --shadow-ui-float-lg: 0 28px 64px rgba(0, 0, 0, 0.5);
-    --shadow-ui-overlay: 0 36px 110px rgba(0, 0, 0, 0.46);
-    --shadow-ui-code: 0 18px 50px rgba(0, 0, 0, 0.35);
+    --color-ui-glow: rgba(196, 175, 231, 0.08);
+    --shadow-ui-sm: 0 2px 10px rgba(0, 0, 0, 0.14);
+    --shadow-ui-md: 0 6px 20px rgba(0, 0, 0, 0.18);
+    --shadow-ui-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-ui-xl: 0 14px 42px rgba(0, 0, 0, 0.24);
+    --shadow-ui-control: 0 6px 18px rgba(0, 0, 0, 0.22);
+    --shadow-ui-float: 0 12px 28px rgba(0, 0, 0, 0.3);
+    --shadow-ui-float-lg: 0 18px 36px rgba(0, 0, 0, 0.34);
+    --shadow-ui-overlay: 0 18px 48px rgba(0, 0, 0, 0.34);
+    --shadow-ui-code: 0 8px 20px rgba(0, 0, 0, 0.24);
   }
 
   html {
@@ -75,8 +73,8 @@
   body {
     min-height: 100svh;
     background:
-      radial-gradient(circle at top left, var(--color-ui-glow), transparent 34%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 241, 234, 0.96)),
+      radial-gradient(circle at top left, var(--color-ui-glow), transparent 32%),
+      linear-gradient(180deg, #f9f4ec, var(--color-ui-canvas)),
       var(--color-ui-canvas);
     color: var(--color-ui-ink);
   }
@@ -84,25 +82,8 @@
   [data-theme='dark'] body {
     background:
       radial-gradient(circle at top left, var(--color-ui-glow), transparent 32%),
-      radial-gradient(circle at top right, rgba(127, 144, 218, 0.12), transparent 26%),
-      linear-gradient(180deg, rgba(17, 23, 38, 0.92), rgba(9, 13, 24, 0.98)), var(--color-ui-canvas);
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background-image:
-      linear-gradient(var(--color-ui-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-ui-grid) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.72));
-    pointer-events: none;
-  }
-
-  [data-theme='dark'] body::before {
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.82));
+      radial-gradient(circle at top right, rgba(196, 175, 231, 0.05), transparent 26%),
+      linear-gradient(180deg, #151c2d, var(--color-ui-canvas));
   }
 
   ::selection {

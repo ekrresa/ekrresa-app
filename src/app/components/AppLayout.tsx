@@ -40,9 +40,10 @@ function SocialLinks({ className }: { className?: string }) {
           rel="noreferrer"
           aria-label={link.label}
           className="
-            inline-flex size-10 items-center justify-center rounded-full border border-ui-line
-            bg-ui-surface text-ui-muted transition
-            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16 hover:text-ui-ink
+            inline-flex size-10 items-center justify-center rounded-full border
+            border-ui-line bg-ui-surface text-ui-muted transition
+            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16
+            hover:text-ui-ink
           "
         >
           {link.icon}
@@ -91,11 +92,9 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
     <ThemeProvider initialTheme={theme}>
       <div className="relative min-h-screen overflow-x-clip bg-ui-canvas text-ui-ink">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-40 -left-48 size-80 rounded-full bg-ui-accent/18 blur-3xl" />
           <div
             className="
-              absolute top-40 -right-40 size-96 rounded-full bg-ui-surface-strong blur-3xl
-              dark:bg-ui-accent/12
+              absolute -top-48 -left-56 size-96 rounded-full bg-ui-accent/8 blur-3xl
             "
           />
           <div className="absolute inset-x-0 top-0 h-px bg-ui-line" />
@@ -109,39 +108,28 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
             xl:px-16
           "
         >
-          <aside
-            className="
-              hidden
-              lg:sticky lg:top-8 lg:block lg:h-fit
-            "
-          >
-            <div
-              className="
-                rounded-4xl border border-ui-line bg-ui-surface p-5
-                shadow-ui-xl backdrop-blur-sm
-              "
-            >
+          <aside className="hidden lg:sticky lg:top-8 lg:block lg:h-fit">
+            <div className="rounded-3xl border border-ui-line bg-ui-surface p-5">
               <div className="mb-6 border-b border-ui-line pb-5">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <img
                       src="/icons/logo-light.svg"
                       alt="Ochuko Ekrresa logo"
-                      className="
-                        size-8 shrink-0
-                        dark:hidden
-                      "
+                      className="size-8 shrink-0 dark:hidden"
                     />
                     <img
                       src="/icons/logo-dark.svg"
                       alt="Ochuko Ekrresa logo"
-                      className="
-                        hidden size-8 shrink-0
-                        dark:block
-                      "
+                      className="hidden size-8 shrink-0 dark:block"
                     />
                     <div className="min-w-0">
-                      <p className="text-[0.62rem] font-medium tracking-[0.3em] text-ui-muted uppercase">
+                      <p
+                        className="
+                          text-[0.62rem] font-medium tracking-[0.3em] text-ui-muted
+                          uppercase
+                        "
+                      >
                         Ochuko Ekrresa
                       </p>
                     </div>
@@ -162,18 +150,14 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                       href={item.href}
                       aria-current={active ? 'page' : undefined}
                       className={`
-                        group flex items-center justify-between rounded-3xl border px-5 py-4
-                        shadow-ui-sm transition
+                        group flex items-center justify-between rounded-2xl border px-5
+                        py-4 transition
                         ${
                           active
-                            ? `
-                              border-ui-accent/30 bg-ui-accent/10 text-ui-ink
-                              shadow-ui-md
-                            `
+                            ? `border-ui-accent/35 bg-ui-accent/10 text-ui-ink`
                             : `
                               border-ui-line bg-ui-surface
-                              hover:-translate-y-0.5 hover:border-ui-accent/30 hover:bg-ui-accent/10
-                              hover:shadow-ui-md
+                              hover:border-ui-accent/30 hover:bg-ui-accent/8
                             `
                         }
                       `}
@@ -181,24 +165,24 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                       <span className="flex items-center gap-3">
                         <span
                           className={`
-                            inline-flex size-9 items-center justify-center rounded-full border
-                            transition
+                            inline-flex size-9 items-center justify-center rounded-full
+                            border transition
                             ${
                               active
-                                ? `
-                                  border-ui-accent/35 bg-ui-accent/16 text-ui-ink
-                                `
+                                ? `border-ui-accent/35 bg-ui-accent/16 text-ui-ink`
                                 : `
                                   border-ui-line bg-ui-surface text-ui-muted
-                                  group-hover:border-ui-accent/35 group-hover:bg-ui-accent/12
-                                  group-hover:text-ui-ink
+                                  group-hover:border-ui-accent/35
+                                  group-hover:bg-ui-accent/12 group-hover:text-ui-ink
                                 `
                             }
                           `}
                         >
                           <item.icon size={16} strokeWidth={1.8} />
                         </span>
-                        <span className="block text-base font-medium text-ui-ink">{item.label}</span>
+                        <span className="block text-base font-medium text-ui-ink">
+                          {item.label}
+                        </span>
                       </span>
                     </a>
                   )
@@ -207,12 +191,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
             </div>
           </aside>
 
-          <div
-            className="
-              flex min-w-0 flex-col gap-8
-              lg:gap-12
-            "
-          >
+          <div className="flex min-w-0 flex-col gap-8 lg:gap-12">
             {children}
             <footer className="flex items-center justify-center pt-2 pb-4">
               <p className="text-[0.8rem] text-ui-muted">

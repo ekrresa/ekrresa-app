@@ -38,13 +38,7 @@ function ArticleCredit({ credit }: { credit: string }) {
 function MissingArticle() {
   return (
     <main className="relative">
-      <section
-        className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-8 shadow-ui-xl
-          backdrop-blur-sm
-          sm:p-10
-        "
-      >
+      <section className="border-t border-ui-line pt-10 sm:pt-12">
         <p className="text-sm tracking-[0.3em] text-ui-accent uppercase">Article</p>
         <h1
           className="
@@ -75,70 +69,51 @@ export function Article({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className="relative space-y-6">
-      <section
-        className="
-          overflow-hidden rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
-          shadow-ui-xl backdrop-blur-sm
-          sm:p-8
-          xl:p-10
-        "
-      >
-        <div className="relative">
+    <main className="relative space-y-12">
+      <section className="pt-4 sm:pt-8">
+        <header className="max-w-4xl">
+          <a
+            href="/articles"
+            className="
+              mb-10 inline-flex items-center border-b border-ui-line pb-2 text-xs
+              font-medium tracking-[0.22em] text-ui-muted uppercase transition
+              hover:border-ui-accent hover:text-ui-ink
+            "
+          >
+            All articles
+          </a>
+
+          <h1
+            className="
+              max-w-3xl font-display text-4xl leading-[0.95] tracking-[-0.04em]
+              text-ui-ink
+              sm:text-5xl
+              xl:text-[4.25rem]
+            "
+          >
+            {post.title}
+          </h1>
+
           <div
             className="
-              pointer-events-none absolute top-4 -right-16 size-40 rounded-full
-              bg-ui-accent/10 blur-3xl
-              dark:bg-ui-accent/16
+              mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ui-muted
             "
-          />
-          <div className="relative">
-            <header className="max-w-4xl">
-              <a
-                href="/articles"
-                className="
-                  mb-10 inline-flex items-center rounded-full border border-ui-line
-                  bg-ui-surface px-3 py-1.5 text-xs font-medium tracking-[0.22em]
-                  text-ui-muted uppercase transition
-                  hover:border-ui-line hover:bg-ui-surface-strong hover:text-ui-ink
-                "
-              >
-                All articles
-              </a>
-
-              <h1
-                className="
-                  max-w-3xl font-display text-4xl leading-[0.95] tracking-[-0.04em]
-                  text-ui-ink
-                  sm:text-5xl
-                  xl:text-[4.25rem]
-                "
-              >
-                {post.title}
-              </h1>
-
-              <div
-                className="
-                  mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ui-muted
-                "
-              >
-                <time dateTime={post.date}>{formatPostDate(post.date)}</time>
-                {post.updatedAt ? (
-                  <>
-                    <span aria-hidden="true" className="size-1 rounded-full bg-current/45" />
-                    <span>Updated {formatPostDate(post.updatedAt)}</span>
-                  </>
-                ) : null}
-              </div>
-            </header>
+          >
+            <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+            {post.updatedAt ? (
+              <>
+                <span aria-hidden="true" className="size-1 rounded-full bg-current/45" />
+                <span>Updated {formatPostDate(post.updatedAt)}</span>
+              </>
+            ) : null}
           </div>
-        </div>
+        </header>
 
         {post.imageId ? (
           <figure
             className="
-              relative mt-10 overflow-hidden rounded-4xl border border-ui-line
-              bg-ui-line/50 shadow-ui-lg
+              relative mt-10 overflow-hidden rounded-3xl border border-ui-line
+              bg-ui-surface
             "
           >
             <img
@@ -148,9 +123,7 @@ export function Article({ params }: { params: { slug: string } }) {
             />
             {post.imageCredit ? (
               <figcaption
-                className="
-                absolute inset-x-0 bottom-0 bg-ui-surface/70 px-5 pt-16 pb-3
-              "
+                className="absolute inset-x-0 bottom-0 bg-ui-surface/70 px-5 pt-16 pb-3"
               >
                 <ArticleCredit credit={post.imageCredit} />
               </figcaption>
@@ -159,17 +132,10 @@ export function Article({ params }: { params: { slug: string } }) {
         ) : null}
       </section>
 
-      <article
-        className="
-          rounded-4xl border border-ui-line bg-ui-surface p-6 shadow-ui-lg
-          backdrop-blur-sm
-          sm:p-8
-          lg:p-10
-        "
-      >
+      <article className="border-y border-ui-line py-10 sm:py-12">
         <div
           className="
-            prose prose-lg max-w-none
+            prose prose-lg max-w-[65ch]
             prose-headings:font-display prose-headings:text-ui-ink
             prose-p:leading-8 prose-p:text-ui-muted
             prose-a:text-ui-accent prose-a:decoration-ui-accent/30

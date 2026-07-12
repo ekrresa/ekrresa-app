@@ -78,8 +78,7 @@ export function Home() {
     <main className="relative min-w-0 space-y-6 lg:space-y-8">
       <section
         className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-xl
-          backdrop-blur-sm
+          rounded-4xl border border-ui-line bg-ui-surface p-6 shadow-ui-lg
           sm:p-8
           xl:p-10
         "
@@ -150,44 +149,26 @@ export function Home() {
               target="_blank"
               rel="noreferrer"
               className="
-                relative block overflow-hidden rounded-4xl border border-ui-line
-                bg-ui-surface-strong p-6 shadow-ui-lg transition
-                hover:-translate-y-0.5 hover:border-ui-line hover:shadow-ui-xl
-                sm:px-7
+                group block border-t border-ui-line pt-6 transition
+                hover:border-ui-accent/45
               "
             >
-              <div
+              <p
                 className="
-                  pointer-events-none absolute top-1/2 -right-10 size-32 -translate-y-1/2
-                  rounded-full bg-ui-accent/12 blur-3xl
-                  dark:bg-ui-accent/18
-                "
-              />
-
-              <div
-                className="
-                  relative flex flex-col gap-5
-                  sm:flex-row sm:items-end sm:justify-between
+                  text-[0.65rem] font-medium tracking-[0.32em] text-ui-muted uppercase
                 "
               >
-                <div>
-                  <p
-                    className="
-                      text-[0.65rem] font-medium tracking-[0.32em] text-ui-muted uppercase
-                    "
-                  >
-                    Currently building
-                  </p>
-                  <p
-                    className="
-                      mt-4 font-display text-4xl leading-none tracking-tighter text-ui-ink
-                      sm:text-5xl
-                    "
-                  >
-                    EventDP
-                  </p>
-                </div>
-              </div>
+                Currently building
+              </p>
+              <p
+                className="
+                  mt-4 font-display text-4xl leading-none tracking-tighter text-ui-ink transition-colors
+                  group-hover:text-ui-accent
+                  sm:text-5xl
+                "
+              >
+                EventDP
+              </p>
             </a>
           </div>
         </div>
@@ -196,8 +177,8 @@ export function Home() {
       <section
         id="articles"
         className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-lg
-          sm:p-8
+          border-t border-ui-line pt-10
+          sm:pt-12
         "
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -212,7 +193,7 @@ export function Home() {
           </a>
         </div>
 
-        <ul className="mt-8 flex flex-col gap-2">
+        <ul className="mt-8">
           {featuredPosts.map(post => (
             <li key={post.slug}>
               <ArticleCard post={post} />
@@ -224,8 +205,8 @@ export function Home() {
       <section
         id="projects"
         className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-lg
-          backdrop-blur-sm
+          border-t border-ui-line pt-10
+          sm:pt-12
         "
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

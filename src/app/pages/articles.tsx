@@ -8,14 +8,7 @@ export function ArticlesPage() {
 
   return (
     <main className="relative">
-      <section
-        className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-xl
-          backdrop-blur-sm
-          sm:p-8
-          xl:p-10
-        "
-      >
+      <section className="pt-4 sm:pt-8">
         <div className="mb-20 flex flex-col gap-5">
           <h1
             className="
@@ -32,13 +25,14 @@ export function ArticlesPage() {
           </p>
         </div>
 
-        <ul className="flex flex-col gap-2">
-          {sortedPosts.map(post => {
+        <ul>
+          {sortedPosts.map((post, index) => {
+            const isLast = index === sortedPosts.length - 1
+
             return (
               <li key={post.slug}>
                 <ArticleCard post={post} />
-
-                <div className="my-4 h-px w-full bg-ui-line last-of-type:hidden" />
+                {!isLast && <div className="my-4 h-px w-full bg-ui-line" />}
               </li>
             )
           })}
