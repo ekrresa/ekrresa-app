@@ -4,6 +4,7 @@ import { Menu, MoonStar, X } from './ui-icons'
 import * as React from 'react'
 
 import { pageIndexItems } from '../lib/nav'
+import { useLocationHash } from '../lib/use-location-hash'
 import { cx } from '../lib/utils'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -12,22 +13,13 @@ interface MobileFabMenuProps {
 }
 
 export function MobileFabMenu({ path }: MobileFabMenuProps) {
-  const [hash, setHash] = React.useState('')
+  const hash = useLocationHash()
   const [isOpen, setIsOpen] = React.useState(false)
   const [isMenuMounted, setIsMenuMounted] = React.useState(false)
   const [isVisible, setIsVisible] = React.useState(true)
   const closeTimeoutRef = React.useRef<number | undefined>(undefined)
   const lastScrollYRef = React.useRef(0)
   const openTimeoutRef = React.useRef<number | undefined>(undefined)
-
-  React.useEffect(() => {
-    const updateHash = () => setHash(window.location.hash)
-
-    updateHash()
-    window.addEventListener('hashchange', updateHash)
-
-    return () => window.removeEventListener('hashchange', updateHash)
-  }, [])
 
   React.useEffect(() => {
     const nextScrollY = window.scrollY

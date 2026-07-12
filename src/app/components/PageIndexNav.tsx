@@ -1,24 +1,8 @@
 'use client'
 
-import * as React from 'react'
-
 import { pageIndexItems } from '../lib/nav'
+import { useLocationHash } from '../lib/use-location-hash'
 import { cx } from '../lib/utils'
-
-function useLocationHash() {
-  const [hash, setHash] = React.useState('')
-
-  React.useEffect(() => {
-    const update = () => setHash(window.location.hash)
-
-    update()
-    window.addEventListener('hashchange', update)
-
-    return () => window.removeEventListener('hashchange', update)
-  }, [])
-
-  return hash
-}
 
 export function PageIndexNav({ path }: { path: string }) {
   const hash = useLocationHash()
