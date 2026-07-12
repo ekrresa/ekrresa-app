@@ -75,7 +75,7 @@ export function Home() {
     .sort((a, b) => a.order - b.order)
 
   return (
-    <main className="relative min-w-0 space-y-6 lg:space-y-8">
+    <main className="relative min-w-0 space-y-12 sm:space-y-16">
       <section
         className="
           rounded-4xl border border-ui-line bg-ui-surface p-6 shadow-ui-lg
@@ -178,23 +178,23 @@ export function Home() {
       <section
         id="articles"
         className="
-          border-t border-ui-line pt-10
-          sm:pt-12
+          flex flex-col gap-6
         "
       >
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm tracking-widest text-ui-accent uppercase">Articles</p>
-          </div>
+        <div className="flex gap-4 items-center justify-between">
+          <h2 className="font-sans text-sm font-medium tracking-widest uppercase text-ui-ink border-b-2 border-ui-accent/60">
+            Articles
+          </h2>
+
           <a
             href="/articles"
             className="text-sm font-medium text-ui-muted transition hover:text-ui-ink"
           >
-            View all articles
+            View all
           </a>
         </div>
 
-        <ul className="mt-8">
+        <ul className="flex flex-col gap-2">
           {featuredPosts.map(post => (
             <li key={post.slug}>
               <ArticleCard post={post} />
@@ -206,17 +206,18 @@ export function Home() {
       <section
         id="projects"
         className="
-          border-t border-ui-line pt-10
-          sm:pt-12
+          flex flex-col gap-6
         "
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm tracking-widest text-ui-accent uppercase">Projects</p>
+            <h2 className="font-sans text-sm font-medium tracking-widest uppercase text-ui-ink border-b-2 border-ui-accent/60">
+              Projects
+            </h2>
           </div>
         </div>
 
-        <ul className="mt-6">
+        <ul>
           {sortedProjects.map((project, index, array) => {
             const isLast = index === array.length - 1
             return (

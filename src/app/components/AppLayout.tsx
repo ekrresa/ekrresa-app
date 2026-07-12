@@ -102,7 +102,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
 
         <div
           className="
-            mx-auto grid max-w-7xl grid-cols-1 gap-8 p-5 pb-24
+            mx-auto grid max-w-6xl grid-cols-1 gap-8 p-5 pb-24
             sm:px-6
             lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 lg:pb-8
             xl:px-16
@@ -191,8 +191,9 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
             </div>
           </aside>
 
-          <div className="flex min-w-0 flex-col gap-8 lg:gap-12">
+          <div className="flex min-w-0 flex-col gap-40">
             {children}
+
             <footer className="flex items-center justify-center pt-2 pb-4">
               <p className="text-[0.8rem] text-ui-muted">
                 &copy; {new Date().getFullYear()} Ochuko Ekrresa. All rights reserved.
