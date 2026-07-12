@@ -24,7 +24,7 @@ function ArticleCredit({ credit }: { credit: string }) {
   return (
     <div
       className="
-        prose prose-sm max-w-none text-[0.78rem]
+        prose prose-sm text-[0.78rem] max-inline-none
         prose-p:m-0 prose-p:text-ui-muted
         prose-a:text-ui-accent prose-a:decoration-ui-accent/30 prose-a:underline-offset-4
         hover:prose-a:text-ui-ink
@@ -38,17 +38,17 @@ function ArticleCredit({ credit }: { credit: string }) {
 function MissingArticle() {
   return (
     <main className="relative">
-      <section className="border-t border-ui-line pt-10 sm:pt-12">
+      <section className="border-bs border-ui-line pbs-10 sm:pbs-12">
         <p className="text-sm tracking-[0.3em] text-ui-accent uppercase">Article</p>
         <h1
           className="
-            mt-5 font-display text-4xl leading-[0.96] tracking-[-0.04em] text-ui-ink
+            mbs-5 font-display text-4xl leading-[0.96] tracking-[-0.04em] text-ui-ink
             sm:text-5xl
           "
         >
           Post not found
         </h1>
-        <p className="mt-5 max-w-2xl text-sm/7 text-ui-muted sm:text-base">
+        <p className="mbs-5 text-sm/7 text-ui-muted max-inline-2xl sm:text-base">
           Sorry, this article does not exist or is no longer available.
         </p>
       </section>
@@ -70,12 +70,12 @@ export function Article({ params }: { params: { slug: string } }) {
 
   return (
     <main className="relative space-y-12">
-      <section className="pt-4 sm:pt-8">
-        <header className="max-w-4xl">
+      <section className="pbs-4 sm:pbs-8">
+        <header className="max-inline-4xl">
           <a
             href="/articles"
             className="
-              mb-10 inline-flex items-center border-b border-ui-line pb-2 text-xs
+              mbe-10 inline-flex items-center border-be border-ui-line pbe-2 text-xs
               font-medium tracking-[0.22em] text-ui-muted uppercase transition
               hover:border-ui-accent hover:text-ui-ink
             "
@@ -85,8 +85,8 @@ export function Article({ params }: { params: { slug: string } }) {
 
           <h1
             className="
-              max-w-3xl font-display text-4xl leading-[0.95] tracking-[-0.04em]
-              text-ui-ink
+              font-display text-4xl leading-[0.95] tracking-[-0.04em] text-ui-ink
+              max-inline-3xl
               sm:text-5xl
               xl:text-[4.25rem]
             "
@@ -96,13 +96,13 @@ export function Article({ params }: { params: { slug: string } }) {
 
           <div
             className="
-              mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ui-muted
+              mbs-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ui-muted
             "
           >
             <time dateTime={post.date}>{formatPostDate(post.date)}</time>
             {post.updatedAt ? (
               <>
-                <span aria-hidden="true" className="size-1 rounded-full bg-current/45" />
+                <span aria-hidden="true" className="rounded-full bg-current/45 block-1 inline-1" />
                 <span>Updated {formatPostDate(post.updatedAt)}</span>
               </>
             ) : null}
@@ -112,19 +112,17 @@ export function Article({ params }: { params: { slug: string } }) {
         {post.imageId ? (
           <figure
             className="
-              relative mt-10 overflow-hidden rounded-3xl border border-ui-line
+              relative mbs-10 overflow-hidden rounded-3xl border border-ui-line
               bg-ui-surface
             "
           >
             <img
               src={`${IMAGE_BASE_URL}${post.imageId}`}
               alt={post.imageAlt || post.title}
-              className="aspect-[16/8.8] w-full object-cover"
+              className="aspect-[16/8.8] object-cover inline-full"
             />
             {post.imageCredit ? (
-              <figcaption
-                className="absolute inset-x-0 bottom-0 bg-ui-surface/70 px-5 pt-16 pb-3"
-              >
+              <figcaption className="absolute inset-x-0 inset-be-0 bg-ui-surface/70 px-5 pbs-16 pbe-3">
                 <ArticleCredit credit={post.imageCredit} />
               </figcaption>
             ) : null}
@@ -135,13 +133,13 @@ export function Article({ params }: { params: { slug: string } }) {
       <article className="border-y border-ui-line py-10 sm:py-12">
         <div
           className="
-            prose prose-lg max-w-[65ch]
+            prose prose-lg max-inline-[65ch]
             prose-headings:font-display prose-headings:text-ui-ink
             prose-p:leading-8 prose-p:text-ui-muted
             prose-a:text-ui-accent prose-a:decoration-ui-accent/30
             prose-a:underline-offset-4
             hover:prose-a:text-ui-ink
-            prose-blockquote:border-l-ui-accent/40 prose-blockquote:text-ui-ink
+            prose-blockquote:border-s-ui-accent/40 prose-blockquote:text-ui-ink
             prose-figcaption:text-ui-muted
             prose-strong:text-ui-ink
             prose-code:text-ui-ink

@@ -32,15 +32,15 @@ export function ArticleCard({ post }: ArticleCardProps) {
         {post.imageId ? (
           <div
             className="
-              aspect-square w-24 overflow-hidden rounded-2xl bg-ui-line/50
-              sm:w-40
+              aspect-square overflow-hidden rounded-2xl bg-ui-line/50 inline-24
+              sm:inline-40
             "
           >
             <img
               src={`${IMAGE_BASE_URL}${post.imageId}`}
               alt={post.imageAlt ?? post.title}
               className="
-                size-full object-cover transition-transform duration-500 ease-out
+                object-cover transition-transform duration-500 ease-out block-full inline-full
                 group-hover:scale-[1.06]
               "
             />
@@ -48,7 +48,7 @@ export function ArticleCard({ post }: ArticleCardProps) {
         ) : null}
       </div>
 
-      <div className="flex flex-col justify-center py-2 pr-4 sm:pr-6">
+      <div className="flex flex-col justify-center py-2 pe-4 sm:pe-6">
         <span
           className="
             text-xs text-ui-muted/70 transition-colors duration-300 ease-out
@@ -59,7 +59,7 @@ export function ArticleCard({ post }: ArticleCardProps) {
         </span>
         <h2
           className="
-            mt-2 font-display text-2xl leading-[1.05] tracking-[-0.03em]
+            mbs-2 font-display text-2xl leading-[1.05] tracking-[-0.03em]
             sm:text-[1.75rem]
           "
         >
@@ -73,7 +73,7 @@ export function ArticleCard({ post }: ArticleCardProps) {
             {post.title}
           </a>
         </h2>
-        <p className="mt-2 line-clamp-2 text-sm/6 text-ui-muted">{post.summary}</p>
+        <p className="mbs-2 line-clamp-2 text-sm/6 text-ui-muted">{post.summary}</p>
       </div>
     </article>
   )

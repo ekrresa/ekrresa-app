@@ -8,12 +8,12 @@ export function ArticlesPage() {
 
   return (
     <main className="relative">
-      <section className="pt-4 sm:pt-8">
-        <div className="mb-20 flex flex-col gap-5">
+      <section className="pbs-4 sm:pbs-8">
+        <div className="mbe-20 flex flex-col gap-5">
           <h1
             className="
-              mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em]
-              text-ui-ink
+              mbs-4 font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
+              max-inline-4xl
               sm:text-6xl
             "
           >
@@ -32,7 +32,7 @@ export function ArticlesPage() {
             return (
               <li key={post.slug}>
                 <ArticleCard post={post} />
-                {!isLast && <div className="my-4 h-px w-full bg-ui-line" />}
+                {!isLast && <div className="my-4 bg-ui-line block-px inline-full" />}
               </li>
             )
           })}

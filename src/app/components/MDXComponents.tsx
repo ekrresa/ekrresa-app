@@ -20,15 +20,19 @@ function CustomLink({ href, children, ...props }: ComponentPropsWithoutRef<'a'>)
 
 function CustomImage({ src, alt, ...props }: ComponentPropsWithoutRef<'img'>) {
   return (
-    <span className="
+    <span
+      className="
       my-10 block overflow-hidden rounded-3xl border border-ui-line bg-ui-surface
       shadow-ui-md
-    ">
-      <img src={src} alt={alt} className="h-auto w-full" {...props} />
+    "
+    >
+      <img src={src} alt={alt} className="block-auto inline-full" {...props} />
       {alt && (
-        <span className="
-          block border-t border-ui-line bg-ui-line/20 px-4 py-3 text-center text-sm text-ui-muted
-        ">
+        <span
+          className="
+          block border-bs border-ui-line bg-ui-line/20 px-4 py-3 text-center text-sm text-ui-muted
+        "
+        >
           {alt}
         </span>
       )}

@@ -12,9 +12,9 @@ export function ThemeToggle() {
     <button
       aria-label={nextThemeLabel}
       className="
-        inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-ui-line
-        bg-ui-surface-strong text-ui-muted shadow-ui-control backdrop-blur-sm
-        transition
+        inline-flex shrink-0 items-center justify-center rounded-full border border-ui-line bg-ui-surface-strong text-ui-muted
+        shadow-ui-control backdrop-blur-sm transition block-10
+        inline-10
         hover:-translate-y-0.5 hover:border-ui-accent/35 hover:bg-ui-accent/14 hover:text-ui-ink
       "
       onClick={toggleTheme}
@@ -22,9 +22,9 @@ export function ThemeToggle() {
       type="button"
     >
       {theme === 'dark' ? (
-        <SunIcon strokeWidth={2} className="size-5" />
+        <SunIcon strokeWidth={2} className="block-5 inline-5" />
       ) : (
-        <MoonIcon strokeWidth={2} className="size-5" />
+        <MoonIcon strokeWidth={2} className="block-5 inline-5" />
       )}
     </button>
   )

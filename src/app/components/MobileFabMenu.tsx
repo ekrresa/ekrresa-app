@@ -166,10 +166,10 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
         aria-controls="mobile-site-menu"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
         className={`
-          fixed right-6 bottom-[calc(env(safe-area-inset-bottom,0)+4rem)] z-40 inline-flex size-14
-          items-center justify-center rounded-full border border-ui-line bg-ui-surface-strong
-          text-ui-ink shadow-ui-float backdrop-blur-xl transition-all
-          duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]
+          fixed inset-e-6 inset-be-[calc(env(safe-area-inset-bottom,0)+4rem)] z-40 inline-flex items-center justify-center
+          rounded-full border border-ui-line bg-ui-surface-strong text-ui-ink shadow-ui-float
+          backdrop-blur-xl transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]
+          block-14 inline-14
           motion-reduce:transition-none
           ${
             isFabVisible
@@ -205,9 +205,9 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
           `}
         >
           {isOpen ? (
-            <X className="size-5" strokeWidth={2.2} />
+            <X className="block-5 inline-5" strokeWidth={2.2} />
           ) : (
-            <Menu className="size-5" strokeWidth={2.2} />
+            <Menu className="block-5 inline-5" strokeWidth={2.2} />
           )}
         </span>
       </button>
@@ -228,11 +228,11 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
             id="mobile-site-menu"
             aria-hidden={!isOpen}
             className={`
-              fixed right-6 bottom-[calc(env(safe-area-inset-bottom,0)+8.5rem)] z-35
-              w-[min(calc(100vw-3rem),22rem)] origin-bottom-right overflow-hidden rounded-4xl border
-              border-ui-line bg-ui-surface-strong p-3 shadow-ui-overlay
-              ring-1 ring-ui-surface-strong backdrop-blur-2xl transition-all duration-500
-              ease-[cubic-bezier(0.19,1,0.22,1)]
+              fixed inset-e-6 inset-be-[calc(env(safe-area-inset-bottom,0)+8.5rem)] z-35
+              origin-bottom-right overflow-hidden rounded-4xl border border-ui-line
+              bg-ui-surface-strong p-3 shadow-ui-overlay ring-1
+              ring-ui-surface-strong backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]
+              inline-[min(calc(100vw-3rem),22rem)]
               motion-reduce:transition-none
               dark:ring-ui-line
               ${
@@ -244,17 +244,17 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
           >
             <div
               className={`
-                pointer-events-none absolute -top-10 -right-10 size-32 rounded-full bg-ui-accent/16
-                blur-3xl transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]
+                pointer-events-none absolute -inset-e-10 -inset-bs-10 rounded-full bg-ui-accent/16 blur-3xl transition-all
+                duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] block-32 inline-32
                 dark:bg-ui-accent/18
                 ${isOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0'}
               `}
             />
             <div
               className={`
-                pointer-events-none absolute -bottom-14 left-2 size-28 rounded-full
-                bg-ui-surface-strong blur-3xl transition-all duration-700
-                ease-[cubic-bezier(0.19,1,0.22,1)]
+                pointer-events-none absolute inset-s-2 -inset-be-14 rounded-full bg-ui-surface-strong blur-3xl
+                transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] block-28
+                inline-28
                 dark:bg-ui-accent/10
                 ${isOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0'}
               `}
@@ -294,8 +294,8 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
                     <span className="flex items-center gap-3">
                       <span
                         className={`
-                          inline-flex size-10 items-center justify-center rounded-full border
-                          transition
+                          inline-flex items-center justify-center rounded-full border transition block-10
+                          inline-10
                           ${
                             active
                               ? `
@@ -309,7 +309,7 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
                           }
                         `}
                       >
-                        <item.icon className="size-4" strokeWidth={1.9} />
+                        <item.icon className="block-4 inline-4" strokeWidth={1.9} />
                       </span>
                       <span className="text-sm font-medium">{item.label}</span>
                     </span>
@@ -321,7 +321,7 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
             <div
               style={{ transitionDelay: getTransitionDelay(320) }}
               className={`
-                relative mt-3 rounded-[1.4rem] border border-ui-line bg-ui-surface px-4 py-3
+                relative mbs-3 rounded-[1.4rem] border border-ui-line bg-ui-surface px-4 py-3
                 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]
                 ${isOpen ? 'translate-y-0 opacity-100' : `translate-y-4 scale-[0.98] opacity-0`}
               `}
@@ -330,11 +330,11 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
                 <span className="flex items-center gap-3">
                   <span
                     className="
-                      inline-flex size-10 items-center justify-center rounded-full border
-                      border-ui-line bg-ui-surface text-ui-muted
+                      inline-flex items-center justify-center rounded-full border border-ui-line bg-ui-surface
+                      text-ui-muted block-10 inline-10
                     "
                   >
-                    <MoonStar className="size-4" strokeWidth={1.9} />
+                    <MoonStar className="block-4 inline-4" strokeWidth={1.9} />
                   </span>
                   <span>
                     <span className="block text-sm font-medium text-ui-ink">Theme</span>

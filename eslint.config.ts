@@ -1,7 +1,6 @@
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 import pluginReact from 'eslint-plugin-react'
-import css from '@eslint/css'
 import { defineConfig } from 'eslint/config'
 import betterTailwindcssPlugin from 'eslint-plugin-better-tailwindcss'
 
@@ -33,10 +32,9 @@ export default defineConfig([
       ...pluginReact.configs.recommended.rules,
       ...betterTailwindcssPlugin.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
-      'better-tailwindcss/enforce-consistent-line-wrapping': [
-        'warn',
-        { printWidth: 90, preferSingleLine: true },
-      ],
+      'better-tailwindcss/enforce-consistent-line-wrapping': 'off',
+      'better-tailwindcss/enforce-consistent-variant-order': 'warn',
+      'better-tailwindcss/enforce-logical-properties': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-require-imports': 'warn',
@@ -59,19 +57,6 @@ export default defineConfig([
       'better-tailwindcss': {
         entryPoint: 'src/app/styles.css',
       },
-      // react: {
-      //   version: 'detect',
-      // },
-    },
-  },
-  {
-    files: ['**/*.css'],
-    plugins: { css },
-    language: 'css/css',
-    ignores: ['src/app/styles.css'],
-    rules: {
-      ...css.configs.recommended.rules,
-      'css/use-baseline': 'off',
     },
   },
 ])

@@ -22,7 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           sm:py-5
         "
       >
-        <div className="min-w-0">
+        <div className="min-inline-0">
           <div
             className="
               flex flex-col gap-3
@@ -40,9 +40,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </h3>
             <span
               className="
-                inline-flex w-fit items-center gap-1.5 rounded-full border border-ui-line px-3 py-1
-                text-[0.65rem] font-medium tracking-[0.24em] text-ui-muted/80 uppercase
-                transition-colors duration-300 ease-out
+                inline-flex items-center gap-1.5 rounded-full border border-ui-line px-3 py-1 text-[0.65rem]
+                font-medium tracking-[0.24em] text-ui-muted/80 uppercase transition-colors
+                duration-300 ease-out inline-fit
                 group-hover:border-ui-line group-hover:text-ui-muted
               "
             >
@@ -50,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <ArrowUpRight
                 aria-hidden="true"
                 className="
-                  size-3 shrink-0 transition-transform duration-300 ease-out
+                  shrink-0 transition-transform duration-300 ease-out block-3 inline-3
                   group-hover:translate-x-0.5 group-hover:-translate-y-0.5
                 "
               />
@@ -58,7 +58,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <p
             className="
-              mt-4 max-w-2xl text-sm/7 text-ui-muted
+              mbs-4 text-sm/7 text-ui-muted max-inline-2xl
               sm:text-base
             "
           >
