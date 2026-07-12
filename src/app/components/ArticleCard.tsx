@@ -17,10 +17,10 @@ export function ArticleCard({ post }: ArticleCardProps) {
   return (
     <article
       className="
-        group -mx-3 flex translate-x-0 items-center gap-4 overflow-hidden rounded-3xl px-3 py-5
+        group -mx-3 flex translate-x-0 items-center gap-4 overflow-hidden rounded-3xl p-3
         transition-all duration-300 ease-out
         hover:translate-x-1 hover:bg-ui-line/40
-        sm:gap-6 sm:py-6
+        sm:gap-6 sm:py-4
       "
     >
       <div
@@ -48,12 +48,7 @@ export function ArticleCard({ post }: ArticleCardProps) {
         ) : null}
       </div>
 
-      <div
-        className="
-          flex flex-col justify-center py-2 pr-4
-          sm:pr-6
-        "
-      >
+      <div className="flex flex-col justify-center py-2 pr-4 sm:pr-6">
         <span
           className="
             text-xs text-ui-muted/70 transition-colors duration-300 ease-out
