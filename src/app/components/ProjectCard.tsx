@@ -17,9 +17,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         target="_blank"
         rel="noreferrer"
         className="
-          group -mx-3 block translate-x-0 rounded-3xl px-3 py-4 transition-all duration-300 ease-out
+          group -mx-3 block translate-x-0 rounded-2xl px-3 py-4 transition-all duration-300 ease-out
           hover:translate-x-1 hover:bg-ui-line/40
-          sm:py-5
         "
       >
         <div className="min-inline-0">

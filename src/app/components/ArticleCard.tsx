@@ -25,8 +25,8 @@ export function ArticleCard({ post }: ArticleCardProps) {
     >
       <div
         className="
-          shrink-0 transition-transform duration-300 ease-out
-          group-hover:scale-[1.02]
+          hidden shrink-0 transition-transform duration-300
+          ease-out group-hover:scale-[1.02] sm:block
         "
       >
         {post.imageId ? (

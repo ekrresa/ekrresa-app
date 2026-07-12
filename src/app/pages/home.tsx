@@ -88,11 +88,11 @@ export function Home() {
             <div className="flex items-start justify-between gap-4 lg:block">
               <p
                 className="
-                  text-[0.7rem] font-medium tracking-[0.34em] text-ui-accent uppercase
+                  text-[0.7rem] font-medium tracking-[0.2em] text-ui-ink/60 uppercase
                   lg:hidden
                 "
               >
-                Ochuko Ekrresa / Software engineer
+                Ochuko Ekrresa /<br /> Software engineer
               </p>
               <div className="lg:hidden">
                 <ThemeToggle />
@@ -209,12 +209,10 @@ export function Home() {
           flex flex-col gap-6
         "
       >
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="border-be-2 border-ui-accent/60 font-sans text-sm font-medium tracking-widest text-ui-ink uppercase">
-              Projects
-            </h2>
-          </div>
+        <div>
+          <h2 className="border-be-2 border-ui-accent/60 font-sans text-sm font-medium tracking-widest text-ui-ink uppercase inline-block">
+            Projects
+          </h2>
         </div>
 
         <ul>

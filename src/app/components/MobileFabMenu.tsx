@@ -3,6 +3,7 @@
 import { Briefcase, House, Menu, MoonStar, Newspaper, X, type UiIcon } from './ui-icons'
 import * as React from 'react'
 
+import { cx } from '../lib/utils'
 import { ThemeToggle } from './ThemeToggle'
 
 interface MobileMenuItem {
@@ -259,7 +260,7 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
                 ${isOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0'}
               `}
             />
-            <div className="space-y-2">
+            <div className="space-y-3">
               {mobileMenuItems.map((item, index) => {
                 const active = item.isActive(path)
 
@@ -269,49 +270,29 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
                     href={item.href}
                     aria-current={active ? 'page' : undefined}
                     style={{ transitionDelay: getTransitionDelay(80 + index * 70) }}
-                    className={`
-                      group relative flex items-center justify-between rounded-[1.4rem] border px-4
-                      py-3.5 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]
-                      ${
-                        active
-                          ? `
-                            border-ui-accent/28 bg-ui-accent/10 text-ui-ink
-                            shadow-ui-md
-                          `
-                          : `
-                            border-ui-line bg-ui-surface text-ui-ink
-                            hover:-translate-y-0.5 hover:border-ui-accent/28 hover:bg-ui-accent/10
-                          `
+                    className={cx(
+                      'group flex items-center justify-between rounded-2xl border border-ui-line bg-ui-surface px-5 py-4 transition hover:border-ui-line hover:bg-ui-nav-surface',
+                      'duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]',
+                      {
+                        'border border-ui-line bg-ui-nav-surface text-ui-ink': active,
+                        'translate-y-0 scale-100 opacity-100': isOpen,
+                        'translate-y-4 scale-[0.98] opacity-0': !isOpen,
                       }
-                      ${
-                        isOpen
-                          ? 'translate-y-0 scale-100 opacity-100'
-                          : `translate-y-4 scale-[0.98] opacity-0`
-                      }
-                    `}
+                    )}
                     onClick={closeMenu}
                   >
-                    <span className="flex items-center gap-3">
+                    <span className="flex items-center gap-2">
                       <span
-                        className={`
-                          inline-flex items-center justify-center rounded-full border transition block-10
-                          inline-10
-                          ${
-                            active
-                              ? `
-                                border-ui-accent/35 bg-ui-accent/16 text-ui-ink
-                              `
-                              : `
-                                border-ui-line bg-ui-surface text-ui-muted
-                                group-hover:border-ui-accent/35 group-hover:bg-ui-accent/14
-                                group-hover:text-ui-ink
-                              `
+                        className={cx(
+                          'inline-flex items-center justify-center rounded-full border-ui-line bg-ui-surface text-ui-muted transition block-9 inline-9 group-hover:border-ui-accent/35 group-hover:bg-transparent group-hover:text-ui-ink',
+                          {
+                            'border-ui-accent/35 bg-transparent text-ui-ink': active,
                           }
-                        `}
+                        )}
                       >
-                        <item.icon className="block-4 inline-4" strokeWidth={1.9} />
+                        <item.icon size={16} strokeWidth={1.8} />
                       </span>
-                      <span className="text-sm font-medium">{item.label}</span>
+                      <span className="block text-base font-medium text-ui-ink">{item.label}</span>
                     </span>
                   </a>
                 )
