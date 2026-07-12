@@ -1,47 +1,33 @@
 'use client'
 
-import { Briefcase, House, Menu, MoonStar, Newspaper, X, type UiIcon } from './ui-icons'
+import { Menu, MoonStar, X } from './ui-icons'
 import * as React from 'react'
 
+import { pageIndexItems } from '../lib/nav'
 import { cx } from '../lib/utils'
 import { ThemeToggle } from './ThemeToggle'
-
-interface MobileMenuItem {
-  label: string
-  href: string
-  icon: UiIcon
-  isActive(path: string): boolean
-}
 
 interface MobileFabMenuProps {
   path: string
 }
 
-function isHomePath(path: string) {
-  return path === '/'
-}
-
-function isArticlesPath(path: string) {
-  return path === '/articles' || path.startsWith('/articles/')
-}
-
-function isProjectsPath() {
-  return false
-}
-
-const mobileMenuItems: MobileMenuItem[] = [
-  { label: 'Home', href: '/', icon: House, isActive: isHomePath },
-  { label: 'Articles', href: '/articles', icon: Newspaper, isActive: isArticlesPath },
-  { label: 'Projects', href: '/#projects', icon: Briefcase, isActive: isProjectsPath },
-]
-
 export function MobileFabMenu({ path }: MobileFabMenuProps) {
+  const [hash, setHash] = React.useState('')
   const [isOpen, setIsOpen] = React.useState(false)
   const [isMenuMounted, setIsMenuMounted] = React.useState(false)
   const [isVisible, setIsVisible] = React.useState(true)
   const closeTimeoutRef = React.useRef<number | undefined>(undefined)
   const lastScrollYRef = React.useRef(0)
   const openTimeoutRef = React.useRef<number | undefined>(undefined)
+
+  React.useEffect(() => {
+    const updateHash = () => setHash(window.location.hash)
+
+    updateHash()
+    window.addEventListener('hashchange', updateHash)
+
+    return () => window.removeEventListener('hashchange', updateHash)
+  }, [])
 
   React.useEffect(() => {
     const nextScrollY = window.scrollY
@@ -261,8 +247,8 @@ export function MobileFabMenu({ path }: MobileFabMenuProps) {
               `}
             />
             <div className="space-y-3">
-              {mobileMenuItems.map((item, index) => {
-                const active = item.isActive(path)
+              {pageIndexItems.map((item, index) => {
+                const active = item.isActive(path, hash)
 
                 return (
                   <a

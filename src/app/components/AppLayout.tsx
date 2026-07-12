@@ -1,7 +1,7 @@
 import type { LayoutProps } from 'rwsdk/router'
-import { Briefcase, House, Newspaper, type UiIcon } from './ui-icons'
-import { cx, siteMetadata } from '../lib/utils'
+import { siteMetadata } from '../lib/utils'
 import { MobileFabMenu } from './MobileFabMenu'
+import { PageIndexNav } from './PageIndexNav'
 import { ThemeProvider } from './ThemeProvider'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -52,31 +52,6 @@ function SocialLinks({ className }: { className?: string }) {
     </div>
   )
 }
-
-interface PageIndexItem {
-  label: string
-  href: string
-  icon: UiIcon
-  isActive(path: string): boolean
-}
-
-function isHomePath(path: string) {
-  return path === '/'
-}
-
-function isArticlesPath(path: string) {
-  return path === '/articles' || path.startsWith('/articles/')
-}
-
-function isProjectsPath() {
-  return false
-}
-
-const pageIndexItems: PageIndexItem[] = [
-  { label: 'Home', href: '/', icon: House, isActive: isHomePath },
-  { label: 'Articles', href: '/articles', icon: Newspaper, isActive: isArticlesPath },
-  { label: 'Projects', href: '/#projects', icon: Briefcase, isActive: isProjectsPath },
-]
 
 const socialLinks = [
   { href: siteMetadata.github, label: 'GitHub', icon: <GitHubIcon /> },
@@ -137,41 +112,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                 <SocialLinks className="mbs-6 flex items-center gap-2" />
               </div>
 
-              <div className="mbs-6 space-y-3">
-                {pageIndexItems.map(item => {
-                  const active = item.isActive(path)
-
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      aria-current={active ? 'page' : undefined}
-                      className={cx(
-                        'group flex items-center justify-between rounded-2xl border border-ui-line bg-ui-surface px-5 py-4 transition hover:border-ui-line hover:bg-ui-nav-surface',
-                        {
-                          'border border-ui-line bg-ui-nav-surface text-ui-ink': active,
-                        }
-                      )}
-                    >
-                      <span className="flex items-center gap-2">
-                        <span
-                          className={cx(
-                            'inline-flex items-center justify-center rounded-full border-ui-line bg-ui-surface text-ui-muted transition block-9 inline-9 group-hover:border-ui-accent/35 group-hover:bg-transparent group-hover:text-ui-ink',
-                            {
-                              'border-ui-accent/35 bg-transparent text-ui-ink': active,
-                            }
-                          )}
-                        >
-                          <item.icon size={16} strokeWidth={1.8} />
-                        </span>
-                        <span className="block text-base font-medium text-ui-ink">
-                          {item.label}
-                        </span>
-                      </span>
-                    </a>
-                  )
-                })}
-              </div>
+              <PageIndexNav path={path} />
             </div>
           </aside>
 
