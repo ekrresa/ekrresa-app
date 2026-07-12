@@ -22,12 +22,14 @@
 }
 
 @theme {
-  --color-ui-canvas: #f6f1ea;
-  --color-ui-surface: #f2eadf;
-  --color-ui-surface-strong: #f7f0e7;
-  --color-ui-line: rgba(61, 45, 30, 0.16);
-  --color-ui-ink: #181511;
-  --color-ui-muted: #5f564d;
+  --color-ui-canvas: #f9f7f2;
+  --color-ui-surface: #f3f0e9;
+  --color-ui-surface-strong: #fdfbf7;
+  --color-ui-line: rgba(49, 43, 35, 0.15);
+  --color-ui-ink: #24211d;
+  /* --color-ui-highlight: #004777; */
+  /* --color-ui-ink: #0C1618; */
+  --color-ui-muted: #625b52;
   --color-ui-accent: #9f5f3f;
   --color-ui-selection: rgba(159, 95, 63, 0.2);
   --color-ui-glow: rgba(159, 95, 63, 0.07);
@@ -90,7 +92,7 @@
     min-height: 100svh;
     background:
       radial-gradient(circle at top left, var(--color-ui-glow), transparent 32%),
-      linear-gradient(180deg, #f9f4ec, var(--color-ui-canvas)), var(--color-ui-canvas);
+      linear-gradient(180deg, #fcfbf8, var(--color-ui-canvas)), var(--color-ui-canvas);
     color: var(--color-ui-ink);
     font-family: var(--font-sans);
     /* font-weight: 300; */
