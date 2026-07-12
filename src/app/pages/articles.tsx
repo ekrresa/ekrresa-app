@@ -10,6 +10,17 @@ export function ArticlesPage() {
     <main className="relative">
       <section className="pbs-4 sm:pbs-8">
         <div className="mbe-20 flex flex-col gap-5">
+          <a
+            href="/"
+            className="
+              mbe-5 self-start inline-flex items-center border-be border-ui-line pbe-2 text-xs
+              font-medium tracking-[0.22em] text-ui-muted uppercase transition
+              hover:border-ui-accent hover:text-ui-ink
+            "
+          >
+            Home
+          </a>
+
           <h1
             className="
               mbs-4 font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink

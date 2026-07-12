@@ -41,9 +41,7 @@ function SocialLinks({ className }: { className?: string }) {
           aria-label={link.label}
           className="
             inline-flex items-center justify-center rounded-full border border-ui-line bg-ui-surface
-            text-ui-muted transition block-10 inline-10
-            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16
-            hover:text-ui-ink
+            text-ui-muted transition block-10 inline-10 hover:border-ui-accent hover:text-ui-accent
           "
         >
           {link.icon}
@@ -127,7 +125,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
           </div>
         </div>
 
-        <MobileFabMenu path={path} />
+        <MobileFabMenu />
       </div>
     </ThemeProvider>
   )

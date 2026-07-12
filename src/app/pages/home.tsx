@@ -78,7 +78,7 @@ export function Home() {
     <main className="relative space-y-12 min-inline-0 sm:space-y-16">
       <section
         className="
-          rounded-4xl border border-ui-line bg-ui-surface p-6 shadow-ui-lg
+          rounded-3xl border border-ui-line bg-ui-surface p-6 shadow-ui-lg
           sm:p-8
           xl:p-10
         "
@@ -117,7 +117,7 @@ export function Home() {
               <a
                 href="#projects"
                 className="
-                  rounded-full bg-ui-ink px-5 py-3 text-sm font-medium text-ui-canvas
+                  rounded-2xl bg-ui-ink px-5 py-3 text-sm font-medium text-ui-canvas
                   transition
                   hover:bg-ui-ink/90
                   dark:border dark:border-ui-accent/55 dark:bg-ui-accent
@@ -131,9 +131,8 @@ export function Home() {
               <a
                 href="/articles"
                 className="
-                  rounded-full border border-ui-line bg-ui-surface-strong px-5 py-3
-                  text-sm font-medium text-ui-ink transition
-                  hover:-translate-y-0.5 hover:border-ui-line hover:bg-ui-surface-strong
+                  rounded-2xl border border-ui-line bg-ui-surface-strong px-5 py-3
+                  text-sm font-medium text-ui-ink transition hover:border-ui-accent hover:bg-ui-surface-strong hover:text-ui-accent
                 "
               >
                 Read articles

@@ -39,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </h3>
             <span
               className="
-                inline-flex items-center gap-1.5 rounded-full border border-ui-line px-3 py-1 text-[0.65rem]
+                inline-flex items-center gap-1.5 rounded-lg border border-ui-line px-3 py-1 text-[0.65rem]
                 font-medium tracking-[0.24em] text-ui-muted/80 uppercase transition-colors
                 duration-300 ease-out inline-fit
                 group-hover:border-ui-line group-hover:text-ui-muted
@@ -55,14 +55,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               />
             </span>
           </div>
-          <p
-            className="
-              mbs-4 text-sm/7 text-ui-muted max-inline-2xl
-              sm:text-base
-            "
-          >
-            {project.summary}
-          </p>
+          <p className="mbs-4 text-base/7 text-ui-muted max-inline-2xl">{project.summary}</p>
         </div>
       </a>
     </article>
