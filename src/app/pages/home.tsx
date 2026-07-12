@@ -100,7 +100,7 @@ export function Home() {
             </div>
             <h1
               className="
-                mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em]
+                mt-5 max-w-4xl font-display text-5xl font-medium leading-[0.95] tracking-[-0.04em]
                 text-ui-ink
                 sm:text-6xl
                 lg:text-7xl
@@ -162,7 +162,8 @@ export function Home() {
               </p>
               <p
                 className="
-                  mt-4 font-display text-4xl leading-none tracking-tighter text-ui-ink transition-colors
+                  mt-4 font-display text-4xl font-medium leading-[0.98] tracking-[-0.035em] text-ui-ink
+                  transition-colors
                   group-hover:text-ui-accent
                   sm:text-5xl
                 "
