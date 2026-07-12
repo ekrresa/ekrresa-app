@@ -11,12 +11,7 @@ export function ThemeToggle() {
   return (
     <button
       aria-label={nextThemeLabel}
-      className="
-        inline-flex shrink-0 items-center justify-center rounded-full border border-ui-line bg-ui-surface-strong text-ui-muted
-        shadow-ui-control backdrop-blur-sm transition block-9
-        inline-9
-        hover:-translate-y-0.5 hover:border-ui-accent/35 hover:bg-ui-accent/14 hover:text-ui-ink
-      "
+      className="inline-flex shrink-0 items-center justify-center rounded-full border border-ui-line bg-ui-canvas text-ui-muted shadow-ui-control backdrop-blur-sm transition block-9 inline-9 hover:-translate-y-0.5 hover:border-ui-accent/35 hover:bg-ui-accent/14 hover:text-ui-ink"
       onClick={toggleTheme}
       title={nextThemeLabel}
       type="button"

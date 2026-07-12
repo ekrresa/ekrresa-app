@@ -1,9 +1,9 @@
-import { Briefcase, House, Newspaper, type UiIcon } from '../components/ui-icons'
+import { HouseLineIcon, NewspaperIcon, BriefcaseIcon, type Icon } from '@phosphor-icons/react'
 
 export interface PageIndexItem {
   label: string
   href: string
-  icon: UiIcon
+  icon: Icon
   isActive(path: string, hash?: string): boolean
 }
 
@@ -20,7 +20,7 @@ export function isProjectsPath(path: string, hash = '') {
 }
 
 export const pageIndexItems: PageIndexItem[] = [
-  { label: 'Home', href: '/', icon: House, isActive: isHomePath },
-  { label: 'Articles', href: '/articles', icon: Newspaper, isActive: isArticlesPath },
-  { label: 'Projects', href: '/#projects', icon: Briefcase, isActive: isProjectsPath },
+  { label: 'Home', href: '/', icon: HouseLineIcon, isActive: isHomePath },
+  { label: 'Articles', href: '/articles', icon: NewspaperIcon, isActive: isArticlesPath },
+  { label: 'Projects', href: '/#projects', icon: BriefcaseIcon, isActive: isProjectsPath },
 ]

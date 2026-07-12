@@ -24,7 +24,7 @@ export function PageIndexNav({ path }: { path: string }) {
               }
             )}
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-1">
               <span
                 className={cx(
                   'inline-flex items-center justify-center rounded-full border-ui-line bg-ui-surface text-ui-muted transition block-9 inline-9 group-hover:border-ui-accent/35 group-hover:bg-transparent group-hover:text-ui-ink',
@@ -33,7 +33,7 @@ export function PageIndexNav({ path }: { path: string }) {
                   }
                 )}
               >
-                <item.icon size={16} strokeWidth={1.8} />
+                <item.icon size={18} />
               </span>
               <span className="block text-base font-medium text-ui-ink">{item.label}</span>
             </span>

@@ -1,69 +1,8 @@
 import { ArticleCard } from '@/app/components/ArticleCard'
-import { siteMetadata } from '@/app/lib/utils'
 import { allPosts, allProjects } from 'content-collections'
 
-import { ThemeToggle } from '../components/ThemeToggle'
 import { ProjectCard } from '../components/ProjectCard'
-
-interface SocialLink {
-  href: string
-  label: string
-  icon: React.ReactNode
-}
-
-const socialLinks: SocialLink[] = [
-  { href: siteMetadata.github, label: 'GitHub', icon: <GitHubIcon /> },
-  { href: siteMetadata.linkedin, label: 'LinkedIn', icon: <LinkedInIcon /> },
-  { href: siteMetadata.twitter, label: 'Twitter', icon: <TwitterIcon /> },
-]
-
-function GitHubIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="fill-current block-4 inline-4">
-      <path d="M12 1.5C6.201 1.5 1.5 6.29 1.5 12.198c0 4.726 3.01 8.734 7.186 10.148.525.1.714-.232.714-.516 0-.255-.009-.93-.014-1.825-2.923.651-3.54-1.444-3.54-1.444-.477-1.245-1.166-1.576-1.166-1.576-.953-.666.072-.653.072-.653 1.054.076 1.608 1.112 1.608 1.112.937 1.647 2.458 1.171 3.058.895.095-.696.366-1.171.666-1.44-2.333-.273-4.785-1.188-4.785-5.287 0-1.168.408-2.123 1.077-2.872-.108-.273-.467-1.374.102-2.864 0 0 .879-.288 2.88 1.097A9.837 9.837 0 0 1 12 6.366c.867.004 1.74.12 2.556.352 1.998-1.385 2.876-1.097 2.876-1.097.571 1.49.212 2.59.104 2.864.671.749 1.074 1.704 1.074 2.872 0 4.11-2.457 5.01-4.798 5.278.376.333.711.99.711 1.995 0 1.44-.013 2.602-.013 2.955 0 .286.185.621.72.515 4.172-1.417 7.178-5.423 7.178-10.146C22.5 6.29 17.799 1.5 12 1.5Z" />
-    </svg>
-  )
-}
-
-function LinkedInIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="fill-current block-4 inline-4">
-      <path d="M4.983 3.5A1.983 1.983 0 1 0 5 7.466 1.983 1.983 0 0 0 4.983 3.5ZM3.75 8.983h2.467V20.5H3.75V8.983ZM10.117 8.983H12.5v1.572h.034c.331-.63 1.142-1.295 2.352-1.295 2.516 0 2.981 1.69 2.981 3.89V20.5H15.4v-6.51c0-1.552-.028-3.548-2.114-3.548-2.117 0-2.442 1.688-2.442 3.435V20.5h-2.467V8.983h1.74Z" />
-    </svg>
-  )
-}
-
-function TwitterIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="fill-current block-4 inline-4">
-      <path d="M18.9 2.25h3.374l-7.371 8.425L23.5 21.75h-6.73l-5.27-6.886-6.024 6.886H2.1l7.883-9.007L1.75 2.25h6.9l4.763 6.292L18.9 2.25Zm-1.182 17.52h1.87L7.643 4.127H5.637L17.718 19.77Z" />
-    </svg>
-  )
-}
-
-function SocialLinks({ className }: { className?: string }) {
-  return (
-    <div className={className}>
-      {socialLinks.map(link => (
-        <a
-          key={link.label}
-          href={link.href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={link.label}
-          className="
-            inline-flex items-center justify-center rounded-full border border-ui-line bg-ui-surface
-            text-ui-muted transition block-10 inline-10
-            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16
-            hover:text-ui-ink
-          "
-        >
-          {link.icon}
-        </a>
-      ))}
-    </div>
-  )
-}
+import SocialLinks from '../components/AppLayout/SocialLinks'
 
 export function Home() {
   const sortedPosts = allPosts
@@ -76,13 +15,7 @@ export function Home() {
 
   return (
     <main className="relative space-y-12 min-inline-0 sm:space-y-16">
-      <section
-        className="
-          rounded-3xl border border-ui-line bg-ui-surface p-6 shadow-ui-lg
-          sm:p-8
-          xl:p-10
-        "
-      >
+      <section className="rounded-3xl border border-ui-line bg-ui-surface p-6 shadow-ui-lg sm:p-8 xl:p-10">
         <div className="grid gap-8">
           <div>
             <div className="flex items-start justify-between gap-4 lg:block">
@@ -94,9 +27,6 @@ export function Home() {
               >
                 Ochuko Ekrresa /<br /> Software engineer
               </p>
-              <div className="lg:hidden">
-                <ThemeToggle />
-              </div>
             </div>
             <h1
               className="
@@ -138,7 +68,7 @@ export function Home() {
               </a>
             </div>
 
-            <SocialLinks className="mbs-6 flex items-center gap-2 lg:hidden" />
+            <SocialLinks className="mbs-6 flex items-center justify-start gap-2 lg:hidden" />
           </div>
 
           <div>

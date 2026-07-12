@@ -1,14 +1,15 @@
-import { ArrowUpRight } from './ui-icons'
-import { type Project } from 'content-collections'
+'use client'
 
-interface ProjectCardProps {
-  project: Project
-}
+import { ArrowUpRightIcon } from '@phosphor-icons/react'
+import { type Project } from 'content-collections'
 
 function formatProjectHost(link: string) {
   return new URL(link).hostname.replace(/^www\./, '')
 }
 
+interface ProjectCardProps {
+  project: Project
+}
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article>
@@ -46,12 +47,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
               "
             >
               {formatProjectHost(project.link)}
-              <ArrowUpRight
+              <ArrowUpRightIcon
                 aria-hidden="true"
-                className="
-                  shrink-0 transition-transform duration-300 ease-out block-3 inline-3
-                  group-hover:translate-x-0.5 group-hover:-translate-y-0.5
-                "
+                className="shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                size={14}
               />
             </span>
           </div>
