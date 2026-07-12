@@ -10,8 +10,8 @@ export function ArticlesPage() {
     <main className="relative">
       <section
         className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
-          shadow-ui-xl backdrop-blur-sm
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-xl
+          backdrop-blur-sm
           sm:p-8
           xl:p-10
         "
@@ -19,20 +19,16 @@ export function ArticlesPage() {
         <div className="mb-20 flex flex-col gap-5">
           <h1
             className="
-              mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
+              mt-4 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em]
+              text-ui-ink
               sm:text-6xl
             "
           >
             Writing on software, systems, and product design.
           </h1>
 
-          <p
-            className="
-              text-sm/7 text-ui-muted
-              sm:text-base
-            "
-          >
-            Sharing what I've learned from building products and running experiments.
+          <p className="text-sm/7 text-ui-muted sm:text-base">
+            Sharing what I’ve learned from building products and running experiments.
           </p>
         </div>
 

@@ -52,9 +52,10 @@ function SocialLinks({ className }: { className?: string }) {
           rel="noreferrer"
           aria-label={link.label}
           className="
-            inline-flex size-10 items-center justify-center rounded-full border border-ui-line
-            bg-ui-surface text-ui-muted transition
-            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16 hover:text-ui-ink
+            inline-flex size-10 items-center justify-center rounded-full border
+            border-ui-line bg-ui-surface text-ui-muted transition
+            hover:-translate-y-0.5 hover:border-ui-accent/45 hover:bg-ui-accent/16
+            hover:text-ui-ink
           "
         >
           {link.icon}
@@ -74,28 +75,18 @@ export function Home() {
     .sort((a, b) => a.order - b.order)
 
   return (
-    <main
-      className="
-        relative min-w-0 space-y-6
-        lg:space-y-8
-      "
-    >
+    <main className="relative min-w-0 space-y-6 lg:space-y-8">
       <section
         className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
-          shadow-ui-xl backdrop-blur-sm
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-xl
+          backdrop-blur-sm
           sm:p-8
           xl:p-10
         "
       >
         <div className="grid gap-8">
           <div>
-            <div
-              className="
-                flex items-start justify-between gap-4
-                lg:block
-              "
-            >
+            <div className="flex items-start justify-between gap-4 lg:block">
               <p
                 className="
                   text-[0.7rem] font-medium tracking-[0.34em] text-ui-accent uppercase
@@ -110,19 +101,15 @@ export function Home() {
             </div>
             <h1
               className="
-                mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
+                mt-5 max-w-4xl font-display text-5xl leading-[0.95] tracking-[-0.04em]
+                text-ui-ink
                 sm:text-6xl
                 lg:text-7xl
               "
             >
               Products. Writing. Experiments.
             </h1>
-            <p
-              className="
-                mt-6 max-w-2xl text-base/8 text-ui-muted
-                sm:text-lg
-              "
-            >
+            <p className="mt-6 max-w-2xl text-base/8 text-ui-muted sm:text-lg">
               Building useful products. Designing reliable systems. Sharing insights from lessons
               learned in software and product design.
             </p>
@@ -131,10 +118,11 @@ export function Home() {
               <a
                 href="#projects"
                 className="
-                  rounded-full bg-ui-ink px-5 py-3 text-sm font-medium text-ui-canvas transition
+                  rounded-full bg-ui-ink px-5 py-3 text-sm font-medium text-ui-canvas
+                  transition
                   hover:bg-ui-ink/90
-                  dark:border dark:border-ui-accent/55 dark:bg-ui-accent dark:text-ui-canvas
-                  dark:shadow-ui-accent
+                  dark:border dark:border-ui-accent/55 dark:bg-ui-accent
+                  dark:text-ui-canvas dark:shadow-ui-accent
                   dark:hover:-translate-y-0.5 dark:hover:bg-ui-accent/90
                   dark:hover:shadow-ui-accent-lg
                 "
@@ -144,8 +132,8 @@ export function Home() {
               <a
                 href="/articles"
                 className="
-                  rounded-full border border-ui-line bg-ui-surface-strong px-5 py-3 text-sm
-                  font-medium text-ui-ink transition
+                  rounded-full border border-ui-line bg-ui-surface-strong px-5 py-3
+                  text-sm font-medium text-ui-ink transition
                   hover:-translate-y-0.5 hover:border-ui-line hover:bg-ui-surface-strong
                 "
               >
@@ -153,12 +141,7 @@ export function Home() {
               </a>
             </div>
 
-            <SocialLinks
-              className="
-                mt-6 flex items-center gap-2
-                lg:hidden
-              "
-            />
+            <SocialLinks className="mt-6 flex items-center gap-2 lg:hidden" />
           </div>
 
           <div>
@@ -167,8 +150,8 @@ export function Home() {
               target="_blank"
               rel="noreferrer"
               className="
-                relative block overflow-hidden rounded-4xl border border-ui-line bg-ui-surface-strong
-                p-6 shadow-ui-lg transition
+                relative block overflow-hidden rounded-4xl border border-ui-line
+                bg-ui-surface-strong p-6 shadow-ui-lg transition
                 hover:-translate-y-0.5 hover:border-ui-line hover:shadow-ui-xl
                 sm:px-7
               "
@@ -213,26 +196,17 @@ export function Home() {
       <section
         id="articles"
         className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
-          shadow-ui-lg
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-lg
           sm:p-8
         "
       >
-        <div
-          className="
-            flex flex-col gap-4
-            sm:flex-row sm:items-end sm:justify-between
-          "
-        >
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm tracking-widest text-ui-accent uppercase">Articles</p>
           </div>
           <a
             href="/articles"
-            className="
-              text-sm font-medium text-ui-muted transition
-              hover:text-ui-ink
-            "
+            className="text-sm font-medium text-ui-muted transition hover:text-ui-ink"
           >
             View all articles
           </a>
@@ -250,16 +224,11 @@ export function Home() {
       <section
         id="projects"
         className="
-          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6
-          shadow-ui-lg backdrop-blur-sm
+          rounded-[2.2rem] border border-ui-line bg-ui-surface p-6 shadow-ui-lg
+          backdrop-blur-sm
         "
       >
-        <div
-          className="
-            flex flex-col gap-4
-            sm:flex-row sm:items-end sm:justify-between
-          "
-        >
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm tracking-widest text-ui-accent uppercase">Projects</p>
           </div>

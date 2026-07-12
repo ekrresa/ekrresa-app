@@ -65,9 +65,10 @@ export default function CopyCode({ code }: CopyCodeProps) {
     <Button
       aria-label="Copy code"
       className="
-        absolute top-4 right-4 rounded-full border border-ui-line bg-ui-surface p-2 text-ui-muted
-        backdrop-blur-sm transition
-        hover:-translate-y-0.5 hover:border-ui-accent/35 hover:bg-ui-accent/14 hover:text-ui-ink
+        absolute top-4 right-4 rounded-full border border-ui-line bg-ui-surface p-2
+        text-ui-muted backdrop-blur-sm transition
+        hover:-translate-y-0.5 hover:border-ui-accent/35 hover:bg-ui-accent/14
+        hover:text-ui-ink
       "
       onPress={handleCopy}
     >
