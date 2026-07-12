@@ -119,8 +119,8 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
           <div className="flex flex-col gap-40 min-inline-0">
             {children}
 
-            <footer className="flex items-center justify-center pbs-2 pbe-4">
-              <p className="text-[0.8rem] text-ui-muted">
+            <footer className="flex items-center justify-center border-bs border-ui-line pbs-2 pbe-4">
+              <p className="text-sm text-ui-muted/60 uppercase">
                 &copy; {new Date().getFullYear()} Ochuko Ekrresa. All rights reserved.
               </p>
             </footer>
