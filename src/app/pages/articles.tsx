@@ -9,18 +9,15 @@ export function ArticlesPage() {
 
   return (
     <main className="relative">
-      <section className="pbs-4 sm:pbs-8">
+      <section className="pbs-4 lg:pbs-0">
         <div className="mbe-20 flex flex-col gap-5">
           <BackLink href="/" className="mbe-5 self-start lg:hidden">
             Home
           </BackLink>
 
           <h1
-            className="
-              mbs-4 font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
-              max-inline-4xl
-              sm:text-6xl
-            "
+            className="mbs-4 font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
+              max-inline-4xl md:text-6xl"
           >
             Writing on software, systems, and product design.
           </h1>
@@ -30,14 +27,13 @@ export function ArticlesPage() {
           </p>
         </div>
 
-        <ul>
+        <ul className="flex flex-col gap-2">
           {sortedPosts.map((post, index) => {
             const isLast = index === sortedPosts.length - 1
 
             return (
               <li key={post.slug}>
                 <ArticleCard post={post} />
-                {!isLast && <div className="my-4 bg-ui-line block-px inline-full" />}
               </li>
             )
           })}

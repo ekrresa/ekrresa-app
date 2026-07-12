@@ -77,14 +77,7 @@ export function Article({ params }: { params: { slug: string } }) {
             All articles
           </BackLink>
 
-          <h1
-            className="
-              font-display text-4xl leading-[0.95] tracking-[-0.04em] text-ui-ink
-              max-inline-3xl
-              sm:text-5xl
-              xl:text-[4.25rem]
-            "
-          >
+          <h1 className="font-display text-4xl leading-[0.95] tracking-[-0.04em] text-ui-ink max-inline-3xl md:text-5xl xl:text-6xl">
             {post.title}
           </h1>
 
