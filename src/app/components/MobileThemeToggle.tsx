@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import { useTheme } from './ThemeProvider'
 
-export function MobileFabMenu() {
+export function MobileThemeToggle() {
   const { theme, toggleTheme } = useTheme()
   const [isVisible, setIsVisible] = React.useState(true)
   const lastScrollYRef = React.useRef(0)

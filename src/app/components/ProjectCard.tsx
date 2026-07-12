@@ -18,7 +18,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         rel="noreferrer"
         className="
           group -mx-3 block translate-x-0 rounded-2xl px-3 py-4 transition-all duration-300 ease-out
-          hover:translate-x-1 hover:bg-ui-line/40
+          hover:translate-x-1 hover:bg-ui-line/40 dark:hover:bg-ui-nav-surface/60
         "
       >
         <div className="min-inline-0">

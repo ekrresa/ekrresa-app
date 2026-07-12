@@ -12,10 +12,7 @@ export function ArticlesPage() {
         <div className="mbe-20 flex flex-col gap-5">
           <a
             href="/"
-            className="
-              mbe-5 self-start inline-flex items-center border-be border-ui-line pbe-2 text-xs
-              font-medium tracking-[0.22em] text-ui-muted uppercase transition
-              hover:border-ui-accent hover:text-ui-ink
+            className=" lg:hidden mbe-5 self-start inline-flex items-center border-be border-ui-line pbe-2 text-xs font-medium tracking-[0.22em] text-ui-muted uppercase transition hover:border-ui-accent hover:text-ui-ink
             "
           >
             Home

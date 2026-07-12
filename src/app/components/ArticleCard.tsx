@@ -19,8 +19,8 @@ export function ArticleCard({ post }: ArticleCardProps) {
       className="
         group -mx-3 flex translate-x-0 items-center gap-4 overflow-hidden rounded-3xl p-3
         transition-all duration-300 ease-out
-        hover:translate-x-1 hover:bg-ui-line/40
-        sm:gap-6 sm:py-4
+        hover:translate-x-1 hover:bg-ui-line/40 sm:gap-6
+        sm:py-4 dark:hover:bg-ui-nav-surface/60
       "
     >
       <div

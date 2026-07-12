@@ -1,6 +1,6 @@
 import type { LayoutProps } from 'rwsdk/router'
 import { siteMetadata } from '../lib/utils'
-import { MobileFabMenu } from './MobileFabMenu'
+import { MobileThemeToggle } from './MobileThemeToggle'
 import { PageIndexNav } from './PageIndexNav'
 import { ThemeProvider } from './ThemeProvider'
 import { ThemeToggle } from './ThemeToggle'
@@ -118,14 +118,14 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
             {children}
 
             <footer className="flex items-center justify-center border-bs border-ui-line pbs-2 pbe-4">
-              <p className="text-sm text-ui-muted/60 uppercase">
+              <p className="text-[0.75rem] text-ui-muted/60 uppercase">
                 &copy; {new Date().getFullYear()} Ochuko Ekrresa. All rights reserved.
               </p>
             </footer>
           </div>
         </div>
 
-        <MobileFabMenu />
+        <MobileThemeToggle />
       </div>
     </ThemeProvider>
   )
