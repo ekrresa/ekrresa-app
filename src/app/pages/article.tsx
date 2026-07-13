@@ -141,12 +141,7 @@ export function Article({ params }: { params: { slug: string } }) {
                   <div className="relative">
                     <CopyCode code={node.value} />
 
-                    <pre
-                      className="overflow-x-auto rounded-xl border border-ui-line
-                        bg-gray-800 p-5 shadow-ui-code
-                        dark:bg-ui-surface
-                      "
-                    >
+                    <pre className="overflow-x-auto rounded-xl border border-ui-line bg-gray-800 p-5 shadow-ui-code dark:bg-ui-surface">
                       <code dangerouslySetInnerHTML={{ __html: html }} />
                     </pre>
                   </div>
