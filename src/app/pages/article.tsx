@@ -112,7 +112,7 @@ export function Article({ params }: { params: { slug: string } }) {
         ) : null}
       </section>
 
-      <article className="border-y border-ui-line py-10 sm:py-12">
+      <article className="pbs-8">
         <div
           className="
             prose prose-lg max-inline-none
