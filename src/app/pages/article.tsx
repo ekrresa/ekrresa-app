@@ -139,8 +139,7 @@ export function Article({ params }: { params: { slug: string } }) {
 
                 return (
                   <pre
-                    className="
-                      relative overflow-x-auto rounded-3xl border border-ui-line
+                    className="relative overflow-x-auto rounded-xl border border-ui-line
                       bg-gray-800 p-5 shadow-ui-code
                       dark:bg-ui-surface
                     "

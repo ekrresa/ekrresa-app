@@ -4,41 +4,10 @@ import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
 import { Button } from 'react-aria-components'
 import clipboard from 'clipboardy'
-
-interface IconProps extends React.ComponentProps<'svg'> {}
-
-function CheckIcon(props: IconProps) {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" {...props}>
-      <path
-        d="M5 12.5l4.5 4.5L19 7.5"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2.5"
-      />
-    </svg>
-  )
-}
-
-function ClipboardIcon(props: IconProps) {
-  return (
-    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" {...props}>
-      <path
-        d="M9 4.75h6a1.75 1.75 0 0 1 1.75 1.75v.5H18A2.25 2.25 0 0 1 20.25 9.25v9.5A2.25 2.25 0 0 1 18 21H6A2.25 2.25 0 0 1 3.75 18.75v-9.5A2.25 2.25 0 0 1 6 7h1.25v-.5A1.75 1.75 0 0 1 9 4.75Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M9 4.75h6a1.75 1.75 0 0 1 1.75 1.75v1a.5.5 0 0 1-.5.5h-8.5a.5.5 0 0 1-.5-.5v-1A1.75 1.75 0 0 1 9 4.75Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
+import { CopySimpleIcon, CheckIcon } from '@phosphor-icons/react'
 
 const AnimatedCheckIcon = motion.create(CheckIcon, { forwardMotionProps: true })
-const AnimatedClipboardIcon = motion.create(ClipboardIcon, {
+const AnimatedClipboardIcon = motion.create(CopySimpleIcon, {
   forwardMotionProps: true,
 })
 
@@ -64,12 +33,7 @@ export default function CopyCode({ code }: CopyCodeProps) {
   return (
     <Button
       aria-label="Copy code"
-      className="
-        absolute inset-e-4 inset-bs-4 rounded-full border border-ui-line bg-ui-surface p-2
-        text-ui-muted backdrop-blur-sm transition
-        hover:-translate-y-0.5 hover:border-ui-accent/35 hover:bg-ui-accent/14
-        hover:text-ui-ink
-      "
+      className="absolute inset-e-2 inset-bs-2 bg-ui-surface p-2 text-ui-muted backdrop-blur-sm transition hover:border-ui-accent/35 hover:bg-ui-accent/14 hover:text-ui-ink"
       onPress={handleCopy}
     >
       <AnimatePresence>
