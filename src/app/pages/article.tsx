@@ -138,15 +138,18 @@ export function Article({ params }: { params: { slug: string } }) {
                 const html = highlight(node.value)
 
                 return (
-                  <pre
-                    className="relative overflow-x-auto rounded-xl border border-ui-line
-                      bg-gray-800 p-5 shadow-ui-code
-                      dark:bg-ui-surface
-                    "
-                  >
+                  <div className="relative">
                     <CopyCode code={node.value} />
-                    <code dangerouslySetInnerHTML={{ __html: html }} />
-                  </pre>
+
+                    <pre
+                      className="overflow-x-auto rounded-xl border border-ui-line
+                        bg-gray-800 p-5 shadow-ui-code
+                        dark:bg-ui-surface
+                      "
+                    >
+                      <code dangerouslySetInnerHTML={{ __html: html }} />
+                    </pre>
+                  </div>
                 )
               }
             }}
