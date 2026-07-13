@@ -1,8 +1,8 @@
 import type { LayoutProps } from 'rwsdk/router'
 import { MobileThemeToggle } from '../MobileThemeToggle'
-import { PageIndexNav } from '../PageIndexNav'
+import { NavLinks } from './NavLinks'
 import { ThemeProvider } from '../ThemeProvider'
-import { ThemeToggle } from '../ThemeToggle'
+import { ThemeToggle } from './ThemeToggle'
 import SocialLinks from './SocialLinks'
 
 export default function AppLayout({ children, requestInfo }: LayoutProps) {
@@ -28,7 +28,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
         >
           <aside className="hidden lg:sticky lg:inset-bs-8 lg:block lg:block-fit">
             <div className="rounded-3xl border border-ui-line bg-ui-surface p-5">
-              <div className="mbe-6 border-be border-ui-line pbe-5">
+              <div className="mbe-10">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <img
@@ -59,7 +59,7 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
                 <SocialLinks />
               </div>
 
-              <PageIndexNav path={path} />
+              <NavLinks path={path} />
             </div>
           </aside>
 

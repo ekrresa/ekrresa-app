@@ -71,7 +71,7 @@ export function Article({ params }: { params: { slug: string } }) {
 
   return (
     <main className="relative space-y-12">
-      <section className="pbs-4 sm:pbs-8">
+      <section className="pbs-4 lg:pbs-2">
         <header className="max-inline-4xl">
           <BackLink href="/articles" className="mbe-10">
             All articles

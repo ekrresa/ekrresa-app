@@ -1,14 +1,14 @@
 'use client'
 
-import { pageIndexItems } from '../lib/nav'
-import { useLocationHash } from '../lib/use-location-hash'
-import { cx } from '../lib/utils'
+import { pageIndexItems } from '../../lib/nav'
+import { useLocationHash } from '../../lib/use-location-hash'
+import { cx } from '../../lib/utils'
 
-export function PageIndexNav({ path }: { path: string }) {
+export function NavLinks({ path }: { path: string }) {
   const hash = useLocationHash()
 
   return (
-    <div className="mbs-6 space-y-3">
+    <div className="space-y-3">
       {pageIndexItems.map(item => {
         const active = item.isActive(path, hash)
 
