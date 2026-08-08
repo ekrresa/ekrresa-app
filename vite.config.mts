@@ -19,4 +19,5 @@ export default defineConfig({
     tailwindcss(),
     contentCollections(),
   ],
+  optimizeDeps: { include: ['core-js/actual/array/to-sorted'] },
 })
