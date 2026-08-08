@@ -1,9 +1,33 @@
 import styles from './styles.css?url'
 import type { DocumentProps } from 'rwsdk/router'
+import { allPosts } from 'content-collections'
 import { siteMetadata } from '@/app/lib/utils'
 
-export function Document({ children, ctx }: DocumentProps) {
+const ARTICLE_OG_TEMPLATE_VERSION = 2
+
+function hashString(value: string) {
+  let hash = 5381
+
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 33) ^ value.charCodeAt(index)
+  }
+
+  return (hash >>> 0).toString(36)
+}
+
+export function Document({ children, ctx, request }: DocumentProps) {
   const theme = ctx.theme
+  const articleSlug = new URL(request.url).pathname.match(/^\/articles\/([^/]+)\/?$/)?.[1]
+  const article = articleSlug ? allPosts.find(post => post.slug === articleSlug) : undefined
+  const pageTitle = article ? `${article.title} | ${siteMetadata.title}` : siteMetadata.title
+  const pageDescription = article?.summary ?? siteMetadata.description
+  const pageUrl = article
+    ? `${siteMetadata.siteUrl}/articles/${article.slug}`
+    : siteMetadata.siteUrl
+  const socialImage = article
+    ? `${siteMetadata.siteUrl}/articles/${article.slug}/og.png?v=${ARTICLE_OG_TEMPLATE_VERSION}-${hashString(article.title)}`
+    : siteMetadata.socialBanner
+  const socialImageAlt = article ? article.title : 'Ochuko Ekrresa — Software Engineer'
 
   return (
     <html lang="en" data-theme={theme}>
@@ -17,26 +41,26 @@ export function Document({ children, ctx }: DocumentProps) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#ffffff" />
-        <title>{siteMetadata.title}</title>
-        <meta name="description" content={siteMetadata.description} />
-        <link rel="canonical" href={siteMetadata.siteUrl} />
-        <meta property="og:type" content="website" />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content={article ? 'article' : 'website'} />
         <meta property="og:site_name" content="Ochuko Ekrresa" />
         <meta property="og:locale" content={siteMetadata.locale} />
-        <meta property="og:title" content={siteMetadata.title} />
-        <meta property="og:description" content={siteMetadata.description} />
-        <meta property="og:url" content={siteMetadata.siteUrl} />
-        <meta property="og:image" content={siteMetadata.socialBanner} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={socialImage} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Ochuko Ekrresa — Software Engineer" />
+        <meta property="og:image:alt" content={socialImageAlt} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={siteMetadata.twitterHandle} />
         <meta name="twitter:creator" content={siteMetadata.twitterHandle} />
-        <meta name="twitter:title" content={siteMetadata.title} />
-        <meta name="twitter:description" content={siteMetadata.description} />
-        <meta name="twitter:image" content={siteMetadata.socialBanner} />
-        <meta name="twitter:image:alt" content="Ochuko Ekrresa — Software Engineer" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={socialImage} />
+        <meta name="twitter:image:alt" content={socialImageAlt} />
         <meta property="twitter:image:width" content="1200" />
         <meta property="twitter:image:height" content="630" />
         <link rel="stylesheet" href={styles} />
