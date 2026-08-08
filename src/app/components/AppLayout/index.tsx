@@ -13,18 +13,13 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
     <ThemeProvider initialTheme={theme}>
       <div className="relative overflow-x-clip bg-ui-canvas text-ui-ink min-block-screen">
         <div className="pointer-events-none absolute inset-0">
-          <div
-            className="
-              absolute -inset-s-56 -inset-bs-48 rounded-full bg-ui-accent/8 blur-3xl block-96 inline-96
-            "
-          />
+          <div className="absolute -inset-s-56 -inset-bs-48 rounded-full bg-ui-accent/8 blur-3xl block-96 inline-96" />
           <div className="absolute inset-x-0 inset-bs-0 bg-ui-line block-px" />
         </div>
 
         <div
           className="mx-auto grid grid-cols-1 gap-8 p-5 pbe-24 max-inline-6xl
-            sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 lg:pbe-8 xl:px-16
-          "
+            sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 lg:pbe-8 xl:px-10"
         >
           <aside className="hidden lg:sticky lg:inset-bs-8 lg:block lg:block-fit">
             <div className="rounded-3xl border border-ui-line bg-ui-surface p-5">
