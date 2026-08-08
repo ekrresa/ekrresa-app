@@ -16,6 +16,15 @@ export type AppContext = {
 
 export default defineApp([
   setCommonHeaders(),
+  function redirectLegacyBlogUrls({ request }) {
+    const url = new URL(request.url)
+    const match = url.pathname.match(/^\/blog\/([^/]+)$/)
+
+    if (match) {
+      url.pathname = `/articles/${match[1]}`
+      return Response.redirect(url.toString(), 301)
+    }
+  },
   function setTheme({ ctx, request }) {
     // Extract the theme from the cookie
     const theme =
