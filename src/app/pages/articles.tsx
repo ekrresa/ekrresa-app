@@ -19,7 +19,7 @@ export function ArticlesPage() {
             className="mbs-4 font-display text-5xl leading-[0.95] tracking-[-0.04em] text-ui-ink
               max-inline-4xl md:text-6xl"
           >
-            Writing on software, systems, and product design.
+            Thoughts on software, systems, and product design.
           </h1>
 
           <p className="text-sm/7 text-ui-muted sm:text-base">
@@ -28,9 +28,7 @@ export function ArticlesPage() {
         </div>
 
         <ul className="flex flex-col gap-2">
-          {sortedPosts.map((post, index) => {
-            const isLast = index === sortedPosts.length - 1
-
+          {sortedPosts.map(post => {
             return (
               <li key={post.slug}>
                 <ArticleCard post={post} />
