@@ -37,6 +37,8 @@ export function Document({ children, ctx }: DocumentProps) {
         <meta name="twitter:description" content={siteMetadata.description} />
         <meta name="twitter:image" content={siteMetadata.socialBanner} />
         <meta name="twitter:image:alt" content="Ochuko Ekrresa — Software Engineer" />
+        <meta property="twitter:image:width" content="1200" />
+        <meta property="twitter:image:height" content="630" />
         <link rel="stylesheet" href={styles} />
         <link rel="modulepreload" href="/src/client.tsx" />
       </head>
