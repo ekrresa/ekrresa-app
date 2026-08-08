@@ -29,8 +29,8 @@ export function Home() {
                 Ochuko Ekrresa /<br /> Software engineer
               </p>
             </div>
-            <h1 className="mbs-5 font-display text-5xl leading-[0.95] font-medium tracking-[-0.04em] text-ui-ink  max-inline-4xl sm:text-6xl lg:text-7xl">
-              Products. Writing. Experiments.
+            <h1 className="mbs-5 font-display text-5xl leading-[0.95] font-medium tracking-[-0.04em] text-ui-ink max-inline-4xl sm:text-6xl lg:text-7xl">
+              Products. Thoughts. Experiments.
             </h1>
             <p className="mbs-6 text-base/8 text-ui-muted max-inline-2xl sm:text-lg">
               Building useful products. Designing reliable systems. Sharing insights from lessons
@@ -110,7 +110,7 @@ export function Home() {
 
       <section id="projects" className="flex flex-col gap-6">
         <div>
-          <h2 className="border-be-2 border-ui-accent/60 font-sans text-sm font-medium tracking-widest text-ui-ink uppercase inline-block">
+          <h2 className="inline-block border-be-2 border-ui-accent/60 font-sans text-sm font-medium tracking-widest text-ui-ink uppercase">
             Projects
           </h2>
         </div>
