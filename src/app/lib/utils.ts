@@ -4,10 +4,10 @@ import { twMerge } from 'tailwind-merge'
 export const IMAGE_BASE_URL = 'https://assets.ekrresa.com'
 
 export const siteMetadata = {
-  title: 'Ochuko Ekrresa – Software Engineer',
+  title: 'Ochuko Ekrresa',
   author: 'Ochuko Ekrresa',
   description:
-    'Ochuko is a software engineer building products for the web. Sharing insights on software development, experiments, and lessons learned.',
+    'Software Engineer sharing insights on software development, experiments, and lessons learned.',
   language: 'en',
   siteUrl: 'https://ekrresa.com',
   siteRepo: 'https://github.com/ekrresa/ekrresa.com',

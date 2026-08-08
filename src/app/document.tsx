@@ -27,8 +27,8 @@ export function Document({ children, ctx }: DocumentProps) {
         <meta property="og:description" content={siteMetadata.description} />
         <meta property="og:url" content={siteMetadata.siteUrl} />
         <meta property="og:image" content={siteMetadata.socialBanner} />
-        <meta property="og:image:width" content="4800" />
-        <meta property="og:image:height" content="2520" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Ochuko Ekrresa — Software Engineer" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={siteMetadata.twitterHandle} />
