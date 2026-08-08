@@ -11,7 +11,7 @@ export const siteMetadata = {
   language: 'en',
   siteUrl: 'https://ekrresa.com',
   siteRepo: 'https://github.com/ekrresa/ekrresa.com',
-  socialBanner: 'https://ekrresa.com/og-2.png',
+  socialBanner: 'https://ekrresa.com/og-3.png',
   email: 'mailto:ekrresaochuko@gmail.com',
   github: 'https://github.com/ekrresa',
   twitter: 'https://twitter.com/ekrresa_',
