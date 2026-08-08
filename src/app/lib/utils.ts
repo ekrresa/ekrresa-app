@@ -9,10 +9,9 @@ export const siteMetadata = {
   description:
     'Ochuko is a software engineer building products for the web. Sharing insights on web development, best practices, and lessons learned.',
   language: 'en',
-  siteUrl: 'https://www.ekrresa.com',
+  siteUrl: 'https://ekrresa.com',
   siteRepo: 'https://github.com/ekrresa/ekrresa.com',
-  socialBanner:
-    'https://res.cloudinary.com/chuck-huey/image/upload/w_1200,h_630,c_fill,f_auto/v1696674962/personal/Main_Social_Card_vmnrxs.png',
+  socialBanner: 'https://ekrresa.com/og.png',
   email: 'mailto:ekrresaochuko@gmail.com',
   github: 'https://github.com/ekrresa',
   twitter: 'https://twitter.com/ekrresa_',
