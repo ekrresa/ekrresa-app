@@ -1,33 +1,12 @@
 import styles from './styles.css?url'
 import type { DocumentProps } from 'rwsdk/router'
-import { allPosts } from 'content-collections'
-import { siteMetadata } from '@/app/lib/utils'
-
-const ARTICLE_OG_TEMPLATE_VERSION = 2
-
-function hashString(value: string) {
-  let hash = 5381
-
-  for (let index = 0; index < value.length; index += 1) {
-    hash = (hash * 33) ^ value.charCodeAt(index)
-  }
-
-  return (hash >>> 0).toString(36)
-}
+import { getPageMetadata, siteMetadata } from '@/app/lib/utils'
 
 export function Document({ children, ctx, request }: DocumentProps) {
   const theme = ctx.theme
-  const articleSlug = new URL(request.url).pathname.match(/^\/articles\/([^/]+)\/?$/)?.[1]
-  const article = articleSlug ? allPosts.find(post => post.slug === articleSlug) : undefined
-  const pageTitle = article ? `${article.title} | ${siteMetadata.title}` : siteMetadata.title
-  const pageDescription = article?.summary ?? siteMetadata.description
-  const pageUrl = article
-    ? `${siteMetadata.siteUrl}/articles/${article.slug}`
-    : siteMetadata.siteUrl
-  const socialImage = article
-    ? `${siteMetadata.siteUrl}/articles/${article.slug}/og.png?v=${ARTICLE_OG_TEMPLATE_VERSION}-${hashString(article.title)}`
-    : siteMetadata.socialBanner
-  const socialImageAlt = article ? article.title : 'Ochuko Ekrresa — Software Engineer'
+
+  const { article, pageTitle, pageDescription, pageUrl, socialImage, socialImageAlt } =
+    getPageMetadata(request.url)
 
   return (
     <html lang="en" data-theme={theme}>
