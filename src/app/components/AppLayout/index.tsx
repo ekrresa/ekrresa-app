@@ -8,6 +8,7 @@ import SocialLinks from './SocialLinks'
 export default function AppLayout({ children, requestInfo }: LayoutProps) {
   const path = requestInfo?.path ?? '/'
   const theme = requestInfo?.ctx.theme ?? 'light'
+  const isArticlePage = /^\/articles\/[^/]+\/?$/.test(path)
 
   return (
     <ThemeProvider initialTheme={theme}>
@@ -18,47 +19,55 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
         </div>
 
         <div
-          className="mx-auto grid grid-cols-1 gap-8 p-5 pbe-24 max-inline-6xl
-            sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-10 lg:py-8 lg:pbe-8 xl:px-10"
+          className={`mx-auto grid grid-cols-1 gap-8 p-5 pbe-24 sm:px-6
+            lg:px-10 lg:py-8 lg:pbe-8 xl:px-10
+            ${
+              isArticlePage ? 'max-inline-4xl' : 'max-inline-6xl lg:grid-cols-[15rem_minmax(0,1fr)]'
+            }`}
         >
-          <aside className="hidden lg:sticky lg:inset-bs-8 lg:block lg:block-fit">
-            <div className="rounded-3xl border border-ui-line bg-ui-surface p-5">
-              <div className="mbe-10">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/logo-light.svg"
-                      alt="Ochuko Ekrresa logo"
-                      className="shrink-0 block-8 inline-8 dark:hidden"
-                    />
-                    <img
-                      src="/icons/logo-dark.svg"
-                      alt="Ochuko Ekrresa logo"
-                      className="hidden shrink-0 block-8 inline-8 dark:block"
-                    />
-                    <div className="min-inline-0">
-                      <p
-                        className="
-                          text-[0.62rem] font-medium tracking-[0.3em] text-ui-muted
-                          uppercase
-                        "
-                      >
-                        Ochuko Ekrresa
-                      </p>
+          {isArticlePage ? null : (
+            <aside
+              data-view-transition="site-aside"
+              className="hidden lg:sticky lg:inset-bs-8 lg:block lg:block-fit"
+            >
+              <div className="rounded-3xl border border-ui-line bg-ui-surface p-5">
+                <div className="mbe-10">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/icons/logo-light.svg"
+                        alt="Ochuko Ekrresa logo"
+                        className="shrink-0 block-8 inline-8 dark:hidden"
+                      />
+                      <img
+                        src="/icons/logo-dark.svg"
+                        alt="Ochuko Ekrresa logo"
+                        className="hidden shrink-0 block-8 inline-8 dark:block"
+                      />
+                      <div className="min-inline-0">
+                        <p
+                          className="
+                            text-[0.62rem] font-medium tracking-[0.3em] text-ui-muted
+                            uppercase
+                          "
+                        >
+                          Ochuko Ekrresa
+                        </p>
+                      </div>
                     </div>
+
+                    <ThemeToggle />
                   </div>
 
-                  <ThemeToggle />
+                  <SocialLinks />
                 </div>
 
-                <SocialLinks />
+                <NavLinks path={path} />
               </div>
+            </aside>
+          )}
 
-              <NavLinks path={path} />
-            </div>
-          </aside>
-
-          <div className="flex flex-col gap-40 min-inline-0">
+          <div data-view-transition="site-main" className="flex flex-col gap-40 min-inline-0">
             {children}
 
             <footer className="flex items-center justify-center border-bs border-ui-line pbs-2 pbe-4">
