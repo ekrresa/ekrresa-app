@@ -6,6 +6,7 @@ import { highlight } from 'sugar-high'
 import { BackLink } from '../components/BackLink'
 import CopyCode from '../components/CopyCode'
 import { IMAGE_BASE_URL } from '../lib/utils'
+import { articleImageTransitionName } from '../lib/view-transitions'
 
 function formatPostDate(date: string) {
   return new Intl.DateTimeFormat('en', {
@@ -97,7 +98,15 @@ export function Article({ params }: { params: { slug: string } }) {
         </header>
 
         {post.imageId ? (
-          <figure className="relative mbs-10 overflow-hidden rounded-3xl border border-ui-line bg-ui-surface">
+          <figure
+            data-article-transition-image
+            data-article-transition-slug={post.slug}
+            style={{
+              viewTransitionClass: 'article-image',
+              viewTransitionName: articleImageTransitionName(post.slug),
+            }}
+            className="relative mbs-10 overflow-hidden rounded-3xl border border-ui-line bg-ui-surface"
+          >
             <img
               src={`${IMAGE_BASE_URL}${post.imageId}`}
               alt={post.imageAlt || post.title}

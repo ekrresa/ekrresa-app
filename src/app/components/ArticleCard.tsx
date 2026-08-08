@@ -1,4 +1,5 @@
 import { IMAGE_BASE_URL } from '@/app/lib/utils'
+import { articleImageTransitionName } from '@/app/lib/view-transitions'
 import { type Post } from 'content-collections'
 
 function formatPostDate(date: string) {
@@ -31,6 +32,12 @@ export function ArticleCard({ post }: ArticleCardProps) {
       >
         {post.imageId ? (
           <div
+            data-article-transition-image
+            data-article-transition-slug={post.slug}
+            style={{
+              viewTransitionClass: 'article-image',
+              viewTransitionName: articleImageTransitionName(post.slug),
+            }}
             className="
               aspect-square overflow-hidden rounded-2xl bg-ui-line/50 inline-24
               sm:inline-40
