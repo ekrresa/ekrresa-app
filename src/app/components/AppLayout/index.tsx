@@ -19,8 +19,8 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
         </div>
 
         <div
-          className={`mx-auto grid grid-cols-1 gap-8 p-5 pbe-24 sm:px-6
-            lg:px-10 lg:py-8 lg:pbe-8 xl:px-10
+          className={`mx-auto grid grid-cols-1 gap-8 p-5 pbe-2 sm:px-6
+            lg:px-10 lg:pbs-8 xl:px-10
             ${
               isArticlePage ? 'max-inline-4xl' : 'max-inline-6xl lg:grid-cols-[15rem_minmax(0,1fr)]'
             }`}
@@ -66,7 +66,6 @@ export default function AppLayout({ children, requestInfo }: LayoutProps) {
               </div>
             </aside>
           )}
-
           <div data-view-transition="site-main" className="flex flex-col gap-40 min-inline-0">
             {children}
 
