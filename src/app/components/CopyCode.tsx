@@ -2,9 +2,9 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
-import { Button } from 'react-aria-components'
 import clipboard from 'clipboardy'
 import { CopySimpleIcon, CheckIcon } from '@phosphor-icons/react'
+import { Button } from './Button'
 
 const AnimatedCheckIcon = motion.create(CheckIcon, { forwardMotionProps: true })
 const AnimatedClipboardIcon = motion.create(CopySimpleIcon, {
