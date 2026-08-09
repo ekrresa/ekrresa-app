@@ -32,7 +32,6 @@ export function ArticleCard({ post }: ArticleCardProps) {
       >
         {post.imageId ? (
           <div
-            data-article-transition-image
             data-article-transition-slug={post.slug}
             style={{
               viewTransitionClass: 'article-image',

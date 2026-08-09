@@ -138,10 +138,6 @@
     view-transition-name: site-main;
   }
 
-  html[data-article-transition='false'] [data-article-transition-image] {
-    view-transition-name: none !important;
-  }
-
   .sh__line::before {
     counter-increment: sh-line-number 1;
     content: counter(sh-line-number);
@@ -165,58 +161,9 @@
   }
 }
 
-@keyframes site-main-out-forward {
-  to {
-    opacity: 0;
-    transform: translateY(-0.375rem);
-  }
-}
-
-@keyframes site-main-in-forward {
-  from {
-    opacity: 0;
-    transform: translateY(0.625rem);
-  }
-}
-
-@keyframes site-main-out-backward {
-  to {
-    opacity: 0;
-    transform: translateY(0.375rem);
-  }
-}
-
-@keyframes site-main-in-backward {
-  from {
-    opacity: 0;
-    transform: translateY(-0.625rem);
-  }
-}
-
-::view-transition-group(*) {
-  animation-duration: 360ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 ::view-transition-group(site-main) {
   animation-duration: 360ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-html[data-navigation-direction='forward']::view-transition-old(site-main) {
-  animation: site-main-out-forward 180ms cubic-bezier(0.4, 0, 1, 1) both;
-}
-
-html[data-navigation-direction='forward']::view-transition-new(site-main) {
-  animation: site-main-in-forward 300ms 40ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-html[data-navigation-direction='backward']::view-transition-old(site-main) {
-  animation: site-main-out-backward 180ms cubic-bezier(0.4, 0, 1, 1) both;
-}
-
-html[data-navigation-direction='backward']::view-transition-new(site-main) {
-  animation: site-main-in-backward 300ms 40ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 ::view-transition-group(.article-image) {

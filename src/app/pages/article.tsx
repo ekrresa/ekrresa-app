@@ -99,7 +99,6 @@ export function Article({ params }: { params: { slug: string } }) {
 
         {post.imageId ? (
           <figure
-            data-article-transition-image
             data-article-transition-slug={post.slug}
             style={{
               viewTransitionClass: 'article-image',

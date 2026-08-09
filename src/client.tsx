@@ -6,21 +6,11 @@ import { articleImageTransitionName } from '@/app/lib/view-transitions'
 // https://docs.rwsdk.com/guides/frontend/client-side-nav/
 let currentPath = window.location.pathname
 let completeViewTransitionUpdate: (() => void) | undefined
-let currentHistoryEntryIndex = window.navigation?.currentEntry?.index
-let pendingNavigationType: NavigationType | null = null
-let viewTransitionSequence = 0
 let activeArticleTransitionSlug: string | undefined
+let viewTransitionSequence = 0
 
 function isArticlePage(path: string) {
   return /^\/articles\/[^/]+\/?$/.test(path)
-}
-
-function getRouteDepth(path: string) {
-  if (isArticlePage(path)) {
-    return 2
-  }
-
-  return path === '/' ? 0 : 1
 }
 
 function getArticleSlug(path: string) {
@@ -46,28 +36,15 @@ function restoreArticleTransitionImages() {
 
 function beginRouteViewTransition() {
   const nextPath = window.location.pathname
-  const nextHistoryEntryIndex = window.navigation?.currentEntry?.index
-  const isBackward =
-    pendingNavigationType === 'traverse' &&
-    currentHistoryEntryIndex !== undefined &&
-    nextHistoryEntryIndex !== undefined
-      ? nextHistoryEntryIndex < currentHistoryEntryIndex
-      : getRouteDepth(nextPath) < getRouteDepth(currentPath)
-
-  pendingNavigationType = null
-  currentHistoryEntryIndex = nextHistoryEntryIndex
-
-  if (currentPath === nextPath) {
-    return
-  }
-
   const crossesArticleBoundary = isArticlePage(currentPath) !== isArticlePage(nextPath)
   const articleTransitionSlug = crossesArticleBoundary
     ? (getArticleSlug(nextPath) ?? getArticleSlug(currentPath))
     : undefined
+
   currentPath = nextPath
 
   if (
+    !crossesArticleBoundary ||
     !document.startViewTransition ||
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
   ) {
@@ -79,14 +56,11 @@ function beginRouteViewTransition() {
   document.activeViewTransition?.skipTransition()
   completeViewTransitionUpdate?.()
 
-  const transitionSequence = ++viewTransitionSequence
-  document.documentElement.dataset.navigationDirection = isBackward ? 'backward' : 'forward'
-  document.documentElement.dataset.articleTransition = crossesArticleBoundary ? 'true' : 'false'
-
   if (activeArticleTransitionSlug) {
     scopeArticleTransitionImages(activeArticleTransitionSlug)
   }
 
+  const transitionSequence = ++viewTransitionSequence
   let completeUpdate!: () => void
   const updateComplete = new Promise<void>(resolve => {
     completeUpdate = resolve
@@ -100,8 +74,6 @@ function beginRouteViewTransition() {
     .catch(() => undefined)
     .finally(() => {
       if (viewTransitionSequence === transitionSequence) {
-        delete document.documentElement.dataset.navigationDirection
-        delete document.documentElement.dataset.articleTransition
         restoreArticleTransitionImages()
         activeArticleTransitionSlug = undefined
         completeViewTransitionUpdate = undefined
@@ -109,13 +81,7 @@ function beginRouteViewTransition() {
     })
 }
 
-window.navigation?.addEventListener('currententrychange', event => {
-  pendingNavigationType = event.navigationType
-})
-
 const navigation = initClientNavigation({ onNavigate: beginRouteViewTransition })
-currentHistoryEntryIndex = window.navigation?.currentEntry?.index
-pendingNavigationType = null
 
 function handleHydrated(...args: Parameters<typeof navigation.onHydrated>) {
   navigation.onHydrated(...args)
