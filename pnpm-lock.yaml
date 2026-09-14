@@ -47,9 +47,6 @@ importers:
       tailwind-merge:
         specifier: 3.6.0
         version: 3.6.0
-      workers-og:
-        specifier: 0.0.27
-        version: 0.0.27
     devDependencies:
       '@cloudflare/vite-plugin':
         specifier: 1.33.2
@@ -4180,9 +4177,6 @@ packages:
     resolution: {integrity: sha512-oKsB0Xo/mfkYMdSACoS06XZg09VUK4rXwHfF/1t3P++sMbwzf4UHQvMO57+zxpEB2nVrY/ZkW0bYFGq4GdAFSQ==}
     engines: {node: '>=16'}
     hasBin: true
-
-  workers-og@0.0.27:
-    resolution: {integrity: sha512-QvwptQ0twmouQHiITUi3kYxEPCLdueC/U4msQ2xMz2iktd+iseSs7zlREw3T1dAsPxPw73FQlw8cXFsfANZPlw==}
 
   wrangler@4.85.0:
     resolution: {integrity: sha512-93cwt2RPb1qdcmEgPzH7ybiLN4BIKoWpscIX6SywjHrQOeIZrQk2haoc3XMLKtQTmzapxza9OuDD+kMHpsuuhg==}
@@ -8939,13 +8933,6 @@ snapshots:
       '@cloudflare/workerd-linux-64': 1.20260424.1
       '@cloudflare/workerd-linux-arm64': 1.20260424.1
       '@cloudflare/workerd-windows-64': 1.20260424.1
-
-  workers-og@0.0.27:
-    dependencies:
-      '@resvg/resvg-wasm': 2.4.0
-      just-camel-case: 6.2.0
-      satori: 0.15.2
-      yoga-wasm-web: 0.3.3
 
   wrangler@4.85.0(@cloudflare/workers-types@4.20260405.1):
     dependencies:

@@ -40,8 +40,7 @@
     "rwsdk": "1.5.7",
     "safe-mdx": "1.11.5",
     "sugar-high": "1.2.1",
-    "tailwind-merge": "3.6.0",
-    "workers-og": "0.0.27"
+    "tailwind-merge": "3.6.0"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.33.2",

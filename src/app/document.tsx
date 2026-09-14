@@ -30,8 +30,6 @@ export function Document({ children, ctx, request }: DocumentProps) {
         <meta property="og:description" content={pageDescription} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content={socialImage} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={socialImageAlt} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={siteMetadata.twitterHandle} />
@@ -40,8 +38,6 @@ export function Document({ children, ctx, request }: DocumentProps) {
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content={socialImage} />
         <meta name="twitter:image:alt" content={socialImageAlt} />
-        <meta property="twitter:image:width" content="1200" />
-        <meta property="twitter:image:height" content="630" />
         <link rel="stylesheet" href={styles} />
         <link rel="modulepreload" href="/src/client.tsx" />
       </head>

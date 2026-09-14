@@ -9,7 +9,6 @@ import { Home } from '@/app/pages/home'
 import { type Theme } from './app/components/ThemeProvider'
 import AppLayout from './app/components/AppLayout'
 import { Article } from './app/pages/article'
-import { ArticleOgImage } from './app/components/ArticleOgImage'
 
 export type AppContext = {
   theme: Theme
@@ -37,7 +36,6 @@ export default defineApp([
 
     ctx.theme = theme as Theme
   },
-  route('/articles/:slug/og.png', ArticleOgImage),
   render(Document, [
     layout(AppLayout, [
       route('/', Home),
