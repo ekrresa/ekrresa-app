@@ -7,15 +7,15 @@ export interface PageIndexItem {
   isActive(path: string, hash?: string): boolean
 }
 
-export function isHomePath(path: string, hash = '') {
+function isHomePath(path: string, hash = '') {
   return path === '/' && hash !== '#projects'
 }
 
-export function isArticlesPath(path: string) {
+function isArticlesPath(path: string) {
   return path === '/articles' || path.startsWith('/articles/')
 }
 
-export function isProjectsPath(path: string, hash = '') {
+function isProjectsPath(path: string, hash = '') {
   return path === '/' && hash === '#projects'
 }
 
