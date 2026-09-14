@@ -1,0 +1,14 @@
+---
+description: Request full permissions on the first git commit — GPG signing cannot run in the sandbox.
+alwaysApply: true
+---
+
+# Git commit permissions
+
+This machine signs commits with GPG. The sandbox cannot talk to `gpg-agent` (`~/.gnupg`), so a sandboxed `git commit` fails with `gpg: can't connect to the agent: Operation not permitted`.
+
+When creating a commit (or any other GPG-signed git command):
+
+- Request `required_permissions: ["all"]` on the **first** attempt.
+- Do not try a sandboxed commit first, then retry.
+- Do not pass `--no-gpg-sign` or skip hooks to work around this.
