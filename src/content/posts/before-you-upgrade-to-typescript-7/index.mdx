@@ -1,0 +1,88 @@
+---
+date: 2026-09-14
+tags:
+  - typescript
+  - typescript 7
+  - typescript migration
+  - javascript tooling
+  - typescript compiler
+title: Before You Upgrade to TypeScript 7
+summary: What changed in TypeScript 7, why upgrading isn’t as straightforward as a version bump, and how to migrate safely.
+imageId: /ekrresa-app/typescript-7-cover.jpg
+imageAlt: Wooden suspension bridge in a forest
+imageCredit: Photo by [Rob Dean](https://unsplash.com/photos/wooden-suspension-bridge-in-a-forest-r_Cu-GPIDQc)
+published: true
+---
+
+TypeScript 7 is out. It is a native port written in Go that delivers faster type-checking and builds while using less memory. This brings huge benefits, especially to large projects where type-checking in the editor can take several seconds to complete.
+
+However, at the time of writing, upgrading to version 7 is not as simple as updating the version using your favourite package manager. Let’s find out why.
+
+## What is TypeScript actually made of?
+
+TypeScript is more than just a superset of JavaScript. It is made up of tools that work together to provide type checking and make writing TypeScript a better experience.
+
+At its core is the **compiler**, which parses the TypeScript code, understands its types, checks for type errors, and transpiles the code to JavaScript. The **tsc** CLI provides a way to interact with the compiler from the command line.
+
+TypeScript also has a **language service**, which powers many of the features we use in our editors, such as autocomplete, real-time error highlighting, go-to-definition, and renaming. Without it, writing TypeScript code in an editor would be a horrible experience. Imagine writing your code and catching errors only when you run the CLI.
+
+## What changed in TypeScript 7?
+
+The biggest change in TypeScript 7 is not the language itself but how it is implemented. Until TypeScript 6, the compiler and language service were written in TypeScript. In TypeScript 7, both have been ported to Go.
+
+Moving to Go lets TypeScript take better advantage of modern hardware, including shared-memory multithreading that enables more work to happen in parallel.
+
+This was a port rather than a complete redesign of the type system. The TypeScript team deliberately kept the new compiler structurally similar to the old implementation.
+
+The language service changed more significantly, though. Previous versions of TypeScript used a custom protocol through [tsserver](https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29) to communicate with editors. TypeScript 7 now uses the [Language Server Protocol (LSP)](https://code.visualstudio.com/blogs/2016/06/27/common-language-protocol) and has reworked much of the language service to make better use of parallelism.
+
+So while the TypeScript syntax has barely changed, the machinery underneath it has changed considerably.
+
+So why is upgrading not straightforward?
+
+## Why can’t I upgrade yet?
+
+The problem is that not every tool uses TypeScript through the `tsc` CLI.
+
+Many tools in the JavaScript ecosystem, such as `typescript-eslint`, interact with TypeScript programmatically. Instead of running `tsc`, they import TypeScript as a package and use its APIs directly in their tooling.
+
+TypeScript 7 does not yet provide a stable API. A new API is expected in TypeScript 7.1, which will be different from the API provided by previous versions.
+
+This means tools that depend on the old TypeScript API cannot simply switch to TypeScript 7.
+
+So for many projects, upgrading TypeScript is not just a question of whether your code compiles. You also need to consider whether the tools surrounding your code are ready for TypeScript 7.
+
+## How to upgrade safely
+
+If you haven’t already, upgrade to TypeScript 6 first. The TypeScript team recommends this because TypeScript 7 turns several TypeScript 6 deprecations into errors.
+
+If none of your tooling depends on the TypeScript 6 API, you can install TypeScript 7 normally with `npm install -D typescript`. Otherwise, use the following side-by-side setup.
+
+For the tools that still depend on TypeScript 6 API, the TypeScript team published a compatibility package: `@typescript/typescript6`. This package ships with a `tsc6` executable which will not clash with the `tsc` shipped by TypeScript 7.
+
+Install the package using an alias:
+
+```shell
+npm install -D typescript@npm:@typescript/typescript6
+```
+
+Next, install TypeScript 7 under another alias:
+
+```shell
+npm install -D @typescript/native@npm:typescript
+```
+
+Your `devDependencies` should look like this:
+
+```json
+{
+  "devDependencies": {
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
+  }
+}
+```
+
+With this setup, `tsc` runs TypeScript 7, while tools that import TypeScript directly can continue using the TypeScript 6 API.
+
+This is a temporary workaround while the ecosystem catches up with TypeScript 7’s new architecture.
